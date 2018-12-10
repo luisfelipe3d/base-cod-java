@@ -1,14 +1,18 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Exercicio :
+Escreva um programa em JAVA
+ que coloque na tela a tabuada do número 5. 
  */
 package lista7;
+import java.util.Scanner;
 
-/**
- *
- * @author user
- */
 public class Exercicio4_lista7 {
-    
+    public static void main(String[] args) {
+        int i=5,j=1;
+        
+        while (j != 11){
+            System.out.println(i+" X "+j+" = "+(i*j));
+            j++;
+    }
+}
 }

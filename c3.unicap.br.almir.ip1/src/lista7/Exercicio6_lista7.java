@@ -1,14 +1,26 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Exercicio :
+Faça um programa em JAVA para escrever o conjunto das
+cinco primeiras tabuadas (tabuada do 1, tabuada 2, ..., 
+tabuada do 5), parando a tela depois de cada uma ser escrita.
  */
 package lista7;
-
-/**
- *
- * @author user
- */
+import java.util.Scanner;
 public class Exercicio6_lista7 {
-    
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int i=1,j;
+        
+        while (i <= 5){
+            j = 1;
+            while(j <= 10){
+                System.out.println(i+" X "+j+" = "+(i*j));
+                j++;
+            } 
+            i++;
+            System.out.println("Digite enter para continuar: ");
+            in.nextLine();
+            
+        }
+    }
 }
