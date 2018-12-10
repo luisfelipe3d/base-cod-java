@@ -7,7 +7,7 @@ realizada no programa principal.
 package prova2GQ;
 import java.util.Scanner;
 
-public class questao2 {
+public class questao2_prova2gq {
     
     static int produto(int m, int n){
         if (m > n)

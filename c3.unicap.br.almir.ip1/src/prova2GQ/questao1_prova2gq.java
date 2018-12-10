@@ -9,7 +9,7 @@ deverá terminar sua execução se o usuário solicitar.
 package prova2GQ;
 import java.util.Scanner;
 
-public class questao1 {
+public class questao1_prova2gq {
 
     static int divide(int x, int y){
         if (x <= y)

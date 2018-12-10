@@ -14,7 +14,7 @@ resultado deve ocorrer no programa principal.
 package prova2GQ;
 import java.util.Scanner;
 
-public class questao4 {
+public class questao4_prova2gq {
     
     static boolean saoprimos(int x, int y){
         return (mdc(x,y)== 1);

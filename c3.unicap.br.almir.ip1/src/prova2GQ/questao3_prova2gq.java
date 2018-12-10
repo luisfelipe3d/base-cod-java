@@ -11,7 +11,7 @@ Saída: 9/10
 package prova2GQ;
 import java.util.Scanner;
 
-public class questao3 {
+public class questao3_prova2gq {
     
     static int mdc(int x, int y){
         if (x < y)
