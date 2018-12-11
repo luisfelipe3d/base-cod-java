@@ -1,10 +1,16 @@
 /*
-questão1 
-calcular o valor de f(x)
+Faça um programa em JAVA que receba um valor inteiro para x, calcule e imprima
+o valor de f(x) de acordo com as opções abaixo:
+f(x) = x + 1, se 0 < x <= 1
+f(x) = 2x, se 1 < x <= 2
+f(x) = x², se 2 < x <= 3
+f(x) = x³, se x > 3
+Se não estiver em nenhuma das opções acima, exibir mensagem de erro informando
+ao usuário que é impossível calcular f(x).
  */
 package prova1GQ;
 import java.util.Scanner;
-sdlfjsdfljksad
+
 public class questao1_prova1gq {
 
    public static void main(String[] args) {

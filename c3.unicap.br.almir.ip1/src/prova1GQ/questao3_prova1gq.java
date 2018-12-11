@@ -1,12 +1,12 @@
 /*
-Questão4
+Faça um programa em JAVA que receba o peso e a idade de 7 pessoas. Calcule e
+imprima:
+a) a quantidade de pessoas com mais de 90 quilos.
+b) a média das idades das pessoas.
  */
 package prova1GQ;
 import java.util.Scanner;
-/**
- *
- * @author user
- */
+
 public class questao3_prova1gq {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);

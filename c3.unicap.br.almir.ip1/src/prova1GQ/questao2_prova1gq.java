@@ -1,5 +1,6 @@
 /*
-Calcular tabua de n
+Faca um program em JAVA que recaba um valor inteiro, calcule e mostre sua 
+tabuada.
  */
 package prova1GQ;
 import java.util.Scanner;

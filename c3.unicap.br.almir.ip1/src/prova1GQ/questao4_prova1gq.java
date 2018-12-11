@@ -1,5 +1,16 @@
 /*
-Questao 4
+Faça um programa que apresente o menu a seguir:
+Menu de opções
+1 - Média Aritmética
+2 - Média Ponderada
+3 - Sair
+Digite a opção:
+
+Na opção 1: receber duas notas, calcular e imprimir a média aritmética
+Na opção 2: receber três notas e seus respctivos pesos, calcular e imprimir a 
+média ponderada
+Na opção 3: Sair do programa.
+Obs: verifique a possibilidade de opção inválida, mostrando uma mensagem.
 
  */
 package prova1GQ;
