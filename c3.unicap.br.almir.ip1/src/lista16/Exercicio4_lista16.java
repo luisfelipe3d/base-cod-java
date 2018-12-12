@@ -20,7 +20,7 @@ public class Exercicio4_lista16 {
     public static void main(String[] args) {
         Scanner in = new Scanner (System.in);
         int cont=0,cont_f=0,cont_n=0;
-        double renda_mensal,media_salarial=0;
+        double renda_mensal,media_salarial=0,aux;
         char sexo,rsp,flag;
             
         do{
@@ -71,9 +71,11 @@ public class Exercicio4_lista16 {
                     cont_n++;
             }    
                     
-        } while (flag != 'N');
+        } while (flag != 'N' && flag != 'n');
         
-        
+        aux = 100*cont_n / cont_f;
+        System.out.println("Média salarial: "+(media_salarial/cont));
+        System.out.println("Percentual de mulheres que responderam não: "+aux);
         
     }
 }

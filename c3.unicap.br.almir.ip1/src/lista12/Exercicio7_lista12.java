@@ -17,19 +17,34 @@ multiplicados e retorne o resultado da multiplicação (a x b) entre eles usando
 a especificação acima. 
 Exemplo: 
 
-*/
+ */
 package lista12;
+
 import java.util.Scanner;
 
 public class Exercicio7_lista12 {
-    static int multiplicacoes(int n1, int n2){
-        int v1,v2;
-        while(n1%2 != 0){
-            v1 = n1/2;
-        }
-        while(n2){
-            v2 = n2*2;
-        }
-        return 
+
+    static int multiplicacoes(int n1, int n2) {
+        int va  = 0;
+
+        do {
+            if (n1 % 2 != 0) {
+                va  = va  + n2;
+            }
+            n1 = n1 / 2;
+            n2 = n2 * 2;
+        } while (n1 > 0);
+        return va;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        int val1, val2;
+        System.out.println("Nº 1: ");
+        val1 = in.nextInt();
+        System.out.println("Nº 2: ");
+        val2 = in.nextInt();
+        System.out.println("Resultado: " + multiplicacoes(val1, val2));
     }
 }
