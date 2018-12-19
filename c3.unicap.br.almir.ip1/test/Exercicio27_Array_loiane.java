@@ -8,7 +8,7 @@ import java.util.Scanner;
  *
  * @author user
  */
-public class Exercicio_27_Array_loiane {
+public class Exercicio27_Array_loiane {
     public static void main(String[] args) {
         Scanner in = new Scanner (System.in);
         int[] vetA = new int [10];
@@ -33,7 +33,7 @@ public class Exercicio_27_Array_loiane {
                 vetB[i] = 'e';
         }
         
-         System.out.print("Vetor A: ");
+        System.out.print("Vetor A: ");
         for (int i : vetA) {
             System.out.print(i+", ");
         }
