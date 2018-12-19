@@ -8,27 +8,27 @@ import java.util.Scanner;
  *
  * @author user
  */
-public class Exercicio29_Array_loiane {
+public class Exercicio30_Array_loiane {
     public static void main(String[] args) {
         Scanner in = new Scanner (System.in);
-        int[] vetA = new int [10];
+        int[] vetA = new int [20];
         int[] vetB = new int [vetA.length];
-        int[] vetC = new int [vetA.length * 2];
+        int[] vetC = new int [vetA.length];
+        int posB = 0, posC = 0;
         
         for (int i = 0; i < vetA.length; i++){
             //System.out.printf("Entre com número da posição A(%d):",i+1);
-            vetA[i] = (int) (Math.random() * 20);
+            vetA[i] = (int) (Math.random() * 100);
             
-            vetC[i] = vetA[i];
+            if (vetA[i] % 2 == 0){
+                vetB[posB] = vetA[i];
+                posB++;
+            }else{
+                vetC[posC] = vetA[i];
+                posC++;
+            }
         }
         
-        for (int i = 0; i < vetB.length; i++){
-            //System.out.printf("Entre com número da posição A(%d):",i+1);
-            vetB[i] = (int) (Math.random() * 20);
-            
-            vetC[vetA.length + i] = vetB[i];
-        }
-
         System.out.print("Vetor A: ");
         for (int i : vetA) {
             System.out.print(i+", ");
@@ -36,16 +36,16 @@ public class Exercicio29_Array_loiane {
         System.out.println("");
         
         System.out.print("Vetor B: ");
-        for (int i : vetB) {
-            System.out.print(i+", ");
+        for (int i = 0; i < posB; i++){
+            System.out.print(vetB[i]+", ");
         }
         System.out.println("");
         
         System.out.print("Vetor C: ");
-        for (int i : vetC) {
-            System.out.print(i+", ");
+        for (int i = 0; i < posC; i++){
+            System.out.print(vetC[i]+", ");
         }
         System.out.println("");
-        
+
     }
 }
