@@ -10,7 +10,10 @@ parâmetro e retornar a maior diferença.
  */
 package ip2.lista1;
 import java.util.Scanner;
-
+/**
+ *
+ * @author luisfelipe3d
+ */
 public class q6_lista1 {
     public static void main(String[] args) {
         double[] vetA = new double[10];

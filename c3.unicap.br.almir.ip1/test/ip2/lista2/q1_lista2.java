@@ -16,7 +16,10 @@ declarar subprogramas para realizar os cálculos solicitados.
  */
 package ip2.lista2;
 import java.util.Scanner;
-
+/**
+ *
+ * @author luisfelipe3d
+ */
 public class q1_lista2 {
     public static void main(String[] args) {
         Scanner in = new Scanner (System.in);

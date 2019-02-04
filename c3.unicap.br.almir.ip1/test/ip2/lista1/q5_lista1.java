@@ -12,6 +12,10 @@ o vetor como parâmetro e retornar o índice do menor elemento do vetor.
  */
 package ip2.lista1;
 import java.util.Scanner;
+/**
+ *
+ * @author luisfelipe3d
+ */
 public class q5_lista1 {
     public static void main(String[] args) {
         int[] vetA = new int [10];

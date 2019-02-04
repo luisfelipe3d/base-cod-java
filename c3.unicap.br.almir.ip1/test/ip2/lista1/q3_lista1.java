@@ -5,7 +5,10 @@ quanto a empresa lucrou, em média, por mês, em 2017.
  */
 package ip2.lista1;
 import java.util.Scanner;
-
+/**
+ *
+ * @author luisfelipe3d
+ */
 public class q3_lista1 {
     public static void main(String[] args) { 
         double[] vetGanhos = new double [12];

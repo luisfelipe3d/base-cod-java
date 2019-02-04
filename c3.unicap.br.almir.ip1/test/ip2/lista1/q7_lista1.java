@@ -6,7 +6,10 @@ aleatórios para simular o lançamento do dado.
  */
 package ip2.lista1;
 import java.util.Scanner;
-
+/**
+ *
+ * @author luisfelipe3d
+ */
 public class q7_lista1 {
     public static void main(String[] args) {
         int[] vetA = new int[1000000];

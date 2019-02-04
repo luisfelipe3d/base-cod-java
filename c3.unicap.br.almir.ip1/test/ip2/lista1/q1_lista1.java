@@ -21,7 +21,10 @@ deve receber como parâmetro o vetor a ser exibido.
  */
 package ip2.lista1;
 import java.util.Scanner;
-
+/**
+ *
+ * @author luisfelipe3d
+ */
 public class q1_lista1 {
     public static void main(String[] args) { 
         double[] vetGanhos = new double [12];
