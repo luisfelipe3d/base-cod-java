@@ -15,14 +15,15 @@ import java.util.Scanner;
 public class Exercicio5_lista13 {
     
     
-    laksjdlakj
+
     public static void main(String[] args) {
         Scanner in = new Scanner (System.in);
         int x,y;
         double a,b;
         
-        do{
+        /*do{
             System.out.print("");
         } while ();
+        */
     }
 }
