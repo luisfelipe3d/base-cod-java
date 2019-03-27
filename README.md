@@ -10,11 +10,6 @@ Todos os meus códigos feito na cadeira de IP1(Introdução a programação 1)no
 
 Desenvolvido com [Netbeans IDE - 8.0](https://netbeans.org/downloads/8.0.2/)
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
 ## License
 [MIT](https://github.com/luisfelipe3d/base-cod-java/blob/master/LICENSE)
 
