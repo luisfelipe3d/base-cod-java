@@ -5,8 +5,7 @@ Códigos da cadeira de IP2 no ano de 2019.1 ministrados pelo [Prof. Marcio Bueno
 
 ## Link dos exercícios
 
-*[Listas - IP1](http://c3.unicap.br/~almir/ip1/listas/)  
-*[Listas - IP2](https://marciobueno.com/ensino/introducao-programacao-ii/)
+*[Listas - IP1](http://c3.unicap.br/~almir/ip1/listas/)*[Listas - IP2](https://marciobueno.com/ensino/introducao-programacao-ii/)
 
 ## Software utilizado
 
