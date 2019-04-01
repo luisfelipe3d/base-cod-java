@@ -7,7 +7,7 @@ os correspondentes de A divididos por 2 e os elementos de índice ímpar são os
 correspondentes de A multiplicados por 3.Aofinal, o programa deverá exibir 
 os dois vetores (A e B).
  */
-package c3.unicap.br.marcio.ip2;
+package lista1;
 import java.util.Scanner;
 public class lista1_q2 {
     public static void main(String[] args) {

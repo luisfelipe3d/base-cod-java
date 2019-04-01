@@ -5,7 +5,7 @@ Os vetores A e B devem ser preenchidos com valores digitados pelo usuário.
 O programa deve calcular a soma dos vetores A e B e armazenar o resultado no vetor C. 
 Ao final,  o programa  deverá exibir  o conteúdo do vetor C.
  */
-package c3.unicap.br.marcio.ip2;
+package lista1;
 import java.util.Scanner;
 
 public class lista1_q3 {

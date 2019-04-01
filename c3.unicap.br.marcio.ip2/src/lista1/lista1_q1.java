@@ -23,7 +23,7 @@ intmain  ( ) {
     return 0;
 }
  */
-package c3.unicap.br.marcio.ip2;
+package lista1;
 
 public class lista1_q1 {
 
