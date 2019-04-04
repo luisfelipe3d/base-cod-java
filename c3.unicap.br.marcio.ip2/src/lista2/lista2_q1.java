@@ -23,25 +23,57 @@ recebe como parâmetro o vetor a ser exibido e a quantidade de posições  preen
 nesse vetor.
 
 O programa deverá ter um menu que permitirá ao usuário executar as opções de inserção,
-busca e exibiçãoa qualquer momento e quantas vezes desejar.
+busca e exibição a qualquer momento e quantas vezes desejar.
  */
 package lista2;
 import java.util.Scanner;
 public class lista2_q1 {
     
     public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
         double []vet = new double[100];
-        int preenchido=0;
-        insercao(vet,preenchido);
+        int preenchido=0,op;
+        double entrada;
+        do{
+            System.out.println("Manipulação de vetores\n"
+                    + "1. Inserir valor no vetor\n"
+                    + "2. Buscar valor no vetor\n"
+                    + "3. Exibir vetor\n"
+                    + "4. Finalizar programa");
+            System.out.print("Opção: ");
+            op = in.nextInt();
+            switch(op){
+                case 1:
+                    preenchido=insercao(vet,preenchido);
+                    break;
+                case 2:
+                    System.out.print("Valor para busca: ");
+                    entrada = in.nextDouble();
+                    if(verifica(vet, insercao(vet, preenchido)) == 1){
+                        System.out.printf("%.2f está dentro do vetor\n",entrada);
+                    } else{
+                        System.out.println("O valor não está no vetor.");
+                    }
+                    break;
+                case 3:
+                    showArray(vet, preenchido);
+                    break;
+                case 4:
+                    System.out.println("Fim do programa.");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+            }
+        } while (op != 4);
     }
     
-    public static void insercao(double[] v, int posicao){
+    public static int insercao(double[] v, int posicao){
         Scanner in = new Scanner(System.in);
         double valor;
         char flag = 's';
-        
+
         do{
-            if(posicao <= v.length){
+            if(posicao < v.length){
                 System.out.print("Digite um valor: ");
                 valor = in.nextDouble();
                 if(verifica(v, posicao, valor) == 0){
@@ -56,7 +88,12 @@ public class lista2_q1 {
                 flag = in.next().charAt(0);
             } // fim if
         }while(flag == 'S' || flag == 's');
-        showArray(v,posicao);
+        return posicao;
+        
+    }
+    
+    public static int verifica(double[]vet, double valor){
+        return verifica(vet, vet.length, valor);
     }
     
     public static int verifica(double[] vet, int qtd, double valor){
