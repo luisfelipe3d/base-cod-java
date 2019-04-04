@@ -49,7 +49,7 @@ public class lista2_q1 {
                 case 2:
                     System.out.print("Valor para busca: ");
                     entrada = in.nextDouble();
-                    if(verifica(vet, insercao(vet, preenchido)) == 1){
+                    if(verifica(vet, preenchido, entrada) == 1){
                         System.out.printf("%.2f está dentro do vetor\n",entrada);
                     } else{
                         System.out.println("O valor não está no vetor.");
@@ -86,16 +86,15 @@ public class lista2_q1 {
                 }
                 System.out.print("Desja continuar?(S/N): ");
                 flag = in.next().charAt(0);
-            } // fim if
+            }else{
+                flag = 'n';
+                System.out.println("Vetor está cheio.");
+            }
         }while(flag == 'S' || flag == 's');
         return posicao;
         
     }
-    
-    public static int verifica(double[]vet, double valor){
-        return verifica(vet, vet.length, valor);
-    }
-    
+        
     public static int verifica(double[] vet, int qtd, double valor){
         for(int i = 0; i <= qtd; i++){
             if (vet[i] == valor){
