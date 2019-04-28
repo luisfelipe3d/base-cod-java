@@ -30,5 +30,5 @@ public class lista1_q1 {
     public static void main(String[] args) {
         System.out.println("REPOSTA: BOA SORTE!");
     }
-    
+   
 }

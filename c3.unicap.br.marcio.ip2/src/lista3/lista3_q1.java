@@ -28,5 +28,7 @@ package lista3;
  * @author user
  */
 public class lista3_q1 {
-    
+    public static void main(String[] args) {
+        
+    }
 }
