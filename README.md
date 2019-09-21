@@ -1,10 +1,10 @@
 # Códigos Java
 
-Códigos da cadeira de IP1 (Introdução a programação 1) no ano de 2018.2 pelo **Prof. Almir Pires**
+Códigos da cadeira de IP1 (Introdução a programação 1) no ano de 2018.2 pelo **Prof. Almir Pires**.
 
-Códigos da cadeira de IP2 (Introdução a programação 2) no ano de 2019.1 ministrados pelo **Prof. Marcio Bueno**
+Códigos da cadeira de IP2 (Introdução a programação 2) no ano de 2019.1 ministrados pelo **Prof. Marcio Bueno**.
 
-Códigos da cadeira de ED1 (Estrutura de dados 1) no ano de 2019.2 ministrados pela **Prof. Ana Eliza**
+Códigos da cadeira de ED1 (Estrutura de dados 1) no ano de 2019.2 ministrados pela **Prof. Ana Eliza**.
 
 ## Link dos exercícios
 
