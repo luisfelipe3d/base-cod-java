@@ -66,7 +66,7 @@ public class aplicacao {
                     }else{
                         System.out.print("Informe o código do produto: ");
                         codigo = in.nextLine();
-                        alterarPreco(codigo);
+                        //alterarPreco(codigo);
                     }
                     break;
                 case 8:
@@ -113,43 +113,5 @@ public class aplicacao {
         
         return aux;
     }
-    
-    public static void alterarPreco(String codigo){
-        Scanner in = new Scanner(System.in);
-        int op, estoque;
-        double preco;
-        Produto aux = new Produto(codigo);
-        do{
-            System.out.print("1 - Alterar preço. \n"
-                    + "2 - Alterar estoque. \n"
-                    + "3 - Alterar preço e estoque. \n"
-                    + "Opção: ");
-            op = in.nextInt(); in.nextLine();
-            switch(op){
-                case 1:
-                    System.out.print("Informe o preço do produto(1): ");
-                    preco = in.nextDouble(); in.nextLine();
-                    aux.setPreco(preco);
-                    System.out.println("Preço atualizado.(1)");
-                    return;
-                case 2:
-                    System.out.print("Informe a quantidade no estoque(2): ");
-                    estoque = in.nextInt(); in.nextLine();
-                    aux.setQuantidade(estoque);
-                    System.out.println("Estoque atualizado.(2)");
-                    return;
-                case 3:
-                    System.out.print("Informe o preço do produto(3): ");
-                    preco = in.nextDouble(); in.nextLine();
-                    System.out.print("Informe o estoque do produto(3): ");
-                    estoque = in.nextInt();
-                    aux.setPreco(preco);
-                    aux.setQuantidade(estoque);
-                    System.out.println("Preço e estoque atualizados.(3)");
-                    return;
-                default:
-                    System.out.println("Opção inválida.");           
-            }
-        }while(op >= 0 && op < 4);
-    }
+        
 }
