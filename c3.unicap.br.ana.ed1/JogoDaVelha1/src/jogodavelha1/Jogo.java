@@ -5,6 +5,7 @@
  */
 package jogodavelha1;
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,7 +14,10 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 /**
  *
@@ -52,11 +56,23 @@ public class Jogo implements Serializable {
     public int getRodadas() {
         return rodadas;
     }
-
+    
+    public void setRodadas(int x){
+        this.rodadas = x;
+    }
+    
     public void addRodada() {
         this.rodadas = this.rodadas + 1;
     }
-
+    
+    public int[][] getMatriz(){
+        return this.matriz;
+    }
+    
+    public void setMatriz(int[][] m){
+        this.matriz = m;
+    }
+    
     public boolean getPrimeiroJogador() {
         return ePrimeiroJogador;
     }
@@ -146,39 +162,52 @@ public class Jogo implements Serializable {
    
     public void salvarJogo() {
         FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("JogoVelha", "*.jv"));
         File file = fc.showSaveDialog(null);
-        
-        try{
+
+        try {
             FileOutputStream fouts = new FileOutputStream(file);
-            ObjectOutputStream oos = new ObjectOutputStream(fouts);
-            oos.writeObject(this);
-        }catch(Exception e){
-            
+
+            try {
+                ObjectOutputStream oos = new ObjectOutputStream(fouts);
+                oos.writeObject(this);
+                oos.close();
+                fouts.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     
     public void carregarJogo() throws FileNotFoundException, IOException, ClassNotFoundException{
         FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("JogoVelha", "*.jv"));
-        File f = fc.showOpenDialog(null);
-        if (f != null) {
-            try{    
-                FileInputStream fin = new FileInputStream(f);
-                ObjectInputStream ois = new ObjectInputStream(fin);
-                Jogo carregaJogo = (Jogo) ois.readObject();
-                this.matriz = carregaJogo.matriz;
-                this.p1 = carregaJogo.p1;
-                this.p2 = carregaJogo.p2;
-                this.rodadas = carregaJogo.rodadas;
-                this.ePrimeiroJogador = carregaJogo.ePrimeiroJogador;
-                ois.close();
-                fin.close();
-            } catch(Exception e){
-                e.printStackTrace();
-    
+        fc.getExtensionFilters().add(new ExtensionFilter("tictactoe", "*.jv"));
+        File file = fc.showOpenDialog(null);
+        FileInputStream fis = new FileInputStream(file);
+
+        try {
+            ObjectInputStream ois = new ObjectInputStream(fis);
+
+            try {
+                while(true){
+                    Jogo carregarJogo = (Jogo) ois.readObject();
+                    this.matriz = carregarJogo.matriz;
+                    this.p1 = carregarJogo.p1;
+                    this.p2 = carregarJogo.p2;
+                    this.rodadas = carregarJogo.rodadas;
+                    this.ePrimeiroJogador = carregarJogo.ePrimeiroJogador;
+                    //this.secondPlayer = loadedGame.secondPlayer;
+                }
+                
+            } catch (EOFException eoferr) {
+                System.out.println("OK");
             }
-        }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
+
+            }
     }
     
     

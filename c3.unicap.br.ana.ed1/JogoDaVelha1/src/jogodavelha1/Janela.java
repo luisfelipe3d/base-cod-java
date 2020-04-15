@@ -38,17 +38,18 @@ import javafx.stage.Stage;
  * @author home
  */
 public class Janela extends Application {
-    Jogo jg;
+    BorderPane root = new BorderPane();
+    GridPane tabuleiro = new GridPane();
+    Alertas alt = new Alertas();
     Button bts[][] = new Button [3][3];
     Jogador p1 = new Jogador();
     Jogador p2 = new Jogador();
     Label versao = new Label("Versão 1.0");
+    Jogo jg;
     String simbolo;
     boolean vezJogador; 
-    GridPane tabuleiro = new GridPane();
-    Alertas alt = new Alertas();
-    VBox vboxPlacar;
-    BorderPane root = new BorderPane();
+    
+    
     
     @Override
     public void start(Stage primaryStage) {
@@ -57,7 +58,6 @@ public class Janela extends Application {
         });
         root.setTop(barraSup());
         root.setCenter(tabuleiro());
-        root.setLeft(lateralEsq());
         root.setBottom(barraInf(this.versao));
         Scene scene = new Scene(root, 500, 450);
         primaryStage.setTitle("Jogo da Velha");
@@ -85,18 +85,16 @@ public class Janela extends Application {
         MenuItem carregarJogo = new MenuItem("Carregar Jogo");
         carregarJogo.setAccelerator(KeyCombination.keyCombination("Ctrl+O"));
         carregarJogo.setOnAction(e -> {
-            try {
-                jg.carregarJogo();
-            } catch (IOException ex) {
-                Logger.getLogger(Janela.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(Janela.class.getName()).log(Level.SEVERE, null, ex);
-            }
+           carregarJogo();
         });
         MenuItem salvarJogo = new MenuItem("Salvar Jogo");
         salvarJogo.setAccelerator(KeyCombination.keyCombination("Ctrl+S"));
-        salvarJogo.setOnAction(e -> {
-            jg.salvarJogo();
+        salvarJogo.setOnAction(evt -> {
+            try{
+                jg.salvarJogo();
+            } catch(Exception err){
+                err.addSuppressed(err);
+            }
         });
         arquivo.getItems().addAll(novoJogo, carregarJogo, salvarJogo);
         
@@ -104,7 +102,7 @@ public class Janela extends Application {
         MenuItem sobre = new MenuItem("Sobre");
         sobre.setAccelerator(KeyCombination.keyCombination("Ctrl+K"));
         sobre.setOnAction(e -> {
-            sobreJogo();
+            alt.sobre();
         });
         ajuda.getItems().add(sobre);
         menuBar.getMenus().addAll(arquivo, ajuda);
@@ -157,19 +155,6 @@ public class Janela extends Application {
         tabuleiro.setAlignment(Pos.CENTER_RIGHT);
         return tabuleiro;
     }
-    
-    public VBox lateralEsq(){
-        this.vboxPlacar = new VBox(10);
-        //this.vboxPlacar.setAlignment(Pos.CENTER);
-        Label nPlacar = new Label("Placar");
-        nPlacar.setAlignment(Pos.CENTER);
-        Label jogador1 = new Label(this.p1.toString());
-        Label jogador2 = new Label(this.p2.toString());
-        this.vboxPlacar.getChildren().addAll(nPlacar,jogador1,jogador2);
-        //this.vboxPlacar.getChildren().addAll(nPlacar);
-        
-        return this.vboxPlacar;
-    }
       
     public HBox barraInf(Label l1) {
         HBox hbox = new HBox();
@@ -185,6 +170,11 @@ public class Janela extends Application {
                 bts[linha][coluna].setDisable(false);
             }
         }
+        ativarJogada();
+        
+    }
+   
+    public void ativarJogada(){
         bts[0][0].setOnAction(e ->{
             Jogada(0,0);
         });
@@ -212,19 +202,6 @@ public class Janela extends Application {
         bts[2][2].setOnAction(e ->{
             Jogada(2,2);
         });
-        
-    }
-   
-    public void carregarJogo() throws IOException, FileNotFoundException, ClassNotFoundException{
-           jg.carregarJogo();
-    }
-    
-    public void salvarJogo(){
-        jg.salvarJogo();
-    }
-    
-    public void sobreJogo(){
-        alt.sobre();
     }
     
     public void Jogada(int linha, int coluna) { 
@@ -301,11 +278,38 @@ public class Janela extends Application {
             this.jg = new Jogo(this.p1,this.p2);
             jg.defineJogador(this.p1, this.p2);
             this.vezJogador = jg.getPrimeiroJogador();
-            atualizarPlacar();
             alt.quemComeca(vezJogador, this.p1, this.p2);
             limparTabuleiro();
     }
-    private void atualizarPlacar(){
-        root.setLeft(lateralEsq());
+    
+    public void atualizarTabuleiro(){
+        limparTabuleiro();
+        int rodada = 0;
+        int [][] mtz = jg.getMatriz();
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                if(mtz[i][j] == 1){
+                    bts[i][j].setText("X");
+                    bts[i][j].setDisable(true);
+                    rodada++;
+                }else if(mtz[i][j] == -1){
+                    bts[i][j].setText("O");
+                    bts[i][j].setDisable(false);
+                    rodada++;
+                }
+            }
+        }
+        jg.setRodadas(rodada);
+        ativarTabuleiro();
+    }
+    
+    public void carregarJogo(){
+         try {
+            jg.carregarJogo();
+        } catch (IOException ex) {
+            Logger.getLogger(Janela.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Janela.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

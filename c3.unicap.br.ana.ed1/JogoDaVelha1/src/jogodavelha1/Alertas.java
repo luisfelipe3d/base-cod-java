@@ -5,6 +5,7 @@
  */
 package jogodavelha1;
 
+import java.io.Serializable;
 import javafx.scene.control.Alert;
 import javafx.scene.text.Text;
 
@@ -12,7 +13,7 @@ import javafx.scene.text.Text;
  *
  * @author home
  */
-public class Alertas {
+public class Alertas implements Serializable {
 
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
     Alert placar = new Alert(Alert.AlertType.INFORMATION);
