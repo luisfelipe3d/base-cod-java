@@ -6,7 +6,12 @@
 package jogodavelha1;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -17,7 +22,9 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -33,22 +40,26 @@ import javafx.stage.Stage;
 public class Janela extends Application {
     Jogo jg;
     Button bts[][] = new Button [3][3];
-    Jogador p1;
-    Jogador p2;
+    Jogador p1 = new Jogador();
+    Jogador p2 = new Jogador();
     Label versao = new Label("Versão 1.0");
     String simbolo;
     boolean vezJogador; 
     GridPane tabuleiro = new GridPane();
     Alertas alt = new Alertas();
     VBox vboxPlacar;
+    BorderPane root = new BorderPane();
     
     @Override
     public void start(Stage primaryStage) {
-        BorderPane root = new BorderPane(); 
-        root.setTop(barraSup()); //OK
-        root.setCenter(tabuleiro()); //Ok
-        root.setBottom(barraInf(this.versao)); // OK
-        Scene scene = new Scene(root, 600, 450);
+        root.setOnKeyPressed(e -> {
+            keyPressed(e);
+        });
+        root.setTop(barraSup());
+        root.setCenter(tabuleiro());
+        root.setLeft(lateralEsq());
+        root.setBottom(barraInf(this.versao));
+        Scene scene = new Scene(root, 500, 450);
         primaryStage.setTitle("Jogo da Velha");
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
@@ -74,14 +85,18 @@ public class Janela extends Application {
         MenuItem carregarJogo = new MenuItem("Carregar Jogo");
         carregarJogo.setAccelerator(KeyCombination.keyCombination("Ctrl+O"));
         carregarJogo.setOnAction(e -> {
-            carregarJogo();
-            System.out.println("Carregando Jogo");
+            try {
+                jg.carregarJogo();
+            } catch (IOException ex) {
+                Logger.getLogger(Janela.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Janela.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
         MenuItem salvarJogo = new MenuItem("Salvar Jogo");
         salvarJogo.setAccelerator(KeyCombination.keyCombination("Ctrl+S"));
         salvarJogo.setOnAction(e -> {
-            //salvarJogo();
-            System.out.println("Salvar jogo");
+            jg.salvarJogo();
         });
         arquivo.getItems().addAll(novoJogo, carregarJogo, salvarJogo);
         
@@ -90,10 +105,8 @@ public class Janela extends Application {
         sobre.setAccelerator(KeyCombination.keyCombination("Ctrl+K"));
         sobre.setOnAction(e -> {
             sobreJogo();
-            System.out.println("Sobre o jogo");
         });
         ajuda.getItems().add(sobre);
-        
         menuBar.getMenus().addAll(arquivo, ajuda);
         
         TextField jogador1 = new TextField();
@@ -104,26 +117,15 @@ public class Janela extends Application {
         
         Button iniciar = new Button("Iniciar");
         iniciar.setOnAction(e -> {
-            this.p1 = new Jogador(jogador1.getText());
-            this.p2 = new Jogador(jogador2.getText());            
-            //this.placarP1 = new Label(this.p1.toString());
-            //this.placarP1.setText(this.p1.toString());
-            
-            //this.placarP2.setText(this.p2.toString());
-            //this.placarP2 = new Label(this.p2.toString());
-            
-            this.jg = new Jogo(this.p1,this.p2);
-            jg.defineJogador(this.p1, this.p2);
-            this.vezJogador = jg.getPrimeiroJogador();
-            alt.quemComeca(vezJogador, this.p1, this.p2);
-            limparTabuleiro();
-           
-            
+            iniciarJogo(jogador1, jogador2);
         });
         iniciar.setAlignment(Pos.BOTTOM_CENTER);
         
         Button salvar = new Button("Salvar");
-        salvar.setAlignment(Pos.CENTER_RIGHT);
+        salvar.setOnAction(e ->{
+            jg.salvarJogo();
+        });
+        
         VBox vbox = new VBox(menuBar);
         HBox hbox = new HBox(5);
         //hbox.setAlignment(Pos.CENTER_RIGHT);
@@ -152,11 +154,23 @@ public class Janela extends Application {
                 tabuleiro.add(bts[linha][coluna], coluna, linha);
             }
         }
-        tabuleiro.setAlignment(Pos.CENTER);
+        tabuleiro.setAlignment(Pos.CENTER_RIGHT);
         return tabuleiro;
     }
     
-    
+    public VBox lateralEsq(){
+        this.vboxPlacar = new VBox(10);
+        //this.vboxPlacar.setAlignment(Pos.CENTER);
+        Label nPlacar = new Label("Placar");
+        nPlacar.setAlignment(Pos.CENTER);
+        Label jogador1 = new Label(this.p1.toString());
+        Label jogador2 = new Label(this.p2.toString());
+        this.vboxPlacar.getChildren().addAll(nPlacar,jogador1,jogador2);
+        //this.vboxPlacar.getChildren().addAll(nPlacar);
+        
+        return this.vboxPlacar;
+    }
+      
     public HBox barraInf(Label l1) {
         HBox hbox = new HBox();
         versao.setAlignment(Pos.CENTER_LEFT);
@@ -201,38 +215,13 @@ public class Janela extends Application {
         
     }
    
-    public void carregarJogo(){
-        FileChooser fc = new FileChooser();
-        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("JogoVelha", "*.jv"));
-        File f = fc.showOpenDialog(null);
-        if (f != null) {
-            System.out.println("Qualquer coisa do arquivo: " 
-                    + f.getAbsolutePath());
-        }
-        
-//        try {
-//            if (arq.exists() == false) {
-//                arq.createNewFile();
-//            } else {
-//                FileInputStream fin = new FileInputStream("C:\\Users\\Usuario\\Documents\\jogo_da_velha.jv");
-//                ObjectInputStream ois = new ObjectInputStream(fin);
-//                partidas = (Jogo) ois.readObject();
-//            }
-//
-//            FileOutputStream fout = new FileOutputStream(arq);
-//            ObjectOutputStream oos = new ObjectOutputStream(fout);
-//            partidas = menu(partidas);
-//            oos.writeObject(partidas);
-//            oos.close();
-//            fout.close();
-//
-//        } catch (IOException ex) {
-//            Logger.getLogger(JogoVelha.class.getName()).log(Level.SEVERE, null, ex);
-//        } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(JogoVelha.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-
-    } 
+    public void carregarJogo() throws IOException, FileNotFoundException, ClassNotFoundException{
+           jg.carregarJogo();
+    }
+    
+    public void salvarJogo(){
+        jg.salvarJogo();
+    }
     
     public void sobreJogo(){
         alt.sobre();
@@ -242,12 +231,10 @@ public class Janela extends Application {
         jg.Jogada(linha, coluna);
         if (vezJogador) {
             simbolo = "O";
-            vezJogador = false;
-            
+            vezJogador = false;     
         } else {
             simbolo = "X";
-            vezJogador = true;
-            
+            vezJogador = true;     
         }
         bts[linha][coluna].setText(simbolo);
         bts[linha][coluna].setDisable(true);
@@ -269,29 +256,56 @@ public class Janela extends Application {
             case 1:
                 System.out.println("Jogador 1 venceu - verificaVencedor");
                 System.out.println(this.p1.getPontuacao());
-                alt.quemVenceu(v, this.p1, this.p2);
+                alt.quemVenceu(v, this.p1, this.p2, this.vezJogador);
                 alt.placar(this.p1, this.p2);
                 limparTabuleiro();
                 break;
             case 2:
                 System.out.println("Jogador 2 venceu - verificaVencedor");
                 System.out.println(p2.getPontuacao());
-                alt.quemVenceu(v, this.p1, this.p2);
+                alt.quemVenceu(v, this.p1, this.p2, this.vezJogador);
                 alt.placar(this.p1, this.p2);
                 limparTabuleiro();
                 break;
             case 3:
                 System.out.println("deu velha");                
-                alt.quemVenceu(v, this.p1, this.p2);
+                alt.quemVenceu(v, this.p1, this.p2, this.vezJogador);
                 alt.placar(this.p1, this.p2);
                 limparTabuleiro();
                 break;
             case 4:
                 break;
             default:
-                System.err.println("opção inválida");
+                System.err.println("opção inválida. - verificaVencedor()");
         }
         
     }
-
+    
+    public void keyPressed(KeyEvent event) {
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            //iniciarJogo();
+        } else if (event.getCode().equals(KeyCode.ESCAPE)) {
+            System.exit(0);
+        }
+    }
+    
+    public void iniciarJogo(TextField jogador1, TextField jogador2){
+        if(jogador1.getText().equals("") && jogador2.getText().equals("")){
+                jg = new Jogo();
+                this.p1 = jg.getP1();
+                this.p2 = jg.getP2();
+            }else{
+                this.p1 = new Jogador(jogador1.getText());
+                this.p2 = new Jogador(jogador2.getText());
+            }
+            this.jg = new Jogo(this.p1,this.p2);
+            jg.defineJogador(this.p1, this.p2);
+            this.vezJogador = jg.getPrimeiroJogador();
+            atualizarPlacar();
+            alt.quemComeca(vezJogador, this.p1, this.p2);
+            limparTabuleiro();
+    }
+    private void atualizarPlacar(){
+        root.setLeft(lateralEsq());
+    }
 }

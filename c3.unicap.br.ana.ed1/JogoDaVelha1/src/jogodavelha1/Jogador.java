@@ -15,6 +15,11 @@ public class Jogador implements Serializable {
     private String nome;
     private int pontuacao;
 
+    public Jogador(){
+        this.nome = "";
+        this.pontuacao = 0;
+    }
+    
     public Jogador(String nome){
         this.nome = nome;
         this.pontuacao = 0;

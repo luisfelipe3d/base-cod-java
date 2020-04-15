@@ -20,6 +20,7 @@ public class Alertas {
     final String t2 = "Jogo da Velha";
     final String v1 = "O vencedor é: ";
     final String v2 = "====DEU VELHA!=====";
+    final String pl = "Placar";
     
     
     public void quemComeca(boolean jg1, Jogador n1, Jogador n2){
@@ -31,28 +32,34 @@ public class Alertas {
             alert.setContentText(t1+n2.getNome()+" X");
         }
         alert.showAndWait();
+        
     }
     
-    public void quemVenceu(int v, Jogador n1, Jogador n2){
+    public void quemVenceu(int v, Jogador n1, Jogador n2, boolean jg1){
         alert.setTitle(t2);
+        placar.setTitle(t2);
+        placar.setHeaderText(pl);
         switch(v){
             case 1:
-                alert.setContentText(v1+n2.getNome());
-                alert.showAndWait();
-                placar.setContentText(placar(n1,n2));
-                placar.showAndWait();
-                break;
-            case 2:
                 alert.setContentText(v1+n1.getNome());
                 alert.showAndWait();
                 placar.setContentText(placar(n1,n2));
                 placar.showAndWait();
+                quemComeca(jg1, n1, n2);
+                break;
+            case 2:
+                alert.setContentText(v1+n2.getNome());
+                alert.showAndWait();
+                placar.setContentText(placar(n1,n2));
+                placar.showAndWait();
+                quemComeca(jg1, n1, n2);
                 break;
             case 3:
                 alert.setContentText(v2);
                 alert.showAndWait();
                 placar.setContentText(placar(n1,n2));
                 placar.showAndWait();
+                quemComeca(jg1, n1, n2);
                 break;
             default:
                 System.out.println("quemVenceu4");
@@ -70,7 +77,7 @@ public class Alertas {
     }
     
     public String placar(Jogador p1, Jogador p2){
-        String placarJogadores = "TOTAL\n"+ p1.toString() +"\n"
+        String placarJogadores = ""+ p1.toString() +"\n"
                 + "" + p2.toString() + "\n";
         return placarJogadores;
     }
