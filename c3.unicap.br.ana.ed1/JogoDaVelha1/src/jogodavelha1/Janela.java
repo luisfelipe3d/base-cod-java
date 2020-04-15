@@ -5,17 +5,13 @@
  */
 package jogodavelha1;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -30,13 +26,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-/**
- *
- * @author home
- */
 public class Janela extends Application {
     BorderPane root = new BorderPane();
     GridPane tabuleiro = new GridPane();
@@ -48,8 +39,6 @@ public class Janela extends Application {
     Jogo jg;
     String simbolo;
     boolean vezJogador; 
-    
-    
     
     @Override
     public void start(Stage primaryStage) {
@@ -66,9 +55,7 @@ public class Janela extends Application {
         primaryStage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -231,23 +218,18 @@ public class Janela extends Application {
         //Retorna jogador 1 = 1; jogador 2 = 2; velha = 3; continua = 4;
         switch(v){
             case 1:
-                System.out.println("Jogador 1 venceu - verificaVencedor");
-                System.out.println(this.p1.getPontuacao());
-                alt.quemVenceu(v, this.p1, this.p2, this.vezJogador);
-                alt.placar(this.p1, this.p2);
+                alt.quemVenceu(v, jg.p1, jg.p2, jg.ePrimeiroJogador);
+                alt.placar(jg.p1, jg.p2);
                 limparTabuleiro();
                 break;
             case 2:
-                System.out.println("Jogador 2 venceu - verificaVencedor");
-                System.out.println(p2.getPontuacao());
-                alt.quemVenceu(v, this.p1, this.p2, this.vezJogador);
-                alt.placar(this.p1, this.p2);
+                alt.quemVenceu(v, jg.p1, jg.p2, jg.ePrimeiroJogador);
+                alt.placar(jg.p1, jg.p2);
                 limparTabuleiro();
                 break;
-            case 3:
-                System.out.println("deu velha");                
-                alt.quemVenceu(v, this.p1, this.p2, this.vezJogador);
-                alt.placar(this.p1, this.p2);
+            case 3:             
+                alt.quemVenceu(v, jg.p1, jg.p2, jg.ePrimeiroJogador);
+                alt.placar(jg.p1, jg.p2);
                 limparTabuleiro();
                 break;
             case 4:
@@ -283,24 +265,29 @@ public class Janela extends Application {
     }
     
     public void atualizarTabuleiro(){
-        limparTabuleiro();
         int rodada = 0;
         int [][] mtz = jg.getMatriz();
+        
+        System.out.println(jg.p1.toString());
+        System.out.println(jg.p2.toString());
         for(int i = 0; i < 3; i++){
             for(int j = 0; j < 3; j++){
+                
                 if(mtz[i][j] == 1){
                     bts[i][j].setText("X");
                     bts[i][j].setDisable(true);
                     rodada++;
                 }else if(mtz[i][j] == -1){
                     bts[i][j].setText("O");
-                    bts[i][j].setDisable(false);
+                    bts[i][j].setDisable(true);
                     rodada++;
                 }
             }
         }
         jg.setRodadas(rodada);
-        ativarTabuleiro();
+        ativarJogada();
+        int vencedor = jg.verificaVencedor();
+        verificaVencedor(vencedor);
     }
     
     public void carregarJogo(){
@@ -311,5 +298,7 @@ public class Janela extends Application {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Janela.class.getName()).log(Level.SEVERE, null, ex);
         }
+         atualizarTabuleiro();
+         
     }
 }

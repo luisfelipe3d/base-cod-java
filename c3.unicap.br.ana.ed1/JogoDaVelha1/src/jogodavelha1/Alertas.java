@@ -7,7 +7,6 @@ package jogodavelha1;
 
 import java.io.Serializable;
 import javafx.scene.control.Alert;
-import javafx.scene.text.Text;
 
 /**
  *
@@ -70,7 +69,7 @@ public class Alertas implements Serializable {
     public void sobre(){
         final String title = "Sobre o jogo";
         final String versão = "Versão 1.0";
-        final String autor = "Author: Luis Queiroz";
+        final String autor = "Autor: Luis Queiroz";
         alert.setTitle(title);
         alert.setHeaderText(versão);
         alert.setContentText(autor);
