@@ -5,11 +5,13 @@
  */
 package jogodavelha1;
 
+import java.io.Serializable;
+
 /**
  *
  * @author home
  */
-public class Jogador {
+public class Jogador implements Serializable {
     private String nome;
     private int pontuacao;
 
