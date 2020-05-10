@@ -1,3 +1,5 @@
+package GeometriaCorpos;
+
 
 
 public interface Redimensionavel {

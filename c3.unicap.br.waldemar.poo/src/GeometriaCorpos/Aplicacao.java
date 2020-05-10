@@ -1,3 +1,5 @@
+package GeometriaCorpos;
+
 /*
 1. Escreva uma classe abstrata chamada FormaGeometrica. Ela deve ter as
 seguintes características:
@@ -23,7 +25,7 @@ e. Imprima a area e o perimetro do retângulo
 
 */
 
-public class GeometriaCorpos {
+public class Aplicacao {
     public static void main(String[] args) throws Exception {
         Retangulo r1 = new Retangulo(2,3);
         TrianguloRetangulo tr = new TrianguloRetangulo(1,1);

@@ -1,3 +1,5 @@
+package GeometriaCorpos;
+
 
 
 public class TrianguloRetangulo extends FormaGeometrica implements Redimensionavel {
