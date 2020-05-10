@@ -13,18 +13,17 @@ Códigos da cadeira de POO (Programação Orientada a Objetos) no ano de 2020.1 
 ## Link dos exercícios
 
 [Listas - IP1](https://github.com/luisfelipe3d/base-cod-java/tree/master/c3.unicap.br.almir.ip1/src)  
-[Listas - IP2](https://github.com/luisfelipe3d/base-cod-java/tree/master/c3.unicap.br.marcio.ip2/src)
+[Listas - IP2](https://github.com/luisfelipe3d/base-cod-java/tree/master/c3.unicap.br.marcio.ip2/src)  
 [Listas - ED1](https://github.com/luisfelipe3d/base-cod-java/tree/master/c3.unicap.br.ana.ed1/src)
 
 ## Software utilizado
 
 Desenvolvido com [Netbeans IDE - 8.0](https://netbeans.org/downloads/8.0.2/)  
-Desenvolvido com [Apache Netbeans IDE - 10.0](https://netbeans.apache.org/download/nb100/nb100.html)
-Desenvolvido com [IntelliJ IDEA](https://www.jetbrains.com/idea/download/index.html)
-Desenvolvido com [Visual Code Studio - Insiders](https://code.visualstudio.com/insiders/) **Utilizando atualmente**
+Desenvolvido com [Apache Netbeans IDE - 10.0](https://netbeans.apache.org/download/nb100/nb100.html)  
+Desenvolvido com [IntelliJ IDEA - 2019.2](https://www.jetbrains.com/idea/download/index.html)  
+Desenvolvido com [Visual Code Studio - Insiders](https://code.visualstudio.com/insiders/) **utilizando atualmente**
 
 ## License
 [MIT](https://github.com/luisfelipe3d/base-cod-java/blob/master/LICENSE)
-
 
 
