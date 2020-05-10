@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cores;
+package terminal.cores;
 
 public class ColouredSystemOutPrintln {
   public static final String ANSI_RESET  = "\u001B[0m";

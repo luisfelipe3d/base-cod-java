@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../assets/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ui.LoginController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #000066;" styleClass="parent" stylesheets="@../assets/stylesheet.css">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" smooth="false" style="-fx-image: #aaaa;">
+               <image>
+                  <Image url="@../assets/user_sistem.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </ImageView>
+            <Text fill="#f5f5f5" strokeType="OUTSIDE" strokeWidth="0.0" text="Controle Acadêmico">
+               <font>
+                  <Font name="Ebrima Bold" size="28.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Text>
+         </children>
+      </VBox>
+      <Pane fx:id="content_area" layoutX="400.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #FFF;">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="48.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/user_sistem.png" />
+               </image>
+            </ImageView>
+            <Text fill="#121010de" layoutX="37.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem vindo novamente," wrappingWidth="241.1796875">
+               <font>
+                  <Font name="Impact" size="24.0" />
+               </font>
+            </Text>
+            <Text fill="#a3a3a3e5" layoutX="37.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Logue para continuar">
+               <font>
+                  <Font name="Ebrima Bold" size="15.0" />
+               </font>
+            </Text>
+            <JFXTextField focusColor="#6747cd" labelFloat="true" layoutX="63.0" layoutY="296.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Email ou CPF" unFocusColor="#a3a3a3">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextField>
+            <JFXPasswordField focusColor="#6747cd" labelFloat="true" layoutX="63.0" layoutY="363.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Senha" unFocusColor="#a3a3a3">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXPasswordField>
+            <Label layoutX="239.0" layoutY="420.0" styleClass="forgetBtn" text="Esqueceu a senha?" textFill="#655d5dcc" />
+            <JFXButton buttonType="RAISED" layoutX="63.0" layoutY="452.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="300.0" ripplerFill="#0777ffcc" styleClass="loginBtn" text="Entrar" />
+            <Label layoutX="222.0" layoutY="531.0" onMouseClicked="#open_registration" text="Cadastrar" textFill="#730099">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Text fill="#a3a3a3" layoutX="102.0" layoutY="546.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Primeiro acesso?">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <FontAwesomeIcon glyphName="CLOSE" layoutX="374.0" layoutY="26.0" onMouseClicked="#close_app" size="2em" stroke="WHITE" styleClass="closeBtn" text="" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

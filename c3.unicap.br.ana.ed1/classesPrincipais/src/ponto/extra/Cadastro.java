@@ -5,8 +5,6 @@
  */
 package ponto.extra;
 import java.util.Scanner;
-import ponto.extra.Tree;
-import ponto.extra.Produto;
 
 public class Cadastro {
     
