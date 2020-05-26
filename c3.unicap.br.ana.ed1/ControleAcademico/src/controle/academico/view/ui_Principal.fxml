@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #303030;" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.academico.controller.UiPrincipal">
+   <left>
+      <VBox prefHeight="300.0" prefWidth="150.0" style="-fx-background-color: #303030;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="150.0">
+               <children>
+                  <FontAwesomeIcon fill="#d7d5d5" glyphName="DASHBOARD" size="1.5em" wrappingWidth="23.5" />
+                  <JFXButton onMouseClicked="#ui_dashboard" prefHeight="40.0" prefWidth="133.0" text="Dashboard" textFill="#d7d5d5" />
+               </children>
+               <opaqueInsets>
+                  <Insets top="2.0" />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="150.0">
+               <children>
+                  <FontAwesomeIcon fill="#d7d5d5" glyphName="MORTAR_BOARD" size="1.5em" wrappingWidth="23.5" />
+                  <JFXButton onMouseClicked="#ui_alunos" prefHeight="40.0" prefWidth="133.0" text="Alunos" textFill="#d7d5d5" />
+               </children>
+               <opaqueInsets>
+                  <Insets top="2.0" />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="50.0" prefHeight="40.0" prefWidth="150.0">
+               <children>
+                  <FontAwesomeIcon fill="#d7d5d5" glyphName="USER" size="1.5em" wrappingWidth="23.5" />
+                  <JFXButton onMouseClicked="#ui_professor" prefHeight="40.0" prefWidth="133.0" text="Professores" textFill="#d7d5d5" />
+               </children>
+               <opaqueInsets>
+                  <Insets top="2.0" />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="90.0" prefHeight="40.0" prefWidth="150.0">
+               <children>
+                  <FontAwesomeIcon fill="#d7d5d5" glyphName="TH_LIST" size="1.5em" wrappingWidth="23.5" />
+                  <JFXButton prefHeight="40.0" prefWidth="133.0" text="Turmas" textFill="#d7d5d5" />
+               </children>
+               <opaqueInsets>
+                  <Insets top="2.0" />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="130.0" prefHeight="40.0" prefWidth="150.0">
+               <children>
+                  <FontAwesomeIcon fill="#d7d5d5" glyphName="BOOK" size="1.5em" wrappingWidth="23.5" />
+                  <JFXButton prefHeight="40.0" prefWidth="133.0" text="Disciplinas" textFill="#d7d5d5" />
+               </children>
+               <opaqueInsets>
+                  <Insets top="2.0" />
+               </opaqueInsets>
+            </HBox>
+         </children>
+      </VBox>
+   </left>
+   <top>
+      <VBox prefHeight="87.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <FontAwesomeIcon glyphName="CLOSE" layoutX="778.0" layoutY="22.0" onMouseClicked="#close_app" size="1.3em" text="" />
+                  <FontAwesomeIcon glyphName="MINUS" layoutX="751.0" layoutY="22.0" size="1.3em" text="" />
+                  <Text fill="WHITE" layoutX="400.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Controle Acadêmico" />
+                  <Label alignment="CENTER" layoutX="-1.0" layoutY="26.0" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: darkblue;" text="Painel Administrativo" textFill="#f5f5f5" />
+                  <JFXButton layoutX="719.0" layoutY="40.0" onMouseClicked="#painelSair" text="SAIR" textFill="WHITE" />
+                  <Label fx:id="userName" layoutX="652.0" layoutY="46.0" prefHeight="21.0" prefWidth="67.0" text="admin" textFill="#f8f8f8" />
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <AnchorPane fx:id="anchorInit" prefHeight="200.0" prefWidth="200.0" stylesheets="@../css/StyleSheet.css" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

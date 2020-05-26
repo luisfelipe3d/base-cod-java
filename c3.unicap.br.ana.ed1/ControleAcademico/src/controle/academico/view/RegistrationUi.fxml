@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" styleClass="parent" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.academico.controller.RegistrationUiController">
+   <children>
+      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="33.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/user_sistem.png" />
+         </image>
+      </ImageView>
+      <Text fill="#121010de" layoutX="25.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro" wrappingWidth="241.1796875">
+         <font>
+            <Font name="Impact" size="24.0" />
+         </font>
+      </Text>
+      <FontAwesomeIcon glyphName="CLOSE" layoutX="363.0" layoutY="41.0" onMouseClicked="#close_app" size="2em" stroke="WHITE" styleClass="closeBtn" text="" />
+      <Text fill="#a3a3a3e5" layoutX="22.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Complete o formulário de cadastro">
+         <font>
+            <Font name="Ebrima Bold" size="15.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="nome" focusColor="#6747cd" layoutX="50.0" layoutY="229.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Nome de usuário" unFocusColor="#a3a3a3" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="email" focusColor="#6747cd" layoutX="50.0" layoutY="292.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Email ou CPF" unFocusColor="#a3a3a3" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXPasswordField fx:id="senha" focusColor="#6747cd" layoutX="50.0" layoutY="358.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Senha" unFocusColor="#a3a3a3" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXPasswordField fx:id="senhac" focusColor="#6747cd" layoutX="50.0" layoutY="422.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0" promptText="Confirme sua senha" unFocusColor="#a3a3a3" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXButton buttonType="RAISED" layoutX="48.0" layoutY="504.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#cadastrar" prefHeight="50.0" prefWidth="300.0" ripplerFill="#0777ffcc" styleClass="loginBtn" text="Cadastrar" />
+      <FontAwesomeIcon fx:id="backbtn" glyphName="ARROW_LEFT" layoutX="13.0" layoutY="42.0" onMouseClicked="#back_to_menu" size="2em" stroke="WHITE" styleClass="backBtn" text="" />
+   </children>
+</AnchorPane>
