@@ -4,6 +4,9 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -72,8 +75,28 @@
                   <FontAwesomeIcon glyphName="MINUS" layoutX="751.0" layoutY="22.0" size="1.3em" text="" />
                   <Text fill="WHITE" layoutX="400.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Controle Acadêmico" />
                   <Label alignment="CENTER" layoutX="-1.0" layoutY="26.0" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: darkblue;" text="Painel Administrativo" textFill="#f5f5f5" />
-                  <JFXButton layoutX="719.0" layoutY="40.0" onMouseClicked="#painelSair" text="SAIR" textFill="WHITE" />
-                  <Label fx:id="userName" layoutX="652.0" layoutY="46.0" prefHeight="21.0" prefWidth="67.0" text="admin" textFill="#f8f8f8" />
+                  <JFXButton layoutX="744.0" layoutY="41.0" onMouseClicked="#painelSair" text="Sair" textFill="WHITE" />
+                  <Label fx:id="userName" layoutX="652.0" layoutY="46.0" prefHeight="21.0" prefWidth="52.0" text="admin" textFill="#f8f8f8" />
+                  <FontAwesomeIcon fill="#f8f8f8" glyphName="BELL" layoutX="719.0" layoutY="64.0" size="1.5em" />
+                  <MenuBar layoutY="-1.0" prefHeight="32.0" prefWidth="343.0" style="-fx-background-color: #303030;" styleClass="closeBtn">
+                    <menus>
+                      <Menu mnemonicParsing="false" text="File">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Close" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Edit">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="Delete" />
+                        </items>
+                      </Menu>
+                      <Menu mnemonicParsing="false" text="Help">
+                        <items>
+                          <MenuItem mnemonicParsing="false" text="About" />
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
                </children>
             </Pane>
          </children>

@@ -1,5 +1,22 @@
 /*
 https://howtodoinjava.com/java/collections/java-linkedlist-class/
+https://www.tutorialspoint.com/java_generics/java_generics_type_parameters.htm
+
+E − Element, and is mainly used by Java Collections framework.
+
+K − Key, and is mainly used to represent parameter type of key of a map.
+
+V − Value, and is mainly used to represent parameter type of value of a map.
+
+N − Number, and is mainly used to represent numbers.
+
+T − Type, and is mainly used to represent first generic type parameter.
+
+S − Type, and is mainly used to represent second generic type parameter.
+
+U − Type, and is mainly used to represent third generic type parameter.
+
+V − Type, and is mainly used to represent fourth generic type parameter.
  */
 package controle.academico.model;
 
@@ -147,7 +164,7 @@ public class ControleAcademico {
         auxA.forEach(Aluno -> System.out.println(Aluno.toString()));   
     }
     
-       public void printElements(List<String> list) {
+    public void printElements(List<String> list) {
         System.out.println("Size: "+list.size());
         for (Object o : list) {
             System.out.println(o.toString());

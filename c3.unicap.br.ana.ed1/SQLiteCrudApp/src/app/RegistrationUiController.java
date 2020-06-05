@@ -1,6 +1,7 @@
 
 package app;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +16,8 @@ public class RegistrationUiController implements Initializable {
 
     @FXML
     private AnchorPane pane;
+    @FXML
+    private FontAwesomeIcon backbtn;
 
 
     @Override
@@ -29,7 +32,7 @@ public class RegistrationUiController implements Initializable {
 
     @FXML
     private void back_to_menu(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("app/ui/login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/app/ui/login.fxml"));
         SQLiteCrudApp.stage.getScene().setRoot(root);
     }
     

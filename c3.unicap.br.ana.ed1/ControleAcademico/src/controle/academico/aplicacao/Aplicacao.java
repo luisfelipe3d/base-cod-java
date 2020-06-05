@@ -45,7 +45,7 @@ public class Aplicacao extends Application {
         this.stage = stage;
         
         
-        root.setOnMouseClicked((MouseEvent event) -> {
+        root.setOnMousePressed((MouseEvent event) -> {
             x = event.getSceneX();
             y = event.getSceneY();
         });

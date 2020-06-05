@@ -6,6 +6,9 @@
 package app.ui;
 
 import app.SQLiteCrudApp;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,6 +35,12 @@ public class LoginController implements Initializable {
     private AnchorPane parent;
     @FXML
     private Pane content_area;
+    @FXML
+    private JFXTextField cpf;
+    @FXML
+    private JFXPasswordField senha;
+    @FXML
+    private JFXButton btnEnter;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -69,6 +78,22 @@ public class LoginController implements Initializable {
         parent.setOnMouseReleased(e -> {
             SQLiteCrudApp.stage.setOpacity(1.0f);
         });
+    }
+
+    @FXML
+    private void entrar(MouseEvent event) throws IOException {
+        String user = this.cpf.getText();
+        String pass = this.senha.getText();
+        System.out.println("User:"+user+"\npass:"+pass);
+        if(user.equals("admin") && pass.equalsIgnoreCase("admin")){
+            System.out.println("Logado");
+            Parent root = FXMLLoader.load(getClass().getResource("/app/ui/app.fxml"));
+            parent.getChildren().removeAll();
+            parent.getChildren().setAll(root);
+            
+        }else{
+            System.out.println("Erro.");
+        }
     }
     
 }

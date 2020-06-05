@@ -7,17 +7,22 @@ package controle.academico.controller;
 
 import controle.academico.model.Aluno;
 import controle.academico.model.Endereco;
-import controle.academico.model.Pessoa;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -26,6 +31,8 @@ import javafx.scene.input.MouseEvent;
  */
 public class UiAluno implements Initializable {
     
+    @FXML
+    private AnchorPane anchorpane;
     @FXML
     private TableView<Aluno> tabela_alunos;
     @FXML
@@ -79,7 +86,7 @@ public class UiAluno implements Initializable {
     
     @FXML
     private void cadastrar_aluno(MouseEvent event) {
-        
+        carregaUI("cadastroAluno.fxml");
     }
 
     @FXML
@@ -92,6 +99,16 @@ public class UiAluno implements Initializable {
 
     private void editableCols() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    private void carregaUI(String UI) {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("/controle/academico/view/" + UI));
+            this.anchorpane.getChildren().setAll(root);
+        } catch (IOException ex) {
+            Logger.getLogger(UiPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
