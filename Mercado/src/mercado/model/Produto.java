@@ -6,12 +6,14 @@ public class Produto {
     private String marca;
     private String descricao;
     private double preco;
+    private int qtdEstoque;
 
-    public Produto(String nome, String marca, String descricao, double preco) {
+    public Produto(String nome, String marca, String descricao, double preco, int qtdEstoque) {
         this.nome = nome;
         this.marca = marca;
         this.descricao = descricao;
         this.preco = preco;
+        this.qtdEstoque = qtdEstoque;
     }
 
     public int getCodigo() {
@@ -52,6 +54,14 @@ public class Produto {
 
     public void setPreco(double preco) {
         this.preco = preco;
+    }
+    
+    public void setQtdEstoque(int qtdEstoque){
+        this.qtdEstoque = qtdEstoque;
+    }
+    
+    public int getQtdEstoque(){
+        return this.qtdEstoque;
     }
 
     @Override

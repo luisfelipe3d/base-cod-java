@@ -4,11 +4,13 @@ import java.util.List;
 import mercado.model.Produto;
 
 public interface IProduto {
-    public boolean cadastrarProduto(Produto p);
+    public boolean cadastrarProduto(Produto produto);
 
-    public void reabastecerEstoque();
+    public boolean alterarQuantidade(Produto produto, int quantidade);
 
-    public void listarProdutos();
-
-    public List<Produto> getProdutos();
+    public List listarProdutos();
+    
+    public boolean removerProduto(Produto produto);
+    
+    public boolean buscarProduto(Produto produto);
 }

@@ -1,6 +1,7 @@
 package mercado.model.repositorio;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import mercado.model.Produto;
 import mercado.Interface.IProduto;
@@ -9,22 +10,38 @@ public class RepositorioProduto implements IProduto {
     protected List<Produto> listaProdutos = new ArrayList();
 
     @Override
-    public boolean cadastrarProduto(Produto p) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean cadastrarProduto(Produto produto) {
+        if(buscarProduto(produto)){
+            return false;
+        }
+        return this.listaProdutos.add(produto);
     }
 
     @Override
-    public void reabastecerEstoque() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean alterarQuantidade(Produto produto, int quantidade) {
+        if(this.buscarProduto(produto)){
+            int index = this.listaProdutos.indexOf(produto);
+            this.listaProdutos.get(index).setQtdEstoque(quantidade);
+            return true;
+        }        
+        return false;
     }
 
     @Override
-    public void listarProdutos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List listarProdutos() {
+        return Collections.unmodifiableList(listaProdutos);
     }
 
     @Override
-    public List<Produto> getProdutos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean removerProduto(Produto produto) {
+        if(!buscarProduto(produto)){
+            return false;
+        }
+        return this.listaProdutos.remove(produto);
+    }
+
+    @Override
+    public boolean buscarProduto(Produto produto) {
+        return this.listaProdutos.contains(this);
     }
 }
