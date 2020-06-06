@@ -1,30 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package mercado.view;
 
-import java.util.ArrayList;
 import java.util.Scanner;
-import mercado.Interface.IUsuarioAdministrador;
-import mercado.model.UsuarioAdministrador;
 
-/**
- *
- * @author home
- */
+
 public class Aplicacao {
 
     static Scanner in = new Scanner(System.in);
-    public static ArrayList<UsuarioAdministrador> userADM = new ArrayList<>();
-    
     public static void main(String[] args) {
         int menuIni = menuInicial();
         int menuCli, menuAdm;
-        String user, pass;
-        UsuarioAdministrador user1 = new UsuarioAdministrador("Luis","admin","senha");
-        userADM.add(user1);
         
         do{
             switch(menuIni){
@@ -48,10 +33,6 @@ public class Aplicacao {
             switch (menuAdm) {
                 case 1:
                     System.out.println("Efetuar Login ADM");
-                    System.out.print("User: ");
-                    user = in.nextLine();
-                    System.out.print("Pass: ");
-                    pass = in.nextLine();
                     break;
                 case 2:
                     System.out.println("Cadastro ADM");
