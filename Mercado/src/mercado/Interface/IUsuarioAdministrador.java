@@ -16,4 +16,6 @@ public interface IUsuarioAdministrador {
     public void cadastrarProduto();
     public void alterarEstoque();
     public void removerProduto();
+    public boolean cadastroAdmin(UsuarioAdministrador User);
+    public void listar();
 }

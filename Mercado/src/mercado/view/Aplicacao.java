@@ -2,6 +2,9 @@
 package mercado.view;
 
 import java.util.Scanner;
+import mercado.Interface.IUsuarioAdministrador;
+import mercado.model.UsuarioAdministrador;
+import mercado.model.repositorio.RepositorioAdministrador;
 
 
 public class Aplicacao {
@@ -10,6 +13,8 @@ public class Aplicacao {
     public static void main(String[] args) {
         int menuIni = menuInicial();
         int menuCli, menuAdm;
+        IUsuarioAdministrador userAdm = new RepositorioAdministrador();
+        String nome,telefone,cpf,senha;
         
         do{
             switch(menuIni){
@@ -36,6 +41,17 @@ public class Aplicacao {
                     break;
                 case 2:
                     System.out.println("Cadastro ADM");
+                    System.out.print("Nome: ");
+                    nome = in.nextLine();
+                    System.out.print("CPF: ");
+                    cpf = in.nextLine();
+                    System.out.print("Telefone: ");
+                    telefone = in.nextLine();
+                    System.out.print("Senha: ");
+                    senha = in.nextLine();
+                    UsuarioAdministrador user = new UsuarioAdministrador(cpf,nome,senha,telefone);
+                    userAdm.cadastroAdmin(user);
+                    userAdm.listar();
                     break;
                 case 3:
                     System.out.println("Saindo.. ADM");

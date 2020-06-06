@@ -16,8 +16,13 @@ import mercado.model.UsuarioAdministrador;
  */
 public class RepositorioAdministrador implements IUsuarioAdministrador {
 
-    private List<UsuarioAdministrador> userAdm = new ArrayList();
+    private List<UsuarioAdministrador> userAdm;
+
+    public RepositorioAdministrador() {
+        this.userAdm = new ArrayList();
+    }
    
+    
     @Override
     public void cadastrarProduto() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -36,6 +41,21 @@ public class RepositorioAdministrador implements IUsuarioAdministrador {
     @Override
     public boolean login(UsuarioAdministrador User) {
         return false;
+    }
+
+    @Override
+    public boolean cadastroAdmin(UsuarioAdministrador User) {
+        if(this.userAdm.contains(User)){
+            return false;//TODO adc Expection
+        }
+        this.userAdm.add(User);
+        return true;
+    }
+    
+
+    @Override
+    public void listar() {
+        this.userAdm.forEach(e -> e.toString());
     }
     
 }
