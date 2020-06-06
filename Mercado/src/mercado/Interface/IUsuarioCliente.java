@@ -1,11 +1,13 @@
 package mercado.Interface;
 
+import mercado.model.UsuarioCliente;
+
 public interface IUsuarioCliente {
     
-    public boolean cadastrar();
+    public boolean cadastrar(UsuarioCliente cliente);
     
-    public boolean alterar();
+    public boolean remover(UsuarioCliente cliente);
     
-    public boolean remover();
+    public boolean buscar(UsuarioCliente cliente);
     
 }
