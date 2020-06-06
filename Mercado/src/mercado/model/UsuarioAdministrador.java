@@ -9,11 +9,6 @@ public class UsuarioAdministrador extends Usuario implements IUsuarioAdministrad
     }
 
     @Override
-    public <T extends Usuario> boolean login(T User) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public void cadastrarProduto() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -25,6 +20,11 @@ public class UsuarioAdministrador extends Usuario implements IUsuarioAdministrad
 
     @Override
     public void removerProduto() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean login(UsuarioAdministrador User) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
