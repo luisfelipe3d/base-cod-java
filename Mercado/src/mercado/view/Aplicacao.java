@@ -22,6 +22,7 @@ public class Aplicacao {
     public static void main(String[] args) {
         int menuIni = menuInicial();
         int menuCli, menuAdm;
+        String user, pass;
         UsuarioAdministrador user1 = new UsuarioAdministrador("Luis","admin","senha");
         userADM.add(user1);
         
@@ -44,15 +45,24 @@ public class Aplicacao {
             case 2:
                 //TODO mudar para uma forma melhor
                 menuAdm = menuAdministrativo();
-                if(menuAdm == 1){
+            switch (menuAdm) {
+                case 1:
                     System.out.println("Efetuar Login ADM");
-                }else if (menuAdm == 2){
+                    System.out.print("User: ");
+                    user = in.nextLine();
+                    System.out.print("Pass: ");
+                    pass = in.nextLine();
+                    break;
+                case 2:
                     System.out.println("Cadastro ADM");
-                }else if (menuAdm == 3){
+                    break;
+                case 3:
                     System.out.println("Saindo.. ADM");
-                }else{
+                    break;
+                default:
                     System.out.println("Inválido MenuADM()");
-                }
+                    break;
+            }
                 break;
             default:
                 System.out.println("Opção inválida!");
