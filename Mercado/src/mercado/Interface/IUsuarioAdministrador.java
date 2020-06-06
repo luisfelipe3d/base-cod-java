@@ -15,4 +15,5 @@ public interface IUsuarioAdministrador {
     public <T extends Usuario> boolean login(T User);
     public void cadastrarProduto();
     public void alterarEstoque();
+    public void removerProduto();
 }
