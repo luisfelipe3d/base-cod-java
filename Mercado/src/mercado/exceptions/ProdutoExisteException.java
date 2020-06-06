@@ -9,6 +9,6 @@ package mercado.exceptions;
  *
  * @author home
  */
-public class ProdutoExisteException {
+public class ProdutoExisteException extends Exception{
     
 }

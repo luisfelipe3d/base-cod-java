@@ -45,16 +45,16 @@ public class TotemPedidos {
         } while (opcao != 0);
     }
 
-    public boolean login(String user, String pass){
-        if(user.isEmpty() || pass.isEmpty()){
-            return false;
-        }
-        Usuario temp;
-        String tempUser = user.toUpperCase();
-        String tempPass = pass.toUpperCase();
-        temp = 
-        
-    }
+//    public boolean login(String user, String pass){
+//        if(user.isEmpty() || pass.isEmpty()){
+//            return false;
+//        }
+//        Usuario temp;
+//        String tempUser = user.toUpperCase();
+//        String tempPass = pass.toUpperCase();
+//        temp = 
+//        
+//    }
     
     private void efetuarLogin() {
         System.out.println("Informe seu login: ");

@@ -31,5 +31,10 @@ public class UsuarioAdministrador extends Usuario implements IUsuarioAdministrad
     public void alterarEstoque() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void removerProduto() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

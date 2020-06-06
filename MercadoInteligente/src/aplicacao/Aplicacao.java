@@ -40,31 +40,31 @@ public class Aplicacao {
             switch (opcao) {
             case 1:
                 //TODO mudar para uma forma melhor
-                menuCliente = menuCliente();
-                if(menuCliente == 1){
-                    System.out.println("Efetuar Login Cliente");
-                }else if (menuCliente == 2){
-                    System.out.println("Cadastro Cliente");
-                }else if (menuCliente == 3){
-                    System.out.println("Saindo.. Cliente");
-                }else{
-                    System.out.println("Inválido MenuCliente()");
-                }
-                //totemPedidos.menu();
+//                menuCliente = menuCliente();
+//                if(menuCliente == 1){
+//                    System.out.println("Efetuar Login Cliente");
+//                }else if (menuCliente == 2){
+//                    System.out.println("Cadastro Cliente");
+//                }else if (menuCliente == 3){
+//                    System.out.println("Saindo.. Cliente");
+//                }else{
+//                    System.out.println("Inválido MenuCliente()");
+//                }
+                totemPedidos.menu();
                 break;
             case 2:
                 //TODO mudar para uma forma melhor
-                menuAdministrativo = menuAdministrativo();
-                if(menuAdministrativo == 1){
-                    System.out.println("Efetuar Login Cliente");
-                }else if (menuAdministrativo == 2){
-                    System.out.println("Cadastro Cliente");
-                }else if (menuAdministrativo == 3){
-                    System.out.println("Saindo.. Cliente");
-                }else{
-                    System.out.println("Inválido MenuCliente()");
-                }
-                //interfaceAdm.menu();
+//                menuAdministrativo = menuAdministrativo();
+//                if(menuAdministrativo == 1){
+//                    System.out.println("Efetuar Login Cliente");
+//                }else if (menuAdministrativo == 2){
+//                    System.out.println("Cadastro Cliente");
+//                }else if (menuAdministrativo == 3){
+//                    System.out.println("Saindo.. Cliente");
+//                }else{
+//                    System.out.println("Inválido MenuCliente()");
+//                }
+                interfaceAdm.menu();
                 break;
             default:
                 System.out.println("Opção inválida!");
@@ -106,6 +106,5 @@ public class Aplicacao {
         return opcao;
     }
     
-    public static 
     
 }
