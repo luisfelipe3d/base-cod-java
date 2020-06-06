@@ -5,7 +5,10 @@
  */
 package mercado.view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import mercado.Interface.IUsuarioAdministrador;
+import mercado.model.UsuarioAdministrador;
 
 /**
  *
@@ -14,10 +17,13 @@ import java.util.Scanner;
 public class Aplicacao {
 
     static Scanner in = new Scanner(System.in);
+    public static ArrayList<UsuarioAdministrador> userADM = new ArrayList<>();
     
     public static void main(String[] args) {
         int menuIni = menuInicial();
         int menuCli, menuAdm;
+        UsuarioAdministrador user1 = new UsuarioAdministrador("Luis","admin","senha");
+        userADM.add(user1);
         
         do{
             switch(menuIni){
@@ -39,13 +45,13 @@ public class Aplicacao {
                 //TODO mudar para uma forma melhor
                 menuAdm = menuAdministrativo();
                 if(menuAdm == 1){
-                    System.out.println("Efetuar Login Cliente");
+                    System.out.println("Efetuar Login ADM");
                 }else if (menuAdm == 2){
-                    System.out.println("Cadastro Cliente");
+                    System.out.println("Cadastro ADM");
                 }else if (menuAdm == 3){
-                    System.out.println("Saindo.. Cliente");
+                    System.out.println("Saindo.. ADM");
                 }else{
-                    System.out.println("Inválido MenuCliente()");
+                    System.out.println("Inválido MenuADM()");
                 }
                 break;
             default:
@@ -80,9 +86,10 @@ public class Aplicacao {
     
     public static int menuAdministrativo(){
         int opcao;
-        System.out.print("ÁREA ADMINISTRATIVA \n"
+        System.out.print("Área do Administrador \n"
                 + "1. Efetuar login \n"
-                + "2. Sair\n"
+                + "2. Cadastrar Administrador\n"
+                + "3. Sair\n"
                 + "Opção: ");
         opcao = in.nextInt();in.nextLine();
         return opcao;

@@ -5,10 +5,12 @@
  */
 package mercado.Interface;
 
+import mercado.model.Usuario;
+
 /**
  *
  * @author home
  */
 public interface IUsuario {
-    
+    public <T extends Usuario> boolean login(T User);
 }
