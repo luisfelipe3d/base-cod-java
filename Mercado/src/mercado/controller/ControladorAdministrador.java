@@ -22,8 +22,7 @@ public class ControladorAdministrador {
     }
     
     public boolean cadastro(UsuarioAdministrador User){
-        this.repoAdmin.cadastro(User);
-        return true;
+        return this.repoAdmin.cadastro(User);
     }
     
     public void cadastrarProduto(){
@@ -34,5 +33,9 @@ public class ControladorAdministrador {
     }
     public void removerProduto(){
         
+    }
+    
+    public boolean login(UsuarioAdministrador User){
+        return this.repoAdmin.login(User);
     }
 }

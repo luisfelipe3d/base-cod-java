@@ -45,5 +45,4 @@ public abstract class Usuario {
         this.senha = senha;
     }
     
-    
 }
