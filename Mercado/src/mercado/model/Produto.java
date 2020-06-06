@@ -1,28 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mercado.model;
 
-/**
- *
- * @author home
- */
-public class Produto {
-    
+public class Produto {    
     private int codigo;
     private String nome;
     private String marca;
     private String descricao;
     private double preco;
+    private int qtdEstoque;
 
-    public Produto(String nome, String marca, String descricao,
-            double preco) {
+    public Produto(String nome, String marca, String descricao, double preco, int qtdEstoque) {
         this.nome = nome;
         this.marca = marca;
         this.descricao = descricao;
         this.preco = preco;
+        this.qtdEstoque = qtdEstoque;
     }
 
     public int getCodigo() {
@@ -63,6 +54,14 @@ public class Produto {
 
     public void setPreco(double preco) {
         this.preco = preco;
+    }
+    
+    public void setQtdEstoque(int qtdEstoque){
+        this.qtdEstoque = qtdEstoque;
+    }
+    
+    public int getQtdEstoque(){
+        return this.qtdEstoque;
     }
 
     @Override
