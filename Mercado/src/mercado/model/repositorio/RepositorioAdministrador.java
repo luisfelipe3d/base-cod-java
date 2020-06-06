@@ -16,12 +16,7 @@ import mercado.model.UsuarioAdministrador;
  */
 public class RepositorioAdministrador implements IUsuarioAdministrador {
 
-    private List<UsuarioAdministrador> userAdm;
-
-    public RepositorioAdministrador() {
-        this.userAdm = new ArrayList();
-    }
-   
+    private List<UsuarioAdministrador> userAdm = new ArrayList<>();
     
     @Override
     public void cadastrarProduto() {
@@ -40,22 +35,24 @@ public class RepositorioAdministrador implements IUsuarioAdministrador {
 
     @Override
     public boolean login(UsuarioAdministrador User) {
+        String user = User.getCPF();
+        String pass = User.getSenha();
+        this.userAdm.forEach(item -> {
+            if(item.getCPF().equals(user) && item.getSenha().equals(pass)){
+                System.out.println("Logado");//TODO chamar parte autenticada
+                
+            }
+        });
         return false;
     }
 
     @Override
-    public boolean cadastroAdmin(UsuarioAdministrador User) {
+    public boolean cadastro(UsuarioAdministrador User) {
         if(this.userAdm.contains(User)){
             return false;//TODO adc Expection
         }
         this.userAdm.add(User);
         return true;
-    }
-    
-
-    @Override
-    public void listar() {
-        this.userAdm.forEach(e -> e.toString());
     }
     
 }

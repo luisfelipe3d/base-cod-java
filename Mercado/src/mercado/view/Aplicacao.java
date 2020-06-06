@@ -49,9 +49,7 @@ public class Aplicacao {
                     telefone = in.nextLine();
                     System.out.print("Senha: ");
                     senha = in.nextLine();
-                    UsuarioAdministrador user = new UsuarioAdministrador(cpf,nome,senha,telefone);
-                    userAdm.cadastroAdmin(user);
-                    userAdm.listar();
+                    
                     break;
                 case 3:
                     System.out.println("Saindo.. ADM");
