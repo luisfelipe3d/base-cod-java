@@ -2,9 +2,6 @@
 package mercado.view;
 
 import java.util.Scanner;
-import mercado.Interface.IUsuarioAdministrador;
-import mercado.model.UsuarioAdministrador;
-import mercado.model.repositorio.RepositorioAdministrador;
 
 
 public class Aplicacao {
@@ -13,7 +10,6 @@ public class Aplicacao {
     public static void main(String[] args) {
         int menuIni = menuInicial();
         int menuCli, menuAdm;
-        IUsuarioAdministrador userAdm = new RepositorioAdministrador();
         String nome,telefone,cpf,senha;
         
         do{
@@ -53,6 +49,7 @@ public class Aplicacao {
                     break;
                 case 3:
                     System.out.println("Saindo.. ADM");
+                    menuIni = menuInicial();
                     break;
                 default:
                     System.out.println("Inválido MenuADM()");
@@ -61,7 +58,7 @@ public class Aplicacao {
                 break;
             default:
                 System.out.println("Opção inválida!");
-                menuInicial();
+                menuIni = menuInicial();
             }
             
         }while(menuIni != 3);
