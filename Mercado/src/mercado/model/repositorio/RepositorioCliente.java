@@ -6,21 +6,27 @@ import mercado.Interface.IUsuarioCliente;
 import mercado.model.UsuarioCliente;
 
 public class RepositorioCliente implements IUsuarioCliente{
-    private List<UsuarioCliente> lista = new ArrayList();
+    private List<UsuarioCliente> listaClientes = new ArrayList();
     
     @Override
-    public boolean cadastrar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean cadastrar(UsuarioCliente cliente) {
+        if(this.buscar(cliente)){
+            return false;
+        }
+        return this.listaClientes.add(cliente);
     }
 
     @Override
-    public boolean alterar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean remover(UsuarioCliente cliente) {
+        if(!this.buscar(cliente)){
+            return false;
+        }
+        return this.listaClientes.remove(cliente);        
     }
-
+    
     @Override
-    public boolean remover() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean buscar(UsuarioCliente cliente){
+        return this.listaClientes.contains(cliente);
     }
     
 }
