@@ -1,20 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mercado.model;
 
 import mercado.Interface.IUsuarioAdministrador;
 
-/**
- *
- * @author home
- */
 public class UsuarioAdministrador extends Usuario implements IUsuarioAdministrador {
     
-    public UsuarioAdministrador(String nome, String usuario, String senha) {
-        super(nome, usuario, senha);
+    public UsuarioAdministrador(String CPF, String nome, String usuario, String senha) {
+        super(CPF, nome, usuario, senha);
     }
 
     @Override

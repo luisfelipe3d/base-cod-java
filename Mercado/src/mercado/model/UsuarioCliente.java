@@ -13,12 +13,22 @@ import mercado.Interface.IUsuarioCliente;
  */
 public class UsuarioCliente  extends Usuario implements IUsuarioCliente {
     
-    public UsuarioCliente(String CPF, String nome, String telefone, String login, String senha) {
-        super(CPF, nome, telefone, login, senha);
+    public UsuarioCliente(String CPF, String nome, String telefone, String senha) {
+        super(CPF, nome, telefone, senha);
     }
 
     @Override
     public boolean cadastrar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean alterar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean remover() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
