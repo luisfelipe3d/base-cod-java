@@ -42,6 +42,6 @@ public class RepositorioProduto implements IProduto {
 
     @Override
     public boolean buscarProduto(Produto produto) {
-        return this.listaProdutos.contains(this);
+        return this.listaProdutos.contains(produto);
     }
 }
