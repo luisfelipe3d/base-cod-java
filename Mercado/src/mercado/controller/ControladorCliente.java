@@ -15,8 +15,12 @@ public class ControladorCliente {
         return this.repositorioCliente.cadastrar(cliente);
     }
     
-    public boolean remover(UsuarioCliente cliente){
-        return this.repositorioCliente.remover(cliente);
+    public boolean remover(String CPF){
+        return this.repositorioCliente.remover(CPF);
+    }
+    
+    public boolean login(String CPF, String senha){
+        return this.repositorioCliente.login(CPF, senha);
     }
     
 }

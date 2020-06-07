@@ -16,16 +16,16 @@ public class ControladorProduto {
         return this.repositorioProduto.cadastrarProduto(produto);
     }
     
-    public boolean alterarQuantidade(Produto produto, int quantidade){
-        return this.repositorioProduto.alterarQuantidade(produto, quantidade);
+    public boolean alterarQuantidade(int codigo, int quantidade){
+        return this.repositorioProduto.alterarQuantidade(codigo, quantidade);
     }
     
     public List listarProdutos(){
         return this.repositorioProduto.listarProdutos();
     }
     
-    public boolean removerProduto(Produto produto){
-        return this.repositorioProduto.removerProduto(produto);
+    public boolean removerProduto(int codigo){
+        return this.repositorioProduto.removerProduto(codigo);
     }
     
 }

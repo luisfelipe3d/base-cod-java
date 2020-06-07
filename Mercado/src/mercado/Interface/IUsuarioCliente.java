@@ -6,8 +6,10 @@ public interface IUsuarioCliente {
     
     public boolean cadastrar(UsuarioCliente cliente);
     
-    public boolean remover(UsuarioCliente cliente);
+    public boolean remover(String CPF);
     
-    public boolean buscar(UsuarioCliente cliente);
+    public int buscar(String CPF);
+    
+    public boolean login(String CPF, String senha);
     
 }

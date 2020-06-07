@@ -20,8 +20,8 @@ public class Fachada implements IFachada{
     }
 
     @Override
-    public boolean removerCliente(UsuarioCliente cliente) {
-        return this.controladorCliente.remover(cliente);
+    public boolean removerCliente(String CPF) {
+        return this.controladorCliente.remover(CPF);
     }
 
     @Override
@@ -35,8 +35,8 @@ public class Fachada implements IFachada{
     }
 
     @Override
-    public boolean alterarQuantidade(Produto produto, int quantidade) {
-        return this.controladorProduto.alterarQuantidade(produto, quantidade);
+    public boolean alterarQuantidade(int codigo, int quantidade) {
+        return this.controladorProduto.alterarQuantidade(codigo, quantidade);
     }
 
     @Override
@@ -45,8 +45,13 @@ public class Fachada implements IFachada{
     }
 
     @Override
-    public boolean removerProduto(Produto produto) {
-        return this.controladorProduto.removerProduto(produto);
+    public boolean removerProduto(int codigo) {
+        return this.controladorProduto.removerProduto(codigo);
+    }
+
+    @Override
+    public boolean loginCliente(String CPF, String senha) {
+        return this.controladorCliente.login(CPF, senha);
     }
     
 }
