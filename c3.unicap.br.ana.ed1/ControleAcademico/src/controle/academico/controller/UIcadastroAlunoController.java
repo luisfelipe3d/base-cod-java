@@ -69,11 +69,12 @@ public class UIcadastroAlunoController implements Initializable {
         String tcep = this.cep.getText();
         String tcidade = this.cidade.getText();
         String tnum = this.numero.getText();
-        System.out.println()
+        System.out.println();
     }
 
     @FXML
     private void voltarCadastro(MouseEvent event) {
+        
     }
     
 }
