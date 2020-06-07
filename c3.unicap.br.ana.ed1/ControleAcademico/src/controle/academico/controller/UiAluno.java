@@ -5,6 +5,7 @@
  */
 package controle.academico.controller;
 
+import controle.academico.aplicacao.Aplicacao;
 import controle.academico.model.Aluno;
 import controle.academico.model.Endereco;
 import java.io.IOException;
@@ -18,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -31,8 +33,6 @@ import javafx.scene.layout.AnchorPane;
  */
 public class UiAluno implements Initializable {
     
-    @FXML
-    private AnchorPane anchorpane;
     @FXML
     private TableView<Aluno> tabela_alunos;
     @FXML
@@ -51,6 +51,8 @@ public class UiAluno implements Initializable {
     private TableColumn<Aluno, String> nascimento_aluno;
     
     private ObservableList<Aluno> obsAlunos;
+    @FXML
+    private AnchorPane anchorAluno;
     
     public UiAluno (){
         this.obsAlunos = FXCollections.observableList(UiPrincipal.logica.getAlunos());
@@ -102,10 +104,12 @@ public class UiAluno implements Initializable {
     }
     
     private void carregaUI(String UI) {
-        Parent root = null;
+        AnchorPane root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("/controle/academico/view/" + UI));
-            this.anchorpane.getChildren().setAll(root);
+            this.anchorAluno.getChildren().removeAll();
+            this.anchorAluno.getChildren().setAll(root);
+           
         } catch (IOException ex) {
             Logger.getLogger(UiPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
