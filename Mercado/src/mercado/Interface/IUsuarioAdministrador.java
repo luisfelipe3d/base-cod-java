@@ -12,7 +12,7 @@ import mercado.model.UsuarioAdministrador;
  * @author home
  */
 public interface IUsuarioAdministrador {
-    public boolean login(UsuarioAdministrador User);
+    public boolean login(String cpf, String senha);
     public void cadastrarProduto();
     public void alterarEstoque();
     public void removerProduto();

@@ -34,11 +34,9 @@ public class RepositorioAdministrador implements IUsuarioAdministrador {
     }
 
     @Override
-    public boolean login(UsuarioAdministrador User) {
-        String user = User.getCPF();
-        String pass = User.getSenha();
+    public boolean login(String cpf, String senha) {
         this.userAdm.forEach(item -> {
-            if(item.getCPF().equals(user) && item.getSenha().equals(pass)){
+            if(item.getCPF().equals(cpf) && item.getSenha().equals(senha)){
                 System.out.println("Logado");//TODO chamar parte autenticada
                 
             }

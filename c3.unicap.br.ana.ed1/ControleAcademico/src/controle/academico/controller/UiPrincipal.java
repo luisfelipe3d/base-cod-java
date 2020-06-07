@@ -31,7 +31,7 @@ public class UiPrincipal implements Initializable {
     
     public static ControleAcademico logica;
     @FXML
-    private BorderPane borderpane;
+    public BorderPane borderpane;
     @FXML
     private Label userName;
     @FXML
