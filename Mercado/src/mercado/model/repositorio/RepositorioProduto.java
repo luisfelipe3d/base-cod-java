@@ -10,17 +10,14 @@ public class RepositorioProduto implements IProduto {
     protected List<Produto> listaProdutos = new ArrayList();
 
     @Override
-    public boolean cadastrarProduto(Produto produto) {
-        if(buscarProduto(produto)){
-            return false;
-        }
+    public boolean cadastrarProduto(Produto produto) {  
         return this.listaProdutos.add(produto);
     }
 
     @Override
-    public boolean alterarQuantidade(Produto produto, int quantidade) {
-        if(this.buscarProduto(produto)){
-            int index = this.listaProdutos.indexOf(produto);
+    public boolean alterarQuantidade(int codigo, int quantidade) {
+        if(this.buscarProduto(codigo) != -1){
+            int index = this.buscarProduto(codigo);
             this.listaProdutos.get(index).setQtdEstoque(quantidade);
             return true;
         }        
@@ -33,15 +30,31 @@ public class RepositorioProduto implements IProduto {
     }
 
     @Override
-    public boolean removerProduto(Produto produto) {
-        if(!buscarProduto(produto)){
+    public boolean removerProduto(int codigo) {
+        if(buscarProduto(codigo) == -1){
             return false;
         }
-        return this.listaProdutos.remove(produto);
+        this.listaProdutos.remove(buscarProduto(codigo));
+        return true;
     }
 
     @Override
-    public boolean buscarProduto(Produto produto) {
-        return this.listaProdutos.contains(produto);
+    public int buscarProduto(int codigo) {
+        for(int i = 0; i < this.listaProdutos.size(); i++){
+            if(this.listaProdutos.get(i).getCodigo() == codigo){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    @Override
+    public Produto retornarProduto(int codigo) {
+        int codigoProduto = this.buscarProduto(codigo);
+        if(codigoProduto != -1){
+            return this.listaProdutos.get(codigoProduto);
+        }else{
+            return null;
+        }
     }
 }

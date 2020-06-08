@@ -6,11 +6,13 @@ import mercado.model.Produto;
 public interface IProduto {
     public boolean cadastrarProduto(Produto produto);
 
-    public boolean alterarQuantidade(Produto produto, int quantidade);
+    public boolean alterarQuantidade(int codigo, int quantidade);
 
     public List listarProdutos();
     
-    public boolean removerProduto(Produto produto);
+    public boolean removerProduto(int codigo);
     
-    public boolean buscarProduto(Produto produto);
+    public int buscarProduto(int codigo);
+    
+    public Produto retornarProduto(int codigo);
 }
