@@ -1,7 +1,10 @@
 package mercado.controller;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import mercado.Interface.IProduto;
+import mercado.model.DescontoProduto;
 import mercado.model.Produto;
 import mercado.model.repositorio.RepositorioProduto;
 
@@ -34,5 +37,19 @@ public class ControladorProduto {
     
     public Produto retornarProduto(int codigo){
         return this.repositorioProduto.retornarProduto(codigo);
+    }
+    
+    public boolean aplicarDescontoAleatorio(){
+        DescontoProduto descontoProduto = new DescontoProduto((RepositorioProduto)this.repositorioProduto);
+        Thread concorrencia = new Thread(descontoProduto);
+        concorrencia.start();
+        
+        try {
+            concorrencia.join();
+            return true;
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ControladorProduto.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
     }
 }
