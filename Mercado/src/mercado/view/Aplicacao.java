@@ -105,6 +105,19 @@ public class Aplicacao {
         return opcao;
     }
     
+    public static int menuClienteAutenticado(){
+        int opcao;
+        System.out.println("Área do cliente.");
+        System.out.print("Escolha a opção: \n"
+                + "1. Visualizar catálogo. \n"
+                + "2. Adicionar item ao carrinho. \n"
+                + "3. Remover item do carrinho. \n"
+                + "4. Visualizar carrinho. \n"
+                + "Opção: ");
+        opcao = in.nextInt();in.nextLine();
+        return opcao;
+    }
+    
     public static int menuAdministrativo(){
         int opcao;
         System.out.print("Área do Administrador \n"
