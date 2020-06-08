@@ -10,10 +10,7 @@ public class RepositorioProduto implements IProduto {
     protected List<Produto> listaProdutos = new ArrayList();
 
     @Override
-    public boolean cadastrarProduto(Produto produto) {
-        if(buscarProduto(produto.getCodigo()) != -1){
-            return false;
-        }
+    public boolean cadastrarProduto(Produto produto) {  
         return this.listaProdutos.add(produto);
     }
 
