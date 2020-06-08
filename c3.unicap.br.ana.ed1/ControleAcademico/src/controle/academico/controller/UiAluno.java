@@ -5,11 +5,11 @@
  */
 package controle.academico.controller;
 
-import controle.academico.aplicacao.Aplicacao;
 import controle.academico.model.Aluno;
 import controle.academico.model.Endereco;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,8 +18,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -46,9 +44,9 @@ public class UiAluno implements Initializable {
     @FXML
     private TableColumn<Endereco, String> endereco_aluno;
     @FXML
-    private TableColumn<Aluno, Character> sexo_aluno;
+    private TableColumn<Aluno, String> sexo_aluno;
     @FXML
-    private TableColumn<Aluno, String> nascimento_aluno;
+    private TableColumn<Aluno, LocalDate> nascimento_aluno;
     
     private ObservableList<Aluno> obsAlunos;
     @FXML

@@ -33,6 +33,7 @@ import javafx.scene.layout.BorderPane;
 public class UiPrincipal implements Initializable {
     
     public static ControleAcademico logica;
+    
     @FXML
     public BorderPane borderpane;
     @FXML
@@ -49,46 +50,46 @@ public class UiPrincipal implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Aluno a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12;
-        Endereco en1,en2,en3,en4,en5,en6,en7,en8,en9,en10,en11,en12;
-        Date date = new Date();
-        en1 = new Endereco("AP","Macapá","Avenida Quatorze de Julho","24","68904-730","");
-        en2 = new Endereco("ES","Linhares","Avenida Vasco Fernandes Coutinho","34","29903-192","");
-        en3 = new Endereco("PB","Bayeux","Rua Firmino Coutinho","124","58306-030","");
-        en4 = new Endereco("SC","Florianópolis","Rua Deputado Walter Gomes","67","88050501","");
-        en5 = new Endereco("PA","Altamira","Rua Raimundo Oliveira","98","68372612","");
-        en6 = new Endereco("PE","Recife","Rua Pio IX","435","50710265","");  
-        a1 = new Aluno("082.194.550-55","João","NS10",date.toString(), "MASCULINO", "81 99123-4443", "teste@teste.com", en1);
-        a2 = new Aluno("550.975.830-94","Rafa","BK34",date.toString(),"MASCULINO","11 98124-2341","rafa@unicap.br",en2);
-        a3 = new Aluno("676.743.930-46","Maria","SF20",date.toString(),"FEMININO","41 98443-9807","maria@live.com",en3);
-        a4 = new Aluno("382.520.140-62","Carla","VS64",date.toString(),"FEMININO","51 98234-0098","carla@gmail.com",en4);
-        a5 = new Aluno("744.236.600-75","Valter","PQ78",date.toString(),"MASCULINO","35 98123-7835","valter@uol.com.br",en5);
-        a6 = new Aluno("662.883.980-04","Aline","FIFI",date.toString(),"FEMININO","81 98844-1111","fifi@fifi.com.br",en6);
-        en7 = new Endereco("AP","Macapá","Avenida Quatorze de Julho","24","68904-730","");
-        en8 = new Endereco("ES","Linhares","Avenida Vasco Fernandes Coutinho","34","29903-192","");
-        en9 = new Endereco("PB","Bayeux","Rua Firmino Coutinho","124","58306-030","");
-        en10 = new Endereco("SC","Florianópolis","Rua Deputado Walter Gomes","67","88050501","");
-        en11 = new Endereco("PA","Altamira","Rua Raimundo Oliveira","98","68372612","");
-        en12 = new Endereco("PE","Recife","Rua Pio IX","435","50710265","");  
-        a7 = new Aluno("082.194.550-55","João","NS10",date.toString(), "MASCULINO", "81 99123-4443", "teste@teste.com", en7);
-        a8 = new Aluno("550.975.830-94","Rafa","BK34",date.toString(),"MASCULINO","11 98124-2341","rafa@unicap.br",en8);
-        a9 = new Aluno("676.743.930-46","Maria","SF20",date.toString(),"FEMININO","41 98443-9807","maria@live.com",en9);
-        a10 = new Aluno("382.520.140-62","Carla","VS64",date.toString(),"FEMININO","51 98234-0098","carla@gmail.com",en10);
-        a11 = new Aluno("744.236.600-75","Valter","PQ78",date.toString(),"MASCULINO","35 98123-7835","valter@uol.com.br",en11);
-        a12 = new Aluno("662.883.980-04","Aline","FIFI",date.toString(),"FEMININO","81 98844-1111","fifi@fifi.com.br",en12);
-        
-        UiPrincipal.logica.cadastrar(a1);
-        UiPrincipal.logica.cadastrar(a2);
-        UiPrincipal.logica.cadastrar(a3);
-        UiPrincipal.logica.cadastrar(a4);
-        UiPrincipal.logica.cadastrar(a5);
-        UiPrincipal.logica.cadastrar(a6);
-        UiPrincipal.logica.cadastrar(a7);
-        UiPrincipal.logica.cadastrar(a8);
-        UiPrincipal.logica.cadastrar(a9);
-        UiPrincipal.logica.cadastrar(a10);
-        UiPrincipal.logica.cadastrar(a11);
-        UiPrincipal.logica.cadastrar(a12);
+//        Aluno a1,a2,a3,a4,a5,a6,a7,a8,a9,a10,a11,a12;
+//        Endereco en1,en2,en3,en4,en5,en6,en7,en8,en9,en10,en11,en12;
+//        Date date = new Date();
+//        en1 = new Endereco("AP","Macapá","Avenida Quatorze de Julho","24","68904-730","");
+//        en2 = new Endereco("ES","Linhares","Avenida Vasco Fernandes Coutinho","34","29903-192","");
+//        en3 = new Endereco("PB","Bayeux","Rua Firmino Coutinho","124","58306-030","");
+//        en4 = new Endereco("SC","Florianópolis","Rua Deputado Walter Gomes","67","88050501","");
+//        en5 = new Endereco("PA","Altamira","Rua Raimundo Oliveira","98","68372612","");
+//        en6 = new Endereco("PE","Recife","Rua Pio IX","435","50710265","");  
+//        a1 = new Aluno("082.194.550-55","João","NS10",date.toString(), "MASCULINO", "81 99123-4443", "teste@teste.com", en1);
+//        a2 = new Aluno("550.975.830-94","Rafa","BK34",date.toString(),"MASCULINO","11 98124-2341","rafa@unicap.br",en2);
+//        a3 = new Aluno("676.743.930-46","Maria","SF20",date.toString(),"FEMININO","41 98443-9807","maria@live.com",en3);
+//        a4 = new Aluno("382.520.140-62","Carla","VS64",date.toString(),"FEMININO","51 98234-0098","carla@gmail.com",en4);
+//        a5 = new Aluno("744.236.600-75","Valter","PQ78",date.toString(),"MASCULINO","35 98123-7835","valter@uol.com.br",en5);
+//        a6 = new Aluno("662.883.980-04","Aline","FIFI",date.toString(),"FEMININO","81 98844-1111","fifi@fifi.com.br",en6);
+//        en7 = new Endereco("AP","Macapá","Avenida Quatorze de Julho","24","68904-730","");
+//        en8 = new Endereco("ES","Linhares","Avenida Vasco Fernandes Coutinho","34","29903-192","");
+//        en9 = new Endereco("PB","Bayeux","Rua Firmino Coutinho","124","58306-030","");
+//        en10 = new Endereco("SC","Florianópolis","Rua Deputado Walter Gomes","67","88050501","");
+//        en11 = new Endereco("PA","Altamira","Rua Raimundo Oliveira","98","68372612","");
+//        en12 = new Endereco("PE","Recife","Rua Pio IX","435","50710265","");  
+//        a7 = new Aluno("082.194.550-55","João","NS10",date.toString(), "MASCULINO", "81 99123-4443", "teste@teste.com", en7);
+//        a8 = new Aluno("550.975.830-94","Rafa","BK34",date.toString(),"MASCULINO","11 98124-2341","rafa@unicap.br",en8);
+//        a9 = new Aluno("676.743.930-46","Maria","SF20",date.toString(),"FEMININO","41 98443-9807","maria@live.com",en9);
+//        a10 = new Aluno("382.520.140-62","Carla","VS64",date.toString(),"FEMININO","51 98234-0098","carla@gmail.com",en10);
+//        a11 = new Aluno("744.236.600-75","Valter","PQ78",date.toString(),"MASCULINO","35 98123-7835","valter@uol.com.br",en11);
+//        a12 = new Aluno("662.883.980-04","Aline","FIFI",date.toString(),"FEMININO","81 98844-1111","fifi@fifi.com.br",en12);
+//        
+//        UiPrincipal.logica.cadastrar(a1);
+//        UiPrincipal.logica.cadastrar(a2);
+//        UiPrincipal.logica.cadastrar(a3);
+//        UiPrincipal.logica.cadastrar(a4);
+//        UiPrincipal.logica.cadastrar(a5);
+//        UiPrincipal.logica.cadastrar(a6);
+//        UiPrincipal.logica.cadastrar(a7);
+//        UiPrincipal.logica.cadastrar(a8);
+//        UiPrincipal.logica.cadastrar(a9);
+//        UiPrincipal.logica.cadastrar(a10);
+//        UiPrincipal.logica.cadastrar(a11);
+//        UiPrincipal.logica.cadastrar(a12);
         //UiPrincipal.logica.salvarLista();
         //UiPrincipal.logica.carregarLista();
 

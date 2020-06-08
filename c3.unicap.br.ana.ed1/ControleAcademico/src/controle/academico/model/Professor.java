@@ -5,13 +5,15 @@
  */
 package controle.academico.model;
 
+import java.time.LocalDate;
+
 /**
  * Cria um objeto Professor
  * @author home
  */
 public class Professor extends Pessoa {
 
-    public Professor(String cpf, String nome, String dataNascimento, 
+    public Professor(String cpf, String nome, LocalDate dataNascimento, 
             String sexo, String telefone, String email, Endereco endereco) {
         super(cpf, nome, dataNascimento, sexo, telefone, email, endereco);
     }
