@@ -156,6 +156,9 @@ public class Aplicacao {
                                                 percorreLista(fachada.visualizarProdutos());
                                                 break;
                                             case 5:
+                                                fachada.aplicarDescontoAleatorio();
+                                                break;
+                                            case 6:
                                                 System.out.println("Fim programa");
                                                 break;
                                             default:
@@ -163,7 +166,7 @@ public class Aplicacao {
                                                 menuAdmAuth = menuAdministrativoAuth();
                                         }
                                         
-                                    }while(menuAdmAuth != 5);
+                                    }while(menuAdmAuth != 6);
                                 }
                                 break;
                             case 2:
@@ -257,7 +260,8 @@ public class Aplicacao {
                 + "2. Alterar quantidade em estoque. \n"
                 + "3. Remover produto. \n"
                 + "4. Visualizar catálogo. \n"
-                + "5. Sair. \n"
+                + "5. Aplicar 20% desconto. \n"
+                + "6. Sair. \n"
                 + "Opção: ");
         opcao = in.nextInt();
         in.nextLine();
@@ -271,8 +275,5 @@ public class Aplicacao {
         l.forEach((a) -> {
             System.out.println(a);
         });
-        for(int i = 0 ; i < l.size(); i++){
-            System.out.println(l.get(i));
-        }
     }
 }
