@@ -3,15 +3,18 @@ package mercado.controller;
 import java.util.List;
 import mercado.Interface.IFachada;
 import mercado.model.Produto;
+import mercado.model.UsuarioAdministrador;
 import mercado.model.UsuarioCliente;
 
 public class Fachada implements IFachada{
     ControladorCliente controladorCliente;
     ControladorProduto controladorProduto;
+    ControladorAdministrador controladorAdministrador; 
     
     public Fachada(){
         this.controladorCliente = new ControladorCliente();
         this.controladorProduto = new ControladorProduto();
+        this.controladorAdministrador = new ControladorAdministrador();
     }
 
     @Override
@@ -25,8 +28,8 @@ public class Fachada implements IFachada{
     }
 
     @Override
-    public boolean cadastarAdministrador() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean cadastarAdministrador(UsuarioAdministrador administrador) {
+        return this.controladorAdministrador.cadastro(administrador);
     }
 
     @Override
@@ -72,6 +75,16 @@ public class Fachada implements IFachada{
         }else{
             return false;
         }
+    }
+
+    @Override
+    public boolean loginAdministrador(String CPF, String senha) {
+        return this.controladorAdministrador.login(CPF, senha);
+    }
+
+    @Override
+    public boolean cadastrarProduto(Produto produto) {
+        return this.controladorProduto.cadastrarProduto(produto);
     }
     
 }
