@@ -91,6 +91,7 @@ public class UiAluno implements Initializable {
 
     @FXML
     private void remover_aluno(MouseEvent event) {
+        
     }
 
     @FXML

@@ -80,9 +80,12 @@ public class UIcadastroAlunoController implements Initializable {
         String tnum = this.numero.getText();
         String tcomplemento = this.complemento.getText();
         LocalDate date = this.data.getValue();
+        
         String[] aux = {tnome,tcpf,tdata,temail,ttelefone,tendereco,tcep,tcidade,tnum};
         Endereco endereco = new Endereco(this.estado.getValue(), tcidade,tendereco,tnum, tcep, tcomplemento);
+        
         Aluno tAlu = new Aluno(tcpf, tnome,date,this.sexo.getValue(),ttelefone,temail,endereco);
+        
         UiPrincipal.logica.cadastrar(tAlu);
         for(String p: aux){
             System.out.println(p);

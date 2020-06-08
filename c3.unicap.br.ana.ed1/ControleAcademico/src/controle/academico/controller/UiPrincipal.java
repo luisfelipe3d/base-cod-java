@@ -91,7 +91,7 @@ public class UiPrincipal implements Initializable {
 //        UiPrincipal.logica.cadastrar(a11);
 //        UiPrincipal.logica.cadastrar(a12);
         //UiPrincipal.logica.salvarLista();
-        //UiPrincipal.logica.carregarLista();
+        UiPrincipal.logica.carregarLista();
 
     }
     private void fecha_app(MouseEvent event) {
