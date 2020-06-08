@@ -12,7 +12,7 @@ package controle.academico.model;
 public class Professor extends Pessoa {
 
     public Professor(String cpf, String nome, String dataNascimento, 
-            Character sexo, String telefone, String email, Endereco endereco) {
+            String sexo, String telefone, String email, Endereco endereco) {
         super(cpf, nome, dataNascimento, sexo, telefone, email, endereco);
     }
 

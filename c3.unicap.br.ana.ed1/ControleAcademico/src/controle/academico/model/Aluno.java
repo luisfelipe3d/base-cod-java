@@ -19,7 +19,7 @@ public class Aluno extends Pessoa implements Serializable {
     }
     
     public Aluno(String cpf, String nome, String turma,String nascimento, 
-            Character sexo, String telefone, String email, Endereco endereco){
+            String sexo, String telefone, String email, Endereco endereco){
         
         super(cpf, nome, nascimento,sexo,telefone,email,endereco);
         this.turma = turma;

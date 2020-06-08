@@ -16,7 +16,7 @@ public abstract class Pessoa implements Serializable {
     protected final String cpf;
     protected String nome;
     protected String dataNascimento;
-    protected char sexo;
+    protected String sexo;
     protected String telefone;
     protected String email;
     protected Endereco endereco;
@@ -25,11 +25,11 @@ public abstract class Pessoa implements Serializable {
         this.cpf = cpf;
     }
     public Pessoa(String cpf, String nome, String dataNascimento, 
-            char eHomem, String telefone, String email, Endereco endereco) {
+            String sexo, String telefone, String email, Endereco endereco) {
         this.cpf = cpf;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
-        this.sexo = eHomem;
+        this.sexo = sexo;
         this.telefone = telefone;
         this.email = email;
         this.endereco = endereco;
@@ -55,11 +55,11 @@ public abstract class Pessoa implements Serializable {
         this.dataNascimento = dataNascimento;
     }
 
-    public Character getHomem() {
+    public String getHomem() {
         return sexo;
     }
 
-    public void setSexo(Character sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
