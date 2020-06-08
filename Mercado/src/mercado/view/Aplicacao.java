@@ -13,7 +13,7 @@ public class Aplicacao {
     static Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
         int menuIni = menuInicial();
-        int menuCli, menuAdm;
+        int menuCli, menuAdm, menuCliAuth;
         String nome,telefone,cpf,senha;
         
         do{
@@ -27,6 +27,9 @@ public class Aplicacao {
                     System.out.println("Senha:");
                     senha = in.nextLine();
                     System.out.println(fachada.loginCliente(cpf, senha));
+                    if(fachada.loginCliente(cpf, senha)){
+                        menuCliAuth = menuClienteAutenticado();
+                    }
                 }else if (menuCli == 2){
                     System.out.println("Cadastro Cliente");
                     System.out.println("CPF:");
