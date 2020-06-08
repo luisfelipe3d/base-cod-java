@@ -1,26 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controle.academico.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-/**
- * FXML Controller class
- *
- * @author home
- */
 public class UIcadastroAlunoController implements Initializable {
 
     @FXML
@@ -69,12 +63,28 @@ public class UIcadastroAlunoController implements Initializable {
         String tcep = this.cep.getText();
         String tcidade = this.cidade.getText();
         String tnum = this.numero.getText();
-        System.out.println();
+        String[] aux = {tnome,tcpf,tdata,temail,ttelefone,tendereco,tcep,tcidade,tnum};
+        
+        for(String p: aux){
+            System.out.println(p);
+        }
     }
 
     @FXML
     private void voltarCadastro(MouseEvent event) {
-        
+        carregaUI("ui_Aluno.fxml");
+    }
+    
+    private void carregaUI(String UI) {
+        AnchorPane root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("/controle/academico/view/" + UI));
+            this.pane.getChildren().removeAll();
+            this.pane.getChildren().setAll(root);
+           
+        } catch (IOException ex) {
+            Logger.getLogger(UiPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
