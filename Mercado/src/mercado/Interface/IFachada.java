@@ -30,6 +30,10 @@ public interface IFachada {
     
     public boolean cadastrarProduto(Produto produto);
     
+    public List visualizarCarrinho();
+    
+    public boolean finalizarCompra();
+    
     
     
 }

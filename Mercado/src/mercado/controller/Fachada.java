@@ -86,5 +86,15 @@ public class Fachada implements IFachada{
     public boolean cadastrarProduto(Produto produto) {
         return this.controladorProduto.cadastrarProduto(produto);
     }
+
+    @Override
+    public List visualizarCarrinho() {
+        return this.controladorCliente.visualizarCarrinho();
+    }
+
+    @Override
+    public boolean finalizarCompra() {
+        return this.controladorCliente.finaliarCompra();
+    }
     
 }
