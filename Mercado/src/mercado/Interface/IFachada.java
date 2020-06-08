@@ -2,6 +2,7 @@ package mercado.Interface;
 
 import java.util.List;
 import mercado.model.Produto;
+import mercado.model.UsuarioAdministrador;
 import mercado.model.UsuarioCliente;
 
 public interface IFachada {
@@ -11,7 +12,9 @@ public interface IFachada {
     
     public boolean loginCliente(String CPF, String senha);
     
-    public boolean cadastarAdministrador();
+    public boolean cadastarAdministrador(UsuarioAdministrador administrador);
+    
+    public boolean loginAdministrador(String CPF, String senha);
     
     public boolean cadastrarProdutos(Produto produto);
     
@@ -24,6 +27,8 @@ public interface IFachada {
     public boolean adicionarProdutoCarrinho(int codigo);
     
     public boolean removerItemCarrinho(int codigo);
+    
+    public boolean cadastrarProduto(Produto produto);
     
     
     

@@ -6,7 +6,6 @@ import mercado.Interface.IFachada;
 import mercado.controller.Fachada;
 import mercado.model.UsuarioCliente;
 
-
 public class Aplicacao {
     private static IFachada fachada = new Fachada();
     
@@ -48,7 +47,6 @@ public class Aplicacao {
                 }
                 break;
             case 2:
-                //TODO mudar para uma forma melhor
                 menuAdm = menuAdministrativo();
             switch (menuAdm) {
                 case 1:
