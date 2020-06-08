@@ -1,6 +1,7 @@
 package mercado.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Carrinho {
@@ -21,7 +22,11 @@ public class Carrinho {
         return this.carrinhoCompras.remove(produto);
     }
     
-    public boolean finalizarCompra(Produto produto){
+    public List visualizarCarrinho(){
+        return Collections.unmodifiableList(carrinhoCompras);
+    }
+    
+    public boolean finalizarCompra(){
         if(this.carrinhoCompras.isEmpty()){
             return false;
         }
@@ -29,6 +34,7 @@ public class Carrinho {
         for(int i = 0; i < this.carrinhoCompras.size(); i++){
             this.carrinhoCompras.get(i).setQtdEstoque(this.carrinhoCompras.get(i).getQtdEstoque()-1);
         }
+        this.carrinhoCompras.clear();
         
         return true;
     }

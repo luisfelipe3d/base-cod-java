@@ -21,6 +21,10 @@ public interface IFachada {
     
     public boolean removerProduto(int codigo);
     
+    public boolean adicionarProdutoCarrinho(int codigo);
+    
+    public boolean removerItemCarrinho(int codigo);
+    
     
     
 }

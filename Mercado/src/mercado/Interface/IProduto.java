@@ -13,4 +13,6 @@ public interface IProduto {
     public boolean removerProduto(int codigo);
     
     public int buscarProduto(int codigo);
+    
+    public Produto retornarProduto(int codigo);
 }

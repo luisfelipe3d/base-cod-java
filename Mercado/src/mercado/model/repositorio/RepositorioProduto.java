@@ -50,4 +50,14 @@ public class RepositorioProduto implements IProduto {
         }
         return -1;
     }
+
+    @Override
+    public Produto retornarProduto(int codigo) {
+        int codigoProduto = this.buscarProduto(codigo);
+        if(codigoProduto != -1){
+            return this.listaProdutos.get(codigoProduto);
+        }else{
+            return null;
+        }
+    }
 }

@@ -28,4 +28,11 @@ public class ControladorProduto {
         return this.repositorioProduto.removerProduto(codigo);
     }
     
+    public int buscarProcuto(int codigo){
+        return this.repositorioProduto.buscarProduto(codigo);
+    }
+    
+    public Produto retornarProduto(int codigo){
+        return this.repositorioProduto.retornarProduto(codigo);
+    }
 }

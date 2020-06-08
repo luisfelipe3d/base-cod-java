@@ -53,5 +53,25 @@ public class Fachada implements IFachada{
     public boolean loginCliente(String CPF, String senha) {
         return this.controladorCliente.login(CPF, senha);
     }
+
+    @Override
+    public boolean adicionarProdutoCarrinho(int codigo) {
+        Produto produto = this.controladorProduto.retornarProduto(codigo);
+        if(produto != null){
+            return this.controladorCliente.adicionarItemCarrinho(produto);
+        }else{
+            return false;
+        }
+    }
+
+    @Override
+    public boolean removerItemCarrinho(int codigo) {
+        Produto produto = this.controladorProduto.retornarProduto(codigo);
+        if(produto != null){
+            return this.controladorCliente.removerItemCarrinho(produto);
+        }else{
+            return false;
+        }
+    }
     
 }

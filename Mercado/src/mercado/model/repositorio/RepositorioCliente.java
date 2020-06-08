@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import mercado.Interface.IUsuarioCliente;
 import mercado.model.Carrinho;
+import mercado.model.Produto;
 import mercado.model.UsuarioCliente;
 
 public class RepositorioCliente implements IUsuarioCliente{
@@ -52,6 +53,26 @@ public class RepositorioCliente implements IUsuarioCliente{
             }
         }
         return false;
+    }
+    
+    @Override
+    public List visualizarCarrinho(){
+        return this.carrinhoCompras.visualizarCarrinho();
+    }
+
+    @Override
+    public boolean adicionarItemCarrinho(Produto produto) {
+        return this.carrinhoCompras.adicionarItem(produto);
+    }
+
+    @Override
+    public boolean removerItemCarrinho(Produto produto) {
+        return this.carrinhoCompras.removerItem(produto);
+    }
+
+    @Override
+    public boolean finalizarCompra() {
+        return this.carrinhoCompras.finalizarCompra();
     }
     
 }

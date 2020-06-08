@@ -2,10 +2,14 @@
 package mercado.view;
 
 import java.util.Scanner;
+import mercado.Interface.IFachada;
+import mercado.controller.Fachada;
+import mercado.model.UsuarioCliente;
 
 
 public class Aplicacao {
-
+    private static IFachada fachada = new Fachada();
+    
     static Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
         int menuIni = menuInicial();
@@ -15,12 +19,27 @@ public class Aplicacao {
         do{
             switch(menuIni){
                 case 1:
-                //TODO mudar para uma forma melhor
                 menuCli = menuCliente();
                 if(menuCli == 1){
                     System.out.println("Efetuar Login Cliente");
+                    System.out.println("CPF:");
+                    cpf = in.nextLine();
+                    System.out.println("Senha:");
+                    senha = in.nextLine();
+                    System.out.println(fachada.loginCliente(cpf, senha));
                 }else if (menuCli == 2){
                     System.out.println("Cadastro Cliente");
+                    System.out.println("CPF:");
+                    cpf = in.nextLine();
+                    System.out.println("Nome:");
+                    nome = in.nextLine();
+                    System.out.println("Telefone:");
+                    telefone = in.nextLine();
+                    System.out.println("Senha:");
+                    senha = in.nextLine();
+                    UsuarioCliente novoCliente = new UsuarioCliente(cpf, nome, telefone, senha);
+                    System.out.println(fachada.cadastrarCliente(novoCliente));
+                    
                 }else if (menuCli == 3){
                     System.out.println("Saindo.. Cliente");
                     
@@ -76,7 +95,7 @@ public class Aplicacao {
     
     public static int menuCliente(){
         int opcao;
-        System.out.println("BEM VINDO AO CORONGA-MARKET!");
+        System.out.println("Área do cliente. \n");
         System.out.print("Escolha a opção desejada: \n"
                     + "1. Efetuar login \n"
                     + "2. Realizar cadastro \n"

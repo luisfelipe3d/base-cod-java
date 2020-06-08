@@ -35,7 +35,7 @@ public class ControladorAdministrador {
         
     }
     
-    public boolean login(UsuarioAdministrador User){
-        return this.repoAdmin.login(User);
+    public boolean login(String CPF, String senha){
+        return this.repoAdmin.login(CPF, senha);
     }
 }
