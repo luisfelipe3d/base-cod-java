@@ -12,7 +12,7 @@ public class Aplicacao {
     static Scanner in = new Scanner(System.in);
     public static void main(String[] args) {
         int menuIni = menuInicial();
-        int menuCli, menuAdm, menuCliAuth;
+        int menuCli, menuAdm, menuCliAuth,codProduto;
         String nome,telefone,cpf,senha;
         
         do{
@@ -21,13 +21,37 @@ public class Aplicacao {
                 menuCli = menuCliente();
                 if(menuCli == 1){
                     System.out.println("Efetuar Login Cliente");
-                    System.out.println("CPF:");
+                    System.out.print("CPF:");
                     cpf = in.nextLine();
-                    System.out.println("Senha:");
+                    System.out.print("Senha:");
                     senha = in.nextLine();
                     System.out.println(fachada.loginCliente(cpf, senha));
                     if(fachada.loginCliente(cpf, senha)){
                         menuCliAuth = menuClienteAutenticado();
+                        //1. visualizar catalogo; 2. Adicionar item ao catalogo;
+                        //3. remover item do  carrinho; 4. visualizar carrinho
+                        switch(menuCliAuth){
+                            case 1:
+                                fachada.visualizarProdutos();
+                                break;
+                            case 2:
+                                System.out.print("Informe o código do produto: ");
+                                codProduto = in.nextInt();in.nextLine();
+                                fachada.adicionarProdutoCarrinho(codProduto);
+                                break;
+                            case 3:
+                                System.out.print("Código do produto: ");
+                                codProduto = in.nextInt(); in.nextLine();
+                                fachada.removerItemCarrinho(codProduto);
+                                break;
+                            case 4:
+                                System.out.print("Visualizar carrinho");
+                                fachada.visualizarProdutos();// TODO MODIFICAR
+                                break;
+                            default:
+                                System.out.println("Opção inválida");
+                                menuCliAuth = menuClienteAutenticado();
+                        }
                     }
                 }else if (menuCli == 2){
                     System.out.println("Cadastro Cliente");
