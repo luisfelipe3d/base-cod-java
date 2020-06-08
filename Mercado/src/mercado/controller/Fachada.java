@@ -2,6 +2,7 @@ package mercado.controller;
 
 import java.util.List;
 import mercado.Interface.IFachada;
+import mercado.model.DescontoProduto;
 import mercado.model.Produto;
 import mercado.model.UsuarioAdministrador;
 import mercado.model.UsuarioCliente;
@@ -95,6 +96,11 @@ public class Fachada implements IFachada{
     @Override
     public boolean finalizarCompra() {
         return this.controladorCliente.finaliarCompra();
+    }
+
+    @Override
+    public boolean aplicarDescontoAleatorio() {
+        return this.controladorProduto.aplicarDescontoAleatorio();
     }
     
 }

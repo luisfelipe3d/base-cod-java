@@ -34,6 +34,8 @@ public interface IFachada {
     
     public boolean finalizarCompra();
     
+    public boolean aplicarDescontoAleatorio();
+    
     
     
 }
