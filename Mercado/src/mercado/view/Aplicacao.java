@@ -54,6 +54,11 @@ public class Aplicacao {
             switch (menuAdm) {
                 case 1:
                     System.out.println("Efetuar Login ADM");
+                    System.out.println("CPF:");
+                    cpf = in.nextLine();
+                    System.out.println("Senha:");
+                    senha = in.nextLine();
+                    fachada.loginAdministrador(cpf, senha);
                     break;
                 case 2:
                     System.out.println("Cadastro ADM");
