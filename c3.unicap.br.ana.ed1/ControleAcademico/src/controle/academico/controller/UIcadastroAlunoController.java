@@ -55,6 +55,7 @@ public class UIcadastroAlunoController implements Initializable {
     private List<String> sexos = new ArrayList();
     private ObservableList<String> obsSexo;
     private ObservableList<String> obsEstados;
+    //private FilteredList<Aluno> filteredData;
     @FXML
     private JFXTextField complemento;
     /**
