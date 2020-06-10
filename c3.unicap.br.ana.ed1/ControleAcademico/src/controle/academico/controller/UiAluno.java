@@ -85,8 +85,18 @@ public class UiAluno implements Initializable {
     }
     
     @FXML
-    private void cadastrar_aluno(MouseEvent event) {
-        carregaUI("cadastrar.fxml");
+    private void cadastrar_aluno(MouseEvent event) throws IOException {
+        //carregaUI("cadastrar.fxml");
+        final String path = "/controle/academico/view/cadastrar.fxml";
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(path));
+        AnchorPane root = loader.load();
+        UIcadastroController controller = loader.getController();
+        controller.tipoCadastro(1);
+        
+        this.anchorAluno.getChildren().removeAll();
+        this.anchorAluno.getChildren().setAll(root);
+        
     }
 
     @FXML

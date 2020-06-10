@@ -22,5 +22,12 @@ public class Professor extends Pessoa {
         super(cpf);
     }
 
+        @Override
+    public String toString() {
+        return "Professor{cpf=" + this.cpf + ",nome=" + this.nome + 
+                ",dataNascimento=" + this.dataNascimento
+                + ",sexo=" + this.sexo + "\n,telefone=" + this.telefone +
+                ",email=" + this.email + ",endereço=" + this.endereco;
+    }
     
 }

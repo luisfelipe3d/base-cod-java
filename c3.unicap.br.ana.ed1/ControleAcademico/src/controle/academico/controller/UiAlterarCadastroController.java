@@ -61,6 +61,7 @@ public class UiAlterarCadastroController implements Initializable {
 
     private Aluno alunoSelecionado;
     private Professor professorSelecionado;
+    private int tipo;
         
     /**
      * Initializes the controller class.
@@ -76,11 +77,16 @@ public class UiAlterarCadastroController implements Initializable {
     @FXML
     private void btnCadastrar(MouseEvent event) {
         
+        
     }
 
     @FXML
     private void voltarCadastro(MouseEvent event) {
-        carregaUI("ui_Aluno.fxml");
+        if(tipo == 1){
+            carregaUI("ui_Aluno.fxml");
+        }else if (tipo == 2){
+            carregaUI("ui_Professor.fxml");
+        }
     }
     
     private void carregaEstado(){
@@ -143,5 +149,14 @@ public class UiAlterarCadastroController implements Initializable {
             
         }
 
+    }
+    
+    //1 = aluno; 2 = professor
+    public void tipoCadastro(int ia) {
+        if (ia == 1) {
+            this.tipo = ia;
+        } else if (ia == 2) {
+            this.tipo = ia;
+        }
     }
 }

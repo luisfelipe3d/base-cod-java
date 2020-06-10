@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import controle.academico.model.Aluno;
 import controle.academico.model.Endereco;
+import controle.academico.model.Professor;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -48,6 +49,7 @@ public class UIcadastroController implements Initializable {
     private AnchorPane pane;
     @FXML
     private JFXTextField complemento;
+    private int tipo;
     
     /**
      * Initializes the controller class.
@@ -63,7 +65,6 @@ public class UIcadastroController implements Initializable {
     private void btnCadastrar(MouseEvent event) {
         String tnome = this.nome.getText();
         String tcpf = this.cpf.getText();
-        //String tdata = this.data.toString();
         String temail = this.email.getText();
         String ttelefone = this.telefone.getText();
         String tendereco = this.endereco.getText();
@@ -73,14 +74,38 @@ public class UIcadastroController implements Initializable {
         String tcomplemento = this.complemento.getText();
         LocalDate date = this.data.getValue();
         Endereco endereco = new Endereco(this.estado.getValue(), tcidade,tendereco,tnum, tcep, tcomplemento);
-        Aluno tAlu = new Aluno(tcpf, tnome,date,this.sexo.getValue(),ttelefone,temail,endereco);
-        UiPrincipal.logica.cadastrar(tAlu);
+        
+        if(tipo == 1){
+            //Aluno
+            Aluno tAlu = new Aluno(tcpf, tnome,date,this.sexo.getValue(),ttelefone,temail,endereco);
+            UiPrincipal.logica.cadastrar(tAlu);
+        }else if(tipo == 2){
+            //prof
+            Professor tProf = new Professor(tcpf, tnome,date,this.sexo.getValue(),ttelefone,temail,endereco);
+            UiPrincipal.logica.cadastrar(tProf);
+        }
+        
+//        String tnome = this.nome.getText();
+//        String tcpf = this.cpf.getText();
+//        String temail = this.email.getText();
+//        String ttelefone = this.telefone.getText();
+//        String tendereco = this.endereco.getText();
+//        String tcep = this.cep.getText();
+//        String tcidade = this.cidade.getText();
+//        String tnum = this.numero.getText();
+//        String tcomplemento = this.complemento.getText();
+//        LocalDate date = this.data.getValue();
+//        Endereco endereco = new Endereco(this.estado.getValue(), tcidade,tendereco,tnum, tcep, tcomplemento);
         limparCampos();
     }
 
     @FXML
     private void voltarCadastro(MouseEvent event) {
-        carregaUI("ui_Aluno.fxml");
+        if(this.tipo == 1){
+            carregaUI("ui_Aluno.fxml");
+        }else{
+            carregaUI("ui_Professor.fxml");
+        }
     }
     
     private void carregaUI(String UI) {
@@ -120,12 +145,12 @@ public class UIcadastroController implements Initializable {
         this.estado.getEditor().clear();
         this.sexo.getEditor().clear();
     }
-    
+    //1 = aluno; 2 = professor
     public void tipoCadastro(int ia){
         if (ia == 1){
-            //Aluno
+            this.tipo = ia;
         }else if(ia == 2){
-            //professor
+            this.tipo = ia;
         }
     }
     

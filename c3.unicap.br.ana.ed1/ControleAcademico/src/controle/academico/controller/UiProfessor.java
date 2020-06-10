@@ -50,7 +50,7 @@ public class UiProfessor implements Initializable {
     
     private ObservableList<Professor> obsProfessor;
     @FXML
-    private TableColumn<?, ?> telefone_professor;
+    private TableColumn<Professor, String> telefone_professor;
     
     public UiProfessor(){
         this.obsProfessor = FXCollections.observableList(UiPrincipal.logica.getProfessores());
@@ -85,14 +85,18 @@ public class UiProfessor implements Initializable {
     }
 
     @FXML
-    private void alterarProfessor(MouseEvent event) {
+    private void alterarProfessor(MouseEvent event) throws IOException {
         Professor professorSeleciando = this.tabela_professor.getSelectionModel().getSelectedItem();
         final String path = "/controle/academico/view/UiAlterarCadastro.fxml";
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(path));
-        //AnchorPane root = loader.load();
-        //UiAlterarCadastroController controller = loader.getController();
-        //controller.initData(professorSeleciando);
+        AnchorPane root = loader.load();
+        UiAlterarCadastroController controller = loader.getController();
+        controller.initData(professorSeleciando);
+        controller.tipoCadastro(2);
+        
+        this.anchorProfessor.getChildren().removeAll();
+        this.anchorProfessor.getChildren().setAll(root);
     }
 
     private void initTable() {
