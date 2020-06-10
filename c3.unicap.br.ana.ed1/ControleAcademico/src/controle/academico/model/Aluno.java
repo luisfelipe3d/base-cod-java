@@ -17,8 +17,7 @@ public class Aluno extends Pessoa implements Serializable {
     }
     
     public Aluno(String cpf, String nome,LocalDate nascimento, 
-            String sexo, String telefone, String email, Endereco endereco){
-        
+            String sexo, String telefone, String email, Endereco endereco){  
         super(cpf, nome, nascimento,sexo,telefone,email,endereco);
     }
 

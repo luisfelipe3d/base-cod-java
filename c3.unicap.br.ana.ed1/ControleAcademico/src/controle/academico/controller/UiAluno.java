@@ -10,6 +10,7 @@ import controle.academico.model.Endereco;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -71,9 +72,6 @@ public class UiAluno implements Initializable {
     }
     
     private void initCols() {
-//String cpf, String nome, String dataNascimento, 
-//            Character sexo, String telefone, String email, Endereco endereco
-        
         this.aluno_cpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
         this.aluno_nome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         this.nascimento_aluno.setCellValueFactory(new PropertyValueFactory<>("dataNascimento"));
@@ -91,11 +89,13 @@ public class UiAluno implements Initializable {
 
     @FXML
     private void remover_aluno(MouseEvent event) {
-        
+        this.tabela_alunos.getItems().removeAll(this.tabela_alunos.getSelectionModel().getSelectedItem());
     }
 
     @FXML
     private void alterar_alunos(MouseEvent event) {
+        Aluno tmp = this.tabela_alunos.getSelectionModel().getSelectedItem();
+        System.out.println(tmp.toString());
     }
 
     private void editableCols() {

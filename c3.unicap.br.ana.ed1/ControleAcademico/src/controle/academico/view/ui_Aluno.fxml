@@ -34,8 +34,6 @@
                      </HBox.margin>
                   </FontAwesomeIcon>
                   <JFXButton onMouseClicked="#alterar_alunos" text="Alterar" textFill="WHITE" />
-                  <FontAwesomeIcon glyphName="" size="1.5em" styleClass="icons" />
-                  <JFXButton onMouseClicked="#alterar_alunos" text="Alguma coisa que eu esqueci" textFill="WHITE" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="638.0">

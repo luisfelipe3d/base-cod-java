@@ -108,13 +108,9 @@ public class UiPrincipal implements Initializable {
     }
     @FXML
     private void ui_professor(MouseEvent event) {
-        carregaUI("ui3.fxml");
+        //carregaUI("ui3.fxml");
     }
- 
-    private void clear(MouseEvent event){
-        borderpane.setCenter(null);
-    }
-    
+     
     private void carregaUI(String UI){
         Parent root = null;
         try {
