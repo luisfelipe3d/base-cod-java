@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 public abstract class Pessoa implements Serializable {
     
-    protected final String cpf;
+    protected String cpf;
     protected String nome;
     protected LocalDate dataNascimento;
     protected String sexo;
