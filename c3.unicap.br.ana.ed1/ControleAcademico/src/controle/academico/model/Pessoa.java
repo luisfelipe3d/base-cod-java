@@ -56,7 +56,7 @@ public abstract class Pessoa implements Serializable {
         this.dataNascimento = dataNascimento;
     }
 
-    public String getHomem() {
+    public String getSexo() {
         return sexo;
     }
 

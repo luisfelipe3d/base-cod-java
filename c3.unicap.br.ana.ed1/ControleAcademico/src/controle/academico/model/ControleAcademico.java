@@ -31,7 +31,8 @@ import java.util.List;
 public class ControleAcademico {
     
     private List<Aluno> listaAlunos = new LinkedList<>();
-    private List<Professor> listaProfessor = new LinkedList<>();
+    private List<Professor> listaProfessores = new LinkedList<>();
+    private List<Disciplina> listaDisciplinas = new LinkedList<>();
     
     /**
      * Adiciona a lista professores e/ou alunos
@@ -50,7 +51,7 @@ public class ControleAcademico {
         }else if(obj instanceof Professor){
             Professor aux = (Professor) obj;
             if(buscar(obj.getCpf()) == -1){
-                this.listaProfessor.add(aux);
+                this.listaProfessores.add(aux);
                 return true;
             }
             return true;
@@ -72,6 +73,14 @@ public class ControleAcademico {
         return this.listaAlunos;
     }
     
+    public List<Professor> getProfessores(){
+        return this.listaProfessores;
+    }
+    
+    public List<Disciplina> getDisciplinas(){
+        return this.listaDisciplinas;
+    }
+    
     public <T extends Pessoa> boolean remover(String cpf) {
         int removerID = buscar(cpf);
         if(removerID != -1){
@@ -86,7 +95,10 @@ public class ControleAcademico {
      */
     public void listarTodos() {
         this.listaAlunos.forEach(Aluno -> System.out.println(Aluno.toString())); 
-        //this.listaProfessor.forEach(Professor -> System.out.println(Professor.toString()));
+        System.out.println("=====================================================");
+        this.listaProfessores.forEach(Professor -> System.out.println(Professor.toString()));
+        System.out.println("======================================================");
+        this.listaDisciplinas.forEach(Disciplina -> System.out.println(Disciplina.toString()));
     }
     
     
@@ -94,7 +106,7 @@ public class ControleAcademico {
         Aluno auxA = new Aluno(cpf);
         Professor auxP = new Professor(cpf);
         boolean existeA = this.listaAlunos.contains(auxA); 
-        boolean existeP = this.listaProfessor.contains(auxP);
+        boolean existeP = this.listaProfessores.contains(auxP);
         if(existeA){
             for(int i = 0; i < this.listaAlunos.size(); i++){
                 if(this.listaAlunos.get(i).equals(auxA)){
@@ -103,8 +115,8 @@ public class ControleAcademico {
             }
             return -1;
         } else if(existeP){
-            for(int j = 0; j < this.listaProfessor.size(); j++){
-                if(this.listaProfessor.get(j).equals(auxP)){
+            for(int j = 0; j < this.listaProfessores.size(); j++){
+                if(this.listaProfessores.get(j).equals(auxP)){
                     return j;
                 }
             }
@@ -132,10 +144,11 @@ public class ControleAcademico {
      */
     public void salvarLista(){
         try{
-            FileOutputStream fos = new FileOutputStream("alunosData.ser");
+            FileOutputStream fos = new FileOutputStream("AData.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(this.listaAlunos);
-            oos.writeObject(this.listaProfessor);
+            oos.writeObject(this.listaProfessores);
+            oos.writeObject(this.listaDisciplinas);
             oos.close();
             fos.close();
             
@@ -148,20 +161,27 @@ public class ControleAcademico {
      */
     public void carregarLista(){
         LinkedList<Aluno> auxA;
-        //LinkedList<Professor> auxP;
+        LinkedList<Professor> auxP;
+        LinkedList<Disciplina> auxD;
         try{
-            FileInputStream fis = new FileInputStream("alunosData.ser");
+            FileInputStream fis = new FileInputStream("Data.ser");
             ObjectInputStream ois = new ObjectInputStream(fis);
             
             auxA = (LinkedList) ois.readObject();
-            //auxP = (LinkedList) ois.readObject();
+            auxP = (LinkedList) ois.readObject();
+            auxD = (LinkedList) ois.readObject();
             this.listaAlunos = auxA;
+            this.listaProfessores = auxP;
+            this.listaDisciplinas = auxD;
             ois.close();
             fis.close();
         } catch(IOException | ClassNotFoundException ioe){
             return;
         }
-        auxA.forEach(Aluno -> System.out.println(Aluno.toString()));   
+        //auxA.forEach(Aluno -> System.out.println(Aluno.toString()));
+        //auxP.forEach(Professor -> System.out.println(Professor.toString()));
+        //auxA.forEach(Disciplina -> System.out.println(Disciplina.toString()));
+        System.out.println("FIm carregar");
     }
     
     public void printElements(List<String> list) {

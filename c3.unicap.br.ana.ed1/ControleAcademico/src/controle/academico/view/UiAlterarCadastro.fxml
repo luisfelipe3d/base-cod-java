@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="650.0" styleClass="parent" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.academico.controller.UIcadastroAlunoController">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="650.0" styleClass="parent" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.academico.controller.UiAlterarCadastroController">
    <children>
       <JFXTextField fx:id="nome" layoutX="70.0" layoutY="56.0" prefHeight="31.0" prefWidth="511.0" />
       <JFXTextField fx:id="cpf" layoutX="70.0" layoutY="99.0" prefHeight="21.0" prefWidth="169.0" />
@@ -23,7 +23,7 @@
       <JFXTextField fx:id="cidade" layoutX="85.0" layoutY="293.0" prefHeight="31.0" prefWidth="237.0" />
       <JFXTextField fx:id="complemento" layoutX="433.0" layoutY="293.0" prefHeight="31.0" prefWidth="150.0" />
       <JFXButton fx:id="cadastrar" layoutX="284.0" layoutY="459.0" onMouseClicked="#btnCadastrar" text="Cadastrar" />
-      <Text layoutX="282.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro Aluno" />
+      <Text layoutX="282.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alterar Cadastro" />
       <Text layoutX="24.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF" />
       <Text layoutX="17.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
       <Text layoutX="17.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" />

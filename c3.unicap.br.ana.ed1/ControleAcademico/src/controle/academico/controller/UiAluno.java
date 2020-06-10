@@ -10,6 +10,7 @@ import controle.academico.model.Endereco;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -19,6 +20,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -68,7 +72,6 @@ public class UiAluno implements Initializable {
     private void initTable(){      
         initCols();
         this.tabela_alunos.setItems(obsAlunos);
-        
     }
     
     private void initCols() {
@@ -79,27 +82,31 @@ public class UiAluno implements Initializable {
         this.telefone_aluno.setCellValueFactory(new PropertyValueFactory<>("telefone"));
         this.aluno_email.setCellValueFactory(new PropertyValueFactory<>("email"));
         this.endereco_aluno.setCellValueFactory(new PropertyValueFactory<>("endereco"));
-        //editableCols();
     }
     
     @FXML
     private void cadastrar_aluno(MouseEvent event) {
-        carregaUI("cadastroAluno.fxml");
+        carregaUI("cadastrar.fxml");
     }
 
     @FXML
     private void remover_aluno(MouseEvent event) {
         this.tabela_alunos.getItems().removeAll(this.tabela_alunos.getSelectionModel().getSelectedItem());
+        UiPrincipal.logica.listarTodos();
     }
 
     @FXML
-    private void alterar_alunos(MouseEvent event) {
-        Aluno tmp = this.tabela_alunos.getSelectionModel().getSelectedItem();
-        System.out.println(tmp.toString());
-    }
-
-    private void editableCols() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void alterar_alunos(MouseEvent event) throws IOException {
+        Aluno alunoSelecionado = this.tabela_alunos.getSelectionModel().getSelectedItem();
+        final String path = "/controle/academico/view/UiAlterarCadastro.fxml";
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(path));
+        AnchorPane root = loader.load();
+        UiAlterarCadastroController controller = loader.getController();
+        controller.initData(alunoSelecionado);
+        
+        this.anchorAluno.getChildren().removeAll();
+        this.anchorAluno.getChildren().setAll(root);
     }
     
     private void carregaUI(String UI) {

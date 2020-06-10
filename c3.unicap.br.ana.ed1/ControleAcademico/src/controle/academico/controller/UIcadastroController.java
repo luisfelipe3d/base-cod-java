@@ -9,20 +9,16 @@ import controle.academico.model.Endereco;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class UIcadastroAlunoController implements Initializable {
+public class UIcadastroController implements Initializable {
 
     @FXML
     private JFXTextField nome;
@@ -50,14 +46,9 @@ public class UIcadastroAlunoController implements Initializable {
     private JFXButton cadastrar;
     @FXML
     private AnchorPane pane;
-    
-    private List<String> estados = new ArrayList();
-    private List<String> sexos = new ArrayList();
-    private ObservableList<String> obsSexo;
-    private ObservableList<String> obsEstados;
-    //private FilteredList<Aluno> filteredData;
     @FXML
     private JFXTextField complemento;
+    
     /**
      * Initializes the controller class.
      */
@@ -72,7 +63,7 @@ public class UIcadastroAlunoController implements Initializable {
     private void btnCadastrar(MouseEvent event) {
         String tnome = this.nome.getText();
         String tcpf = this.cpf.getText();
-        String tdata = this.data.toString();
+        //String tdata = this.data.toString();
         String temail = this.email.getText();
         String ttelefone = this.telefone.getText();
         String tendereco = this.endereco.getText();
@@ -81,16 +72,9 @@ public class UIcadastroAlunoController implements Initializable {
         String tnum = this.numero.getText();
         String tcomplemento = this.complemento.getText();
         LocalDate date = this.data.getValue();
-        
-        String[] aux = {tnome,tcpf,tdata,temail,ttelefone,tendereco,tcep,tcidade,tnum};
         Endereco endereco = new Endereco(this.estado.getValue(), tcidade,tendereco,tnum, tcep, tcomplemento);
-        
         Aluno tAlu = new Aluno(tcpf, tnome,date,this.sexo.getValue(),ttelefone,temail,endereco);
-        
         UiPrincipal.logica.cadastrar(tAlu);
-        for(String p: aux){
-            System.out.println(p);
-        }
         limparCampos();
     }
 
@@ -112,27 +96,16 @@ public class UIcadastroAlunoController implements Initializable {
     }
 
     private void carregaEstados() {
-        String [] estado = {
-          "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS"
-                , "MG", "PA","PR","PB", "PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO" 
+        String[] estado = {
+            "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS",
+             "MG", "PA", "PR", "PB", "PE", "PI", "RJ", "RN", "RS", "RO", "RR",
+             "SC", "SP", "SE", "TO"
         };
-        for(int i = 0; i< estado.length; i++){
-            this.estados.add(estado[i]);
-        }
-        this.obsEstados = FXCollections.observableArrayList(this.estados);
-        this.estado.setItems(obsEstados);
-        
+        this.estado.getItems().addAll(estado);
     }
 
     private void carregaSexo() {
-        String [] sexo = {
-            "Masculino", "Feminino", "Outro"
-        };
-        for(int i = 0; i<sexo.length; i++){
-            this.sexos.add(sexo[i]);
-        }
-        this.obsSexo = FXCollections.observableArrayList(this.sexos);
-        this.sexo.setItems(obsSexo);
+        this.sexo.getItems().addAll("Masculino", "Feminino", "Outro");
     }
     
     private void limparCampos(){
@@ -142,6 +115,17 @@ public class UIcadastroAlunoController implements Initializable {
         };
         for(JFXTextField f1: campos){
             f1.clear();
+        }
+        this.data.getEditor().clear();
+        this.estado.getEditor().clear();
+        this.sexo.getEditor().clear();
+    }
+    
+    public void tipoCadastro(int ia){
+        if (ia == 1){
+            //Aluno
+        }else if(ia == 2){
+            //professor
         }
     }
     
