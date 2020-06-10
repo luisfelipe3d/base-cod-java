@@ -10,10 +10,10 @@ package controle.academico.model;
  * @author home
  */
 public class UsuarioSistema {
-    private final String nome;
-    private final String login;
-    private final String senha;
-    private final String senha2;
+    private  String nome;
+    private  String login;
+    private  String senha;
+    private  String senha2;
     //Nome de usuário, E-mail ou CPF, senha e senha2
     public UsuarioSistema(String nome,String login, String senha,String senha2) {
         if(login.isEmpty() || senha.isEmpty() || nome.isEmpty() || senha2.isEmpty()){
