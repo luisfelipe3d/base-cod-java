@@ -5,6 +5,7 @@ https://www.tutorialspoint.com/java/java_regular_expressions.htm
 package controle.academico.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -13,10 +14,10 @@ import java.util.Objects;
  */
 public abstract class Pessoa implements Serializable {
     
-    protected final String cpf;
+    protected String cpf;
     protected String nome;
-    protected String dataNascimento;
-    protected char sexo;
+    protected LocalDate dataNascimento;
+    protected String sexo;
     protected String telefone;
     protected String email;
     protected Endereco endereco;
@@ -24,12 +25,12 @@ public abstract class Pessoa implements Serializable {
     public Pessoa(String cpf){
         this.cpf = cpf;
     }
-    public Pessoa(String cpf, String nome, String dataNascimento, 
-            char eHomem, String telefone, String email, Endereco endereco) {
+    public Pessoa(String cpf, String nome, LocalDate dataNascimento, 
+            String sexo, String telefone, String email, Endereco endereco) {
         this.cpf = cpf;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
-        this.sexo = eHomem;
+        this.sexo = sexo;
         this.telefone = telefone;
         this.email = email;
         this.endereco = endereco;
@@ -47,19 +48,19 @@ public abstract class Pessoa implements Serializable {
         this.nome = nome;
     }
 
-    public String getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
-    public Character getHomem() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(Character sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 

@@ -122,10 +122,7 @@ public class RegistrationUiController implements Initializable {
     }
     
     private boolean validaCampos(String n, String e, String s, String s1){
-        if(n.isEmpty() || e.isEmpty() || s.isEmpty() || s1.isEmpty()){
-            return false;
-        }
-        return true;
+        return !(n.isEmpty() || e.isEmpty() || s.isEmpty() || s1.isEmpty());
     }
     
 }

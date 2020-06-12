@@ -12,26 +12,26 @@ import java.io.Serializable;
  * @author home
  */
 public class Disciplina implements Serializable {
-    private String cod_disc;
+    private String codDisciplina;
     private String nome;
     private int carga;
     private int creditos;
-    private char periodo;
+    private String periodo;
 
-    public Disciplina(String cod_disc, String nome, int carga, int creditos, char periodo) {
-        this.cod_disc = cod_disc;
+    public Disciplina(String codDisciplina, String nome, int carga, int creditos, String periodo) {
+        this.codDisciplina = codDisciplina;
         this.nome = nome;
         this.carga = carga;
         this.creditos = creditos;
         this.periodo = periodo;
     }
 
-    public String getCod_disc() {
-        return cod_disc;
+    public String getCodDisciplina() {
+        return codDisciplina;
     }
 
-    public void setCod_disc(String cod_disc) {
-        this.cod_disc = cod_disc;
+    public void setCodDisciplina(String codDisciplina) {
+        this.codDisciplina = codDisciplina;
     }
 
     public String getNome() {
@@ -58,11 +58,11 @@ public class Disciplina implements Serializable {
         this.creditos = creditos;
     }
 
-    public char getPeriodo() {
+    public String getPeriodo() {
         return periodo;
     }
 
-    public void setPeriodo(char periodo) {
+    public void setPeriodo(String periodo) {
         this.periodo = periodo;
     }
     

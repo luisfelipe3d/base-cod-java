@@ -5,14 +5,16 @@
  */
 package controle.academico.model;
 
+import java.time.LocalDate;
+
 /**
  * Cria um objeto Professor
  * @author home
  */
 public class Professor extends Pessoa {
 
-    public Professor(String cpf, String nome, String dataNascimento, 
-            Character sexo, String telefone, String email, Endereco endereco) {
+    public Professor(String cpf, String nome, LocalDate dataNascimento, 
+            String sexo, String telefone, String email, Endereco endereco) {
         super(cpf, nome, dataNascimento, sexo, telefone, email, endereco);
     }
 
@@ -20,5 +22,12 @@ public class Professor extends Pessoa {
         super(cpf);
     }
 
+        @Override
+    public String toString() {
+        return "Professor{cpf=" + this.cpf + ",nome=" + this.nome + 
+                ",dataNascimento=" + this.dataNascimento
+                + ",sexo=" + this.sexo + "\n,telefone=" + this.telefone +
+                ",email=" + this.email + ",endereço=" + this.endereco;
+    }
     
 }

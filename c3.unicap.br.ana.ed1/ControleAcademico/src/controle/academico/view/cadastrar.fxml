@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="516.0" prefWidth="650.0" styleClass="parent" stylesheets="@../css/StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.academico.controller.UIcadastroController">
+   <children>
+      <JFXTextField fx:id="nome" layoutX="70.0" layoutY="56.0" prefHeight="31.0" prefWidth="511.0" />
+      <JFXTextField fx:id="cpf" layoutX="70.0" layoutY="99.0" prefHeight="21.0" prefWidth="169.0" />
+      <JFXDatePicker fx:id="data" layoutX="374.0" layoutY="99.0" />
+      <JFXTextField fx:id="email" layoutX="73.0" layoutY="148.0" prefHeight="21.0" prefWidth="169.0" />
+      <JFXTextField fx:id="telefone" layoutX="374.0" layoutY="148.0" prefHeight="31.0" prefWidth="205.0" />
+      <JFXComboBox fx:id="sexo" layoutX="70.0" layoutY="192.0" prefHeight="31.0" prefWidth="116.0" />
+      <JFXComboBox fx:id="estado" layoutX="256.0" layoutY="192.0" prefHeight="31.0" prefWidth="73.0" />
+      <JFXTextField fx:id="cep" layoutX="389.0" layoutY="193.0" prefHeight="31.0" prefWidth="193.0" />
+      <JFXTextField fx:id="endereco" layoutX="88.0" layoutY="243.0" prefHeight="31.0" prefWidth="347.0" />
+      <JFXTextField fx:id="numero" layoutX="477.0" layoutY="243.0" prefHeight="31.0" prefWidth="102.0" />
+      <JFXTextField fx:id="cidade" layoutX="85.0" layoutY="293.0" prefHeight="31.0" prefWidth="237.0" />
+      <JFXTextField fx:id="complemento" layoutX="433.0" layoutY="293.0" prefHeight="31.0" prefWidth="150.0" />
+      <JFXButton fx:id="cadastrar" layoutX="284.0" layoutY="459.0" onMouseClicked="#btnCadastrar" text="Cadastrar" />
+      <Text layoutX="282.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastrar" />
+      <Text layoutX="24.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF" />
+      <Text layoutX="17.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
+      <Text layoutX="17.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" />
+      <Text layoutX="295.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone:" />
+      <Text layoutX="20.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sexo:" />
+      <Text layoutX="271.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nascimento:" />
+      <Text layoutX="15.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço:" />
+      <Text layoutX="198.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estado:" />
+      <Text layoutX="19.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cidade:" />
+      <Text layoutX="352.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CEP:" />
+      <Text layoutX="447.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nº" />
+      <Text layoutX="333.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Complemento" />
+      <FontAwesomeIcon glyphName="ARROW_LEFT" layoutX="3.0" layoutY="23.0" onMouseClicked="#voltarCadastro" size="1.5em" text="" wrappingWidth="17.68067479133606" />
+   </children>
+</AnchorPane>

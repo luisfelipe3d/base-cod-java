@@ -31,7 +31,7 @@ public class Endereco implements Serializable {
     * @param cep CEP
     * @param complemento Complemento
     */
-    public Endereco( String estado, String cidade, String rua,
+    public Endereco(String estado, String cidade, String rua,
             String numero, String cep, String complemento) {
         this.estado = estado;
         this.cidade = cidade;

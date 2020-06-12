@@ -26,6 +26,9 @@
                <opaqueInsets>
                   <Insets top="2.0" />
                </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="150.0">
                <children>
@@ -35,6 +38,9 @@
                <opaqueInsets>
                   <Insets top="2.0" />
                </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="50.0" prefHeight="40.0" prefWidth="150.0">
                <children>
@@ -44,15 +50,9 @@
                <opaqueInsets>
                   <Insets top="2.0" />
                </opaqueInsets>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="90.0" prefHeight="40.0" prefWidth="150.0">
-               <children>
-                  <FontAwesomeIcon fill="#d7d5d5" glyphName="TH_LIST" size="1.5em" wrappingWidth="23.5" />
-                  <JFXButton prefHeight="40.0" prefWidth="133.0" text="Turmas" textFill="#d7d5d5" />
-               </children>
-               <opaqueInsets>
-                  <Insets top="2.0" />
-               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
             </HBox>
             <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="130.0" prefHeight="40.0" prefWidth="150.0">
                <children>
@@ -62,8 +62,26 @@
                <opaqueInsets>
                   <Insets top="2.0" />
                </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="90.0" prefHeight="40.0" prefWidth="150.0">
+               <children>
+                  <FontAwesomeIcon fill="#d7d5d5" glyphName="TH_LIST" size="1.5em" wrappingWidth="23.5" />
+                  <JFXButton prefHeight="40.0" prefWidth="133.0" text="Turmas" textFill="#d7d5d5" />
+               </children>
+               <opaqueInsets>
+                  <Insets top="2.0" />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
             </HBox>
          </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
       </VBox>
    </left>
    <top>

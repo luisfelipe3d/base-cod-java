@@ -5,11 +5,13 @@
  */
 package controle.academico.controller;
 
-import controle.academico.aplicacao.Aplicacao;
 import controle.academico.model.Aluno;
 import controle.academico.model.Endereco;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.Collection;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,6 +20,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
@@ -46,9 +49,9 @@ public class UiAluno implements Initializable {
     @FXML
     private TableColumn<Endereco, String> endereco_aluno;
     @FXML
-    private TableColumn<Aluno, Character> sexo_aluno;
+    private TableColumn<Aluno, String> sexo_aluno;
     @FXML
-    private TableColumn<Aluno, String> nascimento_aluno;
+    private TableColumn<Aluno, LocalDate> nascimento_aluno;
     
     private ObservableList<Aluno> obsAlunos;
     @FXML
@@ -69,13 +72,9 @@ public class UiAluno implements Initializable {
     private void initTable(){      
         initCols();
         this.tabela_alunos.setItems(obsAlunos);
-        
     }
     
     private void initCols() {
-//String cpf, String nome, String dataNascimento, 
-//            Character sexo, String telefone, String email, Endereco endereco
-        
         this.aluno_cpf.setCellValueFactory(new PropertyValueFactory<>("cpf"));
         this.aluno_nome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         this.nascimento_aluno.setCellValueFactory(new PropertyValueFactory<>("dataNascimento"));
@@ -83,24 +82,41 @@ public class UiAluno implements Initializable {
         this.telefone_aluno.setCellValueFactory(new PropertyValueFactory<>("telefone"));
         this.aluno_email.setCellValueFactory(new PropertyValueFactory<>("email"));
         this.endereco_aluno.setCellValueFactory(new PropertyValueFactory<>("endereco"));
-        //editableCols();
     }
     
     @FXML
-    private void cadastrar_aluno(MouseEvent event) {
-        carregaUI("cadastroAluno.fxml");
+    private void cadastrar_aluno(MouseEvent event) throws IOException {
+        //carregaUI("cadastrar.fxml");
+        final String path = "/controle/academico/view/cadastrar.fxml";
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(path));
+        AnchorPane root = loader.load();
+        UIcadastroController controller = loader.getController();
+        controller.tipoCadastro(1);
+        
+        this.anchorAluno.getChildren().removeAll();
+        this.anchorAluno.getChildren().setAll(root);
+        
     }
 
     @FXML
     private void remover_aluno(MouseEvent event) {
+        this.tabela_alunos.getItems().removeAll(this.tabela_alunos.getSelectionModel().getSelectedItem());
+        UiPrincipal.logica.listarTodos();
     }
 
     @FXML
-    private void alterar_alunos(MouseEvent event) {
-    }
-
-    private void editableCols() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void alterar_alunos(MouseEvent event) throws IOException {
+        Aluno alunoSelecionado = this.tabela_alunos.getSelectionModel().getSelectedItem();
+        final String path = "/controle/academico/view/UiAlterarCadastro.fxml";
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(path));
+        AnchorPane root = loader.load();
+        UiAlterarCadastroController controller = loader.getController();
+        controller.initData(alunoSelecionado);
+        
+        this.anchorAluno.getChildren().removeAll();
+        this.anchorAluno.getChildren().setAll(root);
     }
     
     private void carregaUI(String UI) {
