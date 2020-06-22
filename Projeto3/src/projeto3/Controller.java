@@ -1,10 +1,10 @@
 package projeto3;
 
-public class Presenter {
-    private Connect4GUI view;
+public class Controller {
+    private GameView view;
     private GameModel gameModel;
 
-    public void attachView(Connect4GUI view) {
+    public void attachView(GameView view) {
         this.view = view;
         gameModel = new GameModel();
     }

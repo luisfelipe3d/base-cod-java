@@ -3,12 +3,8 @@ package projeto3;
 public class Player {
     private String name;
 
-    Player(String name) {
+    public Player(String name) {
         this.name = name;
-    }
-
-    public void reset() {
-        this.name = "";
     }
 
     public void setName(String name) {

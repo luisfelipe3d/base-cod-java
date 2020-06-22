@@ -19,18 +19,18 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class Connect4GUI extends Application {
+public class GameView extends Application {
     private GridPane grid;
-    private Presenter presenter = new Presenter();
+    private Controller presenter = new Controller();
     private Label currentPlayer;
     
     public static void main(String [] args) {
         launch(args);
     }
-
+    
     @Override
-    public void start(final Stage stage) throws Exception {
-        draw(stage);
+    public void start(Stage primaryStage) throws Exception {
+        draw(primaryStage);
     }
 
     public void draw(Stage stage) throws Exception {
@@ -79,8 +79,11 @@ public class Connect4GUI extends Application {
                         Alert winAlert = new Alert(AlertType.INFORMATION);
                         winAlert.setTitle("Game Over!");
                         winAlert.setHeaderText(null);
-                        winAlert.setContentText(
-                                "Player " + playerWin + " wins!");
+                        if(playerWin == 1){
+                        winAlert.setContentText("Yellow wins!");                            
+                        }else{
+                            winAlert.setContentText("Red wins!");
+                        }
                         winAlert.showAndWait();
                         try {
                             draw(stage);
@@ -120,6 +123,7 @@ public class Connect4GUI extends Application {
         
         Scene scene = new Scene(borderPane, sceneWidth, sceneHeight);
         scene.getStylesheets().add("projeto3/resources/game.css");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
