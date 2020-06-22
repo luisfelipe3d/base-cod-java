@@ -1,0 +1,20 @@
+.game-grid {
+    -fx-background-color: gray ;
+    -fx-padding: 40 ;
+    -fx-hgap: 25 ;
+    -fx-vgap: 25 ;
+}
+.game-grid-cell {
+    -fx-background-color: black ;
+    -fx-background-insets: 0, 0 1 1 0 ;
+    -fx-background-radius: 1000 ;
+}
+.game-grid-cell.first-row {
+    -fx-background-insets: 0, 1 1 1 0 ;
+}
+.game-grid-cell.first-column {
+    -fx-background-insets: 0, 0 1 1 1 ;
+}
+.game-grid-cell.first-row.first-column {
+    -fx-background-insets: 0, 1 ;
+}
