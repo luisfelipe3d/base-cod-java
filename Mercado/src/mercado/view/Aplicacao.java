@@ -85,9 +85,9 @@ public class Aplicacao {
                                 System.out.print("CPF: "); cpf = in.nextLine();
                                 System.out.print("Telefone: "); telefone = in.nextLine();
                                 System.out.print("Senha: "); senha = in.nextLine();
-                                UsuarioCliente novoCliente = new UsuarioCliente(cpf, nome, telefone, senha);
-                                fachada.cadastrarCliente(novoCliente);
-                                System.out.println("Usuário "+novoCliente.getNome()+" cadastrado!");
+//                                UsuarioCliente novoCliente = new UsuarioCliente(cpf, nome, telefone, senha, p);
+//                                fachada.cadastrarCliente(novoCliente);
+//                                System.out.println("Usuário "+novoCliente.getNome()+" cadastrado!");
                                 break;
                             case 3:
                                 System.out.println("Saindo da área do cliente!");

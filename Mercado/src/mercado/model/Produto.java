@@ -1,12 +1,18 @@
 package mercado.model;
 
-public class Produto {    
+import java.util.ArrayList;
+import java.util.List;
+import mercado.Interface.IObserver;
+import mercado.Interface.ISubject;
+
+public class Produto implements ISubject{    
     private int codigo;
     private String nome;
     private String marca;
     private String descricao;
     private double preco;
     private int qtdEstoque;
+    List <IObserver> listObservers;
 
     public Produto(String nome, String marca, String descricao, double preco, int qtdEstoque) {
         this.nome = nome;
@@ -14,6 +20,7 @@ public class Produto {
         this.descricao = descricao;
         this.preco = preco;
         this.qtdEstoque = qtdEstoque;
+        this.listObservers = new ArrayList();
     }
 
     public int getCodigo() {
@@ -54,6 +61,7 @@ public class Produto {
 
     public void setPreco(double preco) {
         this.preco = preco;
+        hasChanged();
     }
     
     public void setQtdEstoque(int qtdEstoque){
@@ -69,4 +77,29 @@ public class Produto {
         return "\n" + "Código: " + codigo + "\n" + "Nome: " + nome + "\n" + "Marca: " + marca + "\n"
                 + "Descrição: " + descricao + "\n" + "Preço: " + preco + "\n";
     }
+
+    @Override
+    public boolean attach(IObserver observer) {
+        return this.listObservers.add(observer);
+    }
+
+    @Override
+    public boolean detach(IObserver observer) {
+        return this.listObservers.remove(observer);
+    }
+
+    @Override
+    public void hasChanged() {
+        notifyObservers();
+    }
+    
+    @Override
+    public void notifyObservers() {
+        if(!this.listObservers.isEmpty()){
+            for(int i = 0; i < this.listObservers.size(); i++){
+                this.listObservers.get(i).update(this);
+            }
+        }
+    }
+
 }

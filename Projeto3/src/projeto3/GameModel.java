@@ -3,21 +3,21 @@ package projeto3;
 import java.util.ArrayList;
 
 public class GameModel {
-    ArrayList<Player> players;
-    Player turn;
-    int[][] grid;
+    private ArrayList<Player> players;
+    private Player turn;
+    private int[][] grid;
 
-    GameModel() {
+    public GameModel() {
         players = new ArrayList<Player>();
     }
 
-    void enterPlayer(String name) {
+    public void enterPlayer(String name) {
         Player p = new Player(name);
         players.add(p);
         turn = players.get(0);
     }
 
-    void changeTurn() {
+    public void changeTurn() {
         if (turn.equals(players.get(0))) {
             turn = players.get(1);
         } else {
@@ -25,11 +25,11 @@ public class GameModel {
         }
     }
 
-    void setGrid(int row, int column) {
+    public void setGrid(int row, int column) {
         grid = new int[row][column];
     }
 
-    String getTurn() {
+    public String getTurn() {
         if (turn.equals(players.get(0))) {
             return players.get(0).getName();
         } else {
@@ -37,7 +37,7 @@ public class GameModel {
         }
     }
 
-    int updateGrid(int column) {
+    public int updateGrid(int column) {
         int row;
         boolean lastGrid = false;
         if (lastGrid){
@@ -64,14 +64,10 @@ public class GameModel {
         return row;
     }
         
-    /**
-     * Checks to see if a connection has been made.
-     * @param winCondition number of consecutive pieces in a row needed to win
-     * @return The player number of the winner or 0 if no winner was found.
-     */
-    int checkWin(int winCondition) {
+    public int checkWin(int winCondition) {
         int currentPlayer, player, streak;
-        // check rows
+        
+        // checa linhas
         for(int i = 0; i < grid.length; i++) {
             player = streak = 0;
             for(int j = 0; j < grid[i].length; j++) {
@@ -85,7 +81,7 @@ public class GameModel {
                 }
             }
         }
-        // check columns
+        // checa colunas
         for(int i = 0; i < grid.length; i++) {
             player = streak = 0;
             for(int j = 0; j < grid[i].length; j++) {
@@ -99,7 +95,7 @@ public class GameModel {
                 }
             }
         }
-        // check \ diagonals, lower half
+        // checa \ diagonais, metade inferior
         for(int i = 0; i < grid.length; i++) {
             player = streak = 0;
             int index = i;
@@ -117,7 +113,7 @@ public class GameModel {
                 index++;
             }
         }
-        // check \ diagonals, upper half
+        // checa \ diagonais, metade superior
         for(int i = 0; i < grid.length; i++) {
             player = streak = 0;
             int index = i;
@@ -136,7 +132,7 @@ public class GameModel {
             }
         }
         
-        // check / diagonals, upper half
+        // checa / diagonais, metade inferior
         for(int i = grid.length - 1; i >= 0; i--) {
             player = streak = 0;
             int index = i;
@@ -152,7 +148,7 @@ public class GameModel {
                 index--;
             }
         }
-        // check / diagonals, lower half
+        // checa / diagonais, metade superior
         for(int i = grid.length - 1; i >= 0; i--) {
             player = streak = 0;
             int index = i;
