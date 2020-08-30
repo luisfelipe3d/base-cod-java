@@ -24,7 +24,6 @@ public class Application {
         for (int n : numbers) {
             bst.insert(n);
         }
-        
         System.out.print("In order: ");
         bst.printTree(); // print in-order
         System.out.print("Pre oder: ");
@@ -35,7 +34,6 @@ public class Application {
         bst.printTree(3); // print pos-order
         bst.remove(17);
         bst.printTree(1);
-
     }
     
 }
