@@ -1,0 +1,20 @@
+Integer, Long_Integer
+Float
+Boolean: true or false
+Character(8 bit)
+ Wide_Character(16 bit)
+ Wide_Wide_Character(32 bit)
+String:
+ Strings são um array de caracteres
+ Strins possui um tamanho fixo
+ Existem 3 tipos de strings (Characters, Wide_Character, Wide_Wide_Character)
+Sytem.Address
+ Um endereço da memória.
+System.Storage_Elements.Storage_Offset
+ Um deslocamento, que pode ser adicionado a um endereço para obter um novo endereço. Você também pode subtrair um endereço de outro para obter o deslocamento entre eles. Seus subprogramas associados fornecem aritmética de endereço.
+System.Storage_Elements.Storage_Count
+ Um subtipo de Storage_Offset onde não pode ser negativo e representa um tamanho da memória de uma estrutura de dados (semelhante ao size_t de C).
+System.Storage_Elements.Storage_Element
+ Guarda bytes na posição de memória desejada.
+System.Storage_Elements.Storage_Array
+ Um array de Storage_Elements, utíl para fazer acesso à memória bruta.
