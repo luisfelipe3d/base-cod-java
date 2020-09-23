@@ -1,5 +1,28 @@
 Tipos numéricos:
 
-Integer: Signed, Modular
+Integer: 
+    Signed: inteiros assinados são definidos por meio do range dos valores necessitados. 
+    Exemplo:
+    """
+    With Ada.Text_IO; use Ada.Text_IO
+
+    procedure Integer_Type_Example is
+        -- Declare a signed integer type, and give the bounds
+        type Meu_Int is range -1 .. 20;
+        --                           ^ High bound
+        --                     ^ Low bound
+        -- Like variables, type declarations can only appear in
+        -- declarative regions
+    begin
+        for I in Meu_int loop
+            Put_Line(Meu_Int'Image (I));
+                            ^ 'Image attribute, converts a value to a String
+            end loop;
+    end Integer_Type_Example;
+    """
+    esse exemplo ilustra a declaração assinada do tipo inteiro.
+    Todo tipo de declaração em Ada começa com a palavra "type" exceto task types.
+    Após a definição do tipo podemos obversar o "range" variação dos valores permitidos
+    Modular:
 
 Real: Float, Fixo -> Decimal, Ordinário
