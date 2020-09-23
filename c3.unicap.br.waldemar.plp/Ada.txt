@@ -1,7 +1,7 @@
 Tipos numéricos:
 
 Integer: 
-    Signed: inteiros assinados são definidos por meio do range dos valores necessitados. 
+    Signed: números inteiros definido pelo usuário com até 16 bits (-2^15,2^15-1).
     Exemplo:
     """
     With Ada.Text_IO; use Ada.Text_IO;
@@ -22,8 +22,26 @@ Integer:
     """
     O exemplo ilustra a declaração assinada do tipo inteiro.
     Todo tipo de declaração em Ada começa com a palavra "type" exceto "task types".
-    Após a definição do tipo podemos obversar a variação dos valores permitidos.
-    
-    Modular:
+    Após a definição do tipo é definido sua variação.
 
-Real: Float, Fixo -> Decimal, Ordinário
+    Unsigned: também são chamados de tipo modular. Além de não serem assinados
+    possuem uma variação mais abrangente tendo em vista que não possui valores negativos
+
+Real: São números fracionados existem dois tipos deles: Float, Fixo
+    Float: Ada não especifica a precisão (o número de digitos na mantissa) para o float.
+    Todas as operações comuns a inteiros também são aplicadas a esse tipo como também
+    módulo e potênciação.
+    Normalmente máquinas 32 bits terão precisão de 6 na mantissa.
+        """
+        with Ada.Text_IO; use Ada.Text_IO;
+        procedure Floating_Point_Demo is
+            A : Float := 2.5;
+        begin
+            Put_Line ("The value of A is " & Float'Image (A));
+        end Floating_Point_Demo;
+        """
+        A aplicação vai exibir 2.5 como o valor de 
+    Além de float a linguagem também oferece outros tipos de dados com maior precisão como,
+    Long_Float e Long_Long_Float. O padrão não indica a precisão exata desse padrão.
+
+    , Fixo -> Decimal, Ordinário
