@@ -59,7 +59,5 @@ class TreeNodeAVL<KInteger,V> {
 
     public void setRight(TreeNodeAVL right) {
         this.right = right;
-    }
-    
-    
+    }  
 }
