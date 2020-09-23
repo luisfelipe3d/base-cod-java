@@ -1,0 +1,5 @@
+Tipos numéricos:
+
+Integer: Signed, Modular
+
+Real: Float, Fixo -> Decimal, Ordinário
