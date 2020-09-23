@@ -44,4 +44,45 @@ Real: São números fracionados existem dois tipos deles: Float, Fixo
     Além de float a linguagem também oferece outros tipos de dados com maior precisão como,
     Long_Float e Long_Long_Float. O padrão não indica a precisão exata desse padrão.
 
-    , Fixo -> Decimal, Ordinário
+    Fixo: Os tipos de ponto fixo ordinários são semelhantes aos tipos de ponto fixo decimal
+    a diferença entre eles está no fator de escala, dada explicitamente pelo delta do tipo,
+    é sempre uma potência de 10.
+    Em contra-partida, para um tipo de ponto fixo comum, a escala é definida pelo tipo "small"
+    que é derivado do delta especifico e por padrão é uma potência de 2. Portanto, os tipos
+    de ponto fixo comuns às vezes são chamados de tipos de ponto fixo binário.
+    Tipos comuns de ponto fixo podem ser considerados mais próximos da representação real em
+    a máquina, uma vez que o suporte de hardware para aritmética de ponto fixo decimal não é generalizado (reescalonamentos em uma potência de dez), enquanto os tipos de ponto fixo comuns fazem uso de instruções de deslocamento inteiro.
+
+    Exemplo da sintaxe para um ponto-fixo ordinário:
+    """
+    type <type-name> is delta <delta-value> range <lower-bound> .. <upper-bound>;
+    """
+
+    Por padrão o compilador irá escolher fator de escala, ou "small", uma potência de 2 não maior
+    que <delta-value>. Por exemplo, podemos definir um intervalo normalizado entre -1,0 e 1,0 da seguinte forma:
+    """
+    with Ada.Text_IO; use Ada.Text_IO;
+    procedure Normalized_Fixed_Point_Type is
+        D : constant := 2.0 ** (-31);
+        type TQ31 is delta D range -1.0 .. 1.0 - D;
+    begin
+        Put_Line ("TQ31 requires " & Integer'Image (TQ31'Size) & " bits");
+        Put_Line ("The delta value of TQ31 is " & TQ31'Image (TQ31'Delta));
+        Put_Line ("The minimum value of TQ31 is " & TQ31'Image (TQ31'First));
+        Put_Line ("The maximum value of TQ31 is " & TQ31'Image (TQ31'Last));
+    end Normalized_Fixed_Point_Type;
+    """
+    Neste exemplo, estamos definindo um tipo de dados de ponto fixo de 32 bits para nosso intervalo normalizado. Quando executando o aplicativo, notamos que o limite superior é próximo a um, mas não exato. Isto é um efeito típico de tipos de dados de ponto fixo. Também podemos reescrever este código com uma definição de tipo exata:
+    """
+    procedure Normalized_Adapted_Fixed_Point_Type is
+        type TQ31 is delta 2.0 ** (-31) range -1.0 .. 1.0 - 2.0 ** (-31);
+    begin
+    null;
+    end Normalized_Adapted_Fixed_Point_Type;
+    """
+    Na verdade, a linguagem é mais geral do que esses exemplos implicam, visto que na prática é típico precisar multiplicar ou dividir valores de diferentes tipos de ponto fixo e obter um resultado que pode ser de um terceiro tipo de ponto fixo. Também é importante notar que você pode especificar explicitamente um valor para um tipo de ponto fixo comum é pequeno. Isso permite escalonamento não binário, por exemplo:
+    """
+    type Angle is delta 1.0/3600.0 range 0.0 .. 360.0 - 1.0/3600.0;
+    for Angle'Small use Angle'Delta;
+    """
+
