@@ -47,7 +47,7 @@ Real: São números fracionados existem dois tipos deles: Float, Fixo
     Fixo: Os tipos de ponto fixo ordinários são semelhantes aos tipos de ponto fixo decimal
     a diferença entre eles está no fator de escala, dada explicitamente pelo delta do tipo,
     é sempre uma potência de 10.
-    Em contra-partida, para um tipo de ponto fixo comum, a escala é definida pelo tipo "small"
+    Em contrapartida, para um tipo de ponto fixo comum, a escala é definida pelo tipo "small"
     que é derivado do delta especifico e por padrão é uma potência de 2. Portanto, os tipos
     de ponto fixo comuns às vezes são chamados de tipos de ponto fixo binário.
     Tipos comuns de ponto fixo podem ser considerados mais próximos da representação real em
