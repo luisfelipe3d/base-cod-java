@@ -1,0 +1,4 @@
+Projeto de PLP
+
+TODO: Tipos primitivos, condicionais, comando de entrada e saida, um comando de repetição e operações básicas. atribuição, operadores relacionais comparação, e operações matemáticas(adicao,sub,mult e div)
+

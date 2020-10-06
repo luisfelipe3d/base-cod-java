@@ -5,10 +5,13 @@
  */
 package c3.unicap.br.monitoria.ed1.aplicacao.lista1.lde.tarefa;
 
-/**
- *
- * @author home
- */
+import c3.unicap.br.monitoria.ed1.aplicacao.lista1.lde.tarefa.Tarefa;
+
 public class CadastroTarefa {
     
+    private LDE<Tarefa> lista;
+    
+    public CadastroTarefa(){
+        this.lista = new LDE<>();
+    }
 }

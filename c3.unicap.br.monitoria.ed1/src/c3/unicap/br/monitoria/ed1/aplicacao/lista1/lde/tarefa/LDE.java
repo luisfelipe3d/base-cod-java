@@ -22,9 +22,7 @@ public class LDE<T extends Comparable<T>> {
         if(isEmpty()){
             this.first = aux;
             this.last = aux;
-            this.qtd++;
-        } else if(true){
-            
+            this.qtd++;  
         } else {
             
         }

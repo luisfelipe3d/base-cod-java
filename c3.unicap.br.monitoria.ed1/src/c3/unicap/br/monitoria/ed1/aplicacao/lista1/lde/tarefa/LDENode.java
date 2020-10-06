@@ -9,28 +9,28 @@ package c3.unicap.br.monitoria.ed1.aplicacao.lista1.lde.tarefa;
  *
  * @author home
  */
-class LDENode <T extends Comparable<T>>{
-    private LDENode<T> first,last;
+class LDENode <T>{
+    private LDENode<T> prev,next;
     private T info;
 
     public LDENode(T info) {
         this.info = info;
     }
 
-    public LDENode<T> getFirst() {
-        return first;
+    public LDENode<T> getPrev() {
+        return prev;
     }
 
-    public void setFirst(LDENode<T> first) {
-        this.first = first;
+    public void setPrev(LDENode<T> prev) {
+        this.prev = prev;
     }
 
-    public LDENode<T> getLast() {
-        return last;
+    public LDENode<T> getNext() {
+        return next;
     }
 
-    public void setLast(LDENode<T> last) {
-        this.last = last;
+    public void setNext(LDENode<T> next) {
+        this.next = next;
     }
 
     public T getInfo() {
@@ -40,5 +40,6 @@ class LDENode <T extends Comparable<T>>{
     public void setInfo(T info) {
         this.info = info;
     }
+
     
 }
