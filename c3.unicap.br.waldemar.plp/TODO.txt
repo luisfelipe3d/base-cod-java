@@ -4,8 +4,12 @@ Converter um programa escrito em Ada para a linguagem Java.
 
 TODO: Tipos primitivos, condicionais, comando de entrada e saida, um comando de repetição e operações básicas. atribuição, operadores relacionais comparação, e operações matemáticas(adicao,sub,mult e div)
 
+TODO:
+
+
 Luis:
 1. TODO leitura de arquivo *.adb
-oweijweorijweorijw 
-conflito
+2. TODO adicionar um arquivo .adb na pasta do projeto.
+
+
 Thalis:
