@@ -6,5 +6,8 @@ TODO: Tipos primitivos, condicionais, comando de entrada e saida, um comando de 
 
 Luis:
 1. TODO leitura de arquivo *.adb
+abcalskdjasoidjqoidjqowdijqowdjiq
+asldfjksdflkasdjflasdkfjladskfj
+sadflaskdfjlaskdfjaskldf
 
 Thalis:
