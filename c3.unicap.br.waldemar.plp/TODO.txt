@@ -1,8 +1,16 @@
 Projeto de PLP
 Converter um programa escrito em Ada para a linguagem Java.
 
-
-TODO: Tipos primitivos, condicionais, comando de entrada e saida, um comando de repetição e operações básicas. atribuição, operadores relacionais comparação, e operações matemáticas(adicao,sub,mult e div)
+Requisitos mínimos:
+1. Definição de variáveis de Tipos primitivos (pelo menos, int, float, char e boolean), caso se aplique
+2. Comando de controle de fluxo (condicionais ou um comando de repetição)
+3. Comando de entrada e saída
+4. Operações matemáticas básicas (+ - * /). Não precisa tratar a divisão de inteiros e resto da divisão inteira.
+5. Comando de atribuição. Podendo ser atribuída uma expressão com no máximo uma operação básica ou nenhuma. Exemplos:
+a. Uma operação básica: var1 = 5*2;   ou var2 = var1 +1;
+b. Nenhuma operação básica: var3 = 5; ou var2 = var3;
+6. Operadores de comparação >, <, >=, <=, diferente e igual (depende muito da linguagem específica)
+7. Operadores relacionais AND e OR (no máximo um por expressão)
 
 TODO:
 
