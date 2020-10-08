@@ -24,11 +24,27 @@ public class Aplicacao {
         // TODO code application logic here
         final String ARQ_FILE = "src/ada2java/assets/primitivos.adb";
         
+        VariableHandler var = new VariableHandler();
+        CommandHandler com = new CommandHandler();
+        AdaHandler handler = null;
+        String s;
+        
         try{
             File arquivo = new File(ARQ_FILE);
             Scanner arq = new Scanner(arquivo);
             while(arq.hasNext()){
-                System.out.println(arq.nextLine());    
+                if(arq.nextLine().startsWith("with")){
+                    continue;
+                } else if(arq.nextLine().startsWith("procedure")){
+                    handler = var;
+                    continue;
+                } else if(arq.nextLine().startsWith("begin")){
+                    handler = com;
+                    continue;
+                }
+                
+                s = arq.nextLine();
+                handler.addline(s);
             }
             arq.close();
         } catch (IOException e){
