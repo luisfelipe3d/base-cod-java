@@ -24,16 +24,28 @@ public class Aplicacao {
         // TODO code application logic here
         final String ARQ_FILE = "src/ada2java/assets/checkpositive.adb";
         
+        VariableHandler var = new VariableHandler();
+        CommandHandler com = new CommandHandler();
+        AdaHandler handler = null;
+        String s;
+        
         try{
             File arquivo = new File(ARQ_FILE);
             Scanner arq = new Scanner(arquivo);
             String line;
             while(arq.hasNext()){
-                line = arq.nextLine().trim();
-                if(line.startsWith("procedure") && line.endsWith("is")){
-                    line.
+                if(arq.nextLine().startsWith("with")){
+                    continue;
+                } else if(arq.nextLine().startsWith("procedure")){
+                    handler = var;
+                    continue;
+                } else if(arq.nextLine().startsWith("begin")){
+                    handler = com;
+                    continue;
                 }
-                System.out.println(line);    
+                
+                s = arq.nextLine();
+                handler.addline(s);
             }
             arq.close();
         } catch (IOException e){
