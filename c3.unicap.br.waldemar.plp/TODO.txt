@@ -15,8 +15,8 @@ b. Nenhuma operação básica: var3 = 5; ou var2 = var3;
 TODO:
 
 
-Luis:
-1. TODO leitura de arquivo *.adb
+Luis:   
+1. DONE leitura de arquivo *.adb 
 2. TODO adicionar um arquivo .adb na pasta do projeto.
 
 

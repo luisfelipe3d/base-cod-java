@@ -22,17 +22,22 @@ public class Aplicacao {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        final String ARQ_FILE = "src/ada2java/assets/primitivos.adb";
+        final String ARQ_FILE = "src/ada2java/assets/checkpositive.adb";
         
         try{
             File arquivo = new File(ARQ_FILE);
             Scanner arq = new Scanner(arquivo);
+            String line;
             while(arq.hasNext()){
-                System.out.println(arq.nextLine());    
+                line = arq.nextLine().trim();
+                if(line.startsWith("procedure") && line.endsWith("is")){
+                    line.
+                }
+                System.out.println(line);    
             }
             arq.close();
         } catch (IOException e){
-            e.printStackTrace();
+            e.getMessage();
         }
     }
     
