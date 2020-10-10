@@ -11,5 +11,5 @@ package ada2java;
  */
 public interface AdaHandler {
     
-    void addline(String s);
+    void addLine(String s);
 }

@@ -44,7 +44,7 @@ public class Aplicacao {
                 }
                 
                 s = arq.nextLine();
-                handler.addline(s);
+                handler.addLine(s);
             }
             arq.close();
         } catch (IOException e){

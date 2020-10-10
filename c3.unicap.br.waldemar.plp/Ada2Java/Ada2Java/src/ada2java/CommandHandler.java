@@ -12,7 +12,7 @@ package ada2java;
 public class CommandHandler implements AdaHandler{
 
     @Override
-    public void addline(String s) {
+    public void addLine(String s) {
         
     }
     
