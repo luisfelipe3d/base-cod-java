@@ -22,7 +22,7 @@ public class Aplicacao {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        final String ARQ_FILE = "src/ada2java/assets/primitivos.adb";
+        final String ARQ_FILE = "src/ada2java/assets/checkpositive.adb";
         
         VariableHandler var = new VariableHandler();
         CommandHandler com = new CommandHandler();
@@ -32,6 +32,7 @@ public class Aplicacao {
         try{
             File arquivo = new File(ARQ_FILE);
             Scanner arq = new Scanner(arquivo);
+            String line;
             while(arq.hasNext()){
                 if(arq.nextLine().startsWith("with")){
                     continue;
@@ -48,7 +49,7 @@ public class Aplicacao {
             }
             arq.close();
         } catch (IOException e){
-            e.printStackTrace();
+            e.getMessage();
         }
     }
     
