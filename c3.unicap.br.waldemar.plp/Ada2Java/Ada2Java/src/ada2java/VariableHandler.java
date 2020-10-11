@@ -34,29 +34,25 @@ public class VariableHandler implements AdaHandler{
             }
             else
                 varString.put(split[0], "");
-        }
-        if(split[1].startsWith("Integer")){
+        } else if(split[1].startsWith("Integer")){
             if(split[2] != null){
                 varInt.put(split[0], Integer.parseInt(split[2]));
             }
             else
                 varInt.put(split[0], 0);
-        }
-        if(split[1].startsWith("float")){
+        } else if(split[1].startsWith("float")){
             if(split[2] != null){
                 varFloat.put(split[0], Float.parseFloat(split[2]));
             }
             else
                 varFloat.put(split[0], 0.0f);
-        }
-        if(split[1].startsWith("Boolean")){
+        } else if(split[1].startsWith("Boolean")){
             if(split[2] != null){
                 varBoolean.put(split[0], Boolean.parseBoolean(split[2]));
             }
             else
                 varBoolean.put(split[0], false);
-        }
-        if(split[1].startsWith("Character")){
+        } else if(split[1].startsWith("Character")){
             /*if(split[2] != null){
                 varChar.put(split[0], split[2].toCharArray());
             }
