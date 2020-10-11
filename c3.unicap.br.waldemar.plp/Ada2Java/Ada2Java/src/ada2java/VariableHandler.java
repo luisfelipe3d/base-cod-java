@@ -18,7 +18,7 @@ public class VariableHandler implements AdaHandler{
     Map<String, Integer> varInt = new HashMap<String, Integer>();
     Map<String, Float> varFloat = new HashMap<String, Float>();
     Map<String, Boolean> varBoolean = new HashMap<String, Boolean>();
-    Map<String, Character> varChar = new HashMap<String, Character>();
+    //Map<String, Character> varChar = new HashMap<String, Character>();
 
     @Override
     public void addLine(String s) {
@@ -56,12 +56,13 @@ public class VariableHandler implements AdaHandler{
             else
                 varBoolean.put(split[0], false);
         }
-        if(split[1].startsWith("Boolean")){
-            if(split[2] != null){
-                varBoolean.put(split[0], Boolean.parseBoolean(split[2]));
+        if(split[1].startsWith("Character")){
+            /*if(split[2] != null){
+                varChar.put(split[0], split[2].toCharArray());
             }
-            else
-                varBoolean.put(split[0], false);
+            else{
+                varChar.put(split[0], );
+            }*/
         }
     }
     
