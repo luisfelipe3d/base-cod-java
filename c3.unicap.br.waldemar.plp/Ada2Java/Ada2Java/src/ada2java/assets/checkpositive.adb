@@ -6,7 +6,7 @@ procedure Check_Positive is
    F : Float;
    C : Character;
    B : Boolean;
-begin
+begin 
    Put ("Enter an integer value: ");  -- Put a String
    Get (N);  --  Reads in an integer value
    Put_Line ("Value of Integer: " & N);  --  Put an Integer
