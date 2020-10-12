@@ -33,34 +33,18 @@ public class VariableHandler implements AdaHandler{
             split[2] = split[2].replaceAll("\\W", "");//remove qualquer caracter que n seja palavra
         }
         if(split.length == 2 && split[1].startsWith("Integer")){
-            //removeSemiColon(split);
             this.varInt.put(split[0], null);
             showInt();
             
         } else if(split.length == 2 && split[1].startsWith("Float")){
-            //removeSemiColon(split);
             this.varFloat.put(split[0], null);
             showFloat();
         } else if(split.length == 2 && split[1].startsWith("Boolean")){
-            if(split.length == 3){
-                varBoolean.put(split[0], Boolean.parseBoolean(split[2]));
-            }
-            else
-                varBoolean.put(split[0], false);
+            this.varBoolean.put(split[0], Boolean.FALSE);
+            showBoolean();
         } else if(split.length == 2 && split[1].startsWith("Character")){
-            if(split.length == 3){
-                varChar.put(split[0], split[2].charAt(0));
-                
-            } else {
-                varChar.put(split[0], Character.MIN_VALUE);
-            }
-            
-            /*if(split[2] != null){
-                varChar.put(split[0], split[2].toCharArray());
-            }
-            else{
-                varChar.put(split[0], );
-            }*/
+            this.varChar.put(split[0], null);
+            showChar();
         }
         
     }
@@ -94,12 +78,5 @@ public class VariableHandler implements AdaHandler{
             System.out.println("Key Boolean: "+key+", value: "+this.varChar.get(key));
         }
     }
-    
-    private void removeSemiColon(String[] s){
-        if(s[1].endsWith(";")){
-                s[1] = s[1].replace(";", "");
-        }
-    }
-    
     
 }
