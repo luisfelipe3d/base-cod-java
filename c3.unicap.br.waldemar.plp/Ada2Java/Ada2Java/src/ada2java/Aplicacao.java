@@ -5,8 +5,10 @@
  */
 package ada2java;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
@@ -20,36 +22,33 @@ public class Aplicacao {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
         // TODO code application logic here
-        final String ARQ_FILE = "src/ada2java/assets/checkpositive.adb";
+        //final String ARQ_FILE = "src/ada2java/assets/checkpositive.adb";
+        File arquivo = new File("src/ada2java/assets/primitivos.adb");
         
         VariableHandler var = new VariableHandler();
         CommandHandler com = new CommandHandler();
         AdaHandler handler = null;
         String s;
         
-        try{
-            File arquivo = new File(ARQ_FILE);
-            Scanner arq = new Scanner(arquivo);
-            String line;
-            while(arq.hasNext()){
-                if(arq.nextLine().startsWith("with")){
+        try(BufferedReader br = new BufferedReader(new FileReader(arquivo));){
+            for(String line; (line = br.readLine()) != null;){
+                if(line.startsWith("with")){
                     continue;
-                } else if(arq.nextLine().startsWith("procedure")){
+                } else if(line.startsWith("procedure")){
                     handler = var;
                     continue;
-                } else if(arq.nextLine().startsWith("begin")){
+                } else if(line.startsWith("begin")){
                     handler = com;
                     continue;
                 }
                 
-                s = arq.nextLine();
-                handler.addLine(s);
+                if(handler != null){
+                    handler.addLine(line);
+                }
             }
-            arq.close();
-        } catch (IOException e){
-            e.getMessage();
+            
         }
     }
     

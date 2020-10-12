@@ -25,34 +25,34 @@ public class VariableHandler implements AdaHandler{
         s = s.replaceAll(" ", "");
         String[] split = s.split(":");
         
-        if (split[2] != null)
+        if (split.length == 3)
             split[2] = split[2].replaceAll("=", "");
         
-        if(split[1].startsWith("String")){
-            if(split[2] != null){
+        if(split.length == 2 && split[1].startsWith("String")){
+            if(split.length == 3){
                 varString.put(split[0], split[2]);
             }
             else
                 varString.put(split[0], "");
-        } else if(split[1].startsWith("Integer")){
-            if(split[2] != null){
+        } else if(split.length == 2 && split[1].startsWith("Integer")){
+            if(split.length == 3){
                 varInt.put(split[0], Integer.parseInt(split[2]));
             }
             else
                 varInt.put(split[0], 0);
-        } else if(split[1].startsWith("float")){
-            if(split[2] != null){
+        } else if(split.length == 2 && split[1].startsWith("float")){
+            if(split.length == 3){
                 varFloat.put(split[0], Float.parseFloat(split[2]));
             }
             else
                 varFloat.put(split[0], 0.0f);
-        } else if(split[1].startsWith("Boolean")){
-            if(split[2] != null){
+        } else if(split.length == 2 && split[1].startsWith("Boolean")){
+            if(split.length == 3){
                 varBoolean.put(split[0], Boolean.parseBoolean(split[2]));
             }
             else
                 varBoolean.put(split[0], false);
-        } else if(split[1].startsWith("Character")){
+        } else if(split.length == 2 && split[1].startsWith("Character")){
             /*if(split[2] != null){
                 varChar.put(split[0], split[2].toCharArray());
             }

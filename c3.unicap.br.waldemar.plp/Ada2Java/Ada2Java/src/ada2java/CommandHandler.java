@@ -17,7 +17,7 @@ public class CommandHandler implements AdaHandler{
     //Put (N);
     @Override
     public void addLine(String s) {
-        String[] split = s.split("(");
+        /*String[] split = s.split("(");
         split[1] = split[1].replaceAll(")", "");
         split[1] = split[1].replaceAll(";", "");
         
@@ -28,7 +28,7 @@ public class CommandHandler implements AdaHandler{
             //colocar o valor do scanner na variavel passada no get;
         } else if(split[0].startsWith("Put")){
             //
-        } //falta ler o if e for
+        } //falta ler o if e for*/
     }
     
 }
