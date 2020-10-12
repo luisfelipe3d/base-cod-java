@@ -7,11 +7,9 @@ package ada2java;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 
 /**
  *
@@ -25,7 +23,7 @@ public class Aplicacao {
     public static void main(String[] args) throws FileNotFoundException, IOException {
         // TODO code application logic here
         //final String ARQ_FILE = "src/ada2java/assets/checkpositive.adb";
-        File arquivo = new File("src/ada2java/assets/abc.adb");
+        File arquivo = new File("src/ada2java/assets/checkpositive.adb");
         
         VariableHandler var = new VariableHandler();
         CommandHandler com = new CommandHandler();
