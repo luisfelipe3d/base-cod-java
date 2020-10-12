@@ -30,31 +30,31 @@ public class VariableHandler implements AdaHandler{
             split[2] = split[2].replaceAll("\\W", "");
         }
         
-        if(split.length == 2 && split[1].startsWith("String")){
+        if(split.length >= 2 && split[1].startsWith("String")){
             if(split.length == 3){
                 varString.put(split[0], split[2]);
             }
             else
                 varString.put(split[0], "");
-        } else if(split.length == 2 && split[1].startsWith("Integer")){
+        } else if(split.length >= 2 && split[1].startsWith("Integer")){
             if(split.length == 3){
                 varInt.put(split[0], Integer.parseInt(split[2]));
             }
             else
                 varInt.put(split[0], 0);
-        } else if(split.length == 2 && split[1].startsWith("float")){
+        } else if(split.length >= 2 && split[1].startsWith("float")){
             if(split.length == 3){
                 varFloat.put(split[0], Float.parseFloat(split[2]));
             }
             else
                 varFloat.put(split[0], 0.0f);
-        } else if(split.length == 2 && split[1].startsWith("Boolean")){
+        } else if(split.length >= 2 && split[1].startsWith("Boolean")){
             if(split.length == 3){
                 varBoolean.put(split[0], Boolean.parseBoolean(split[2]));
             }
             else
                 varBoolean.put(split[0], false);
-        } else if(split.length == 2 && split[1].startsWith("Character")){
+        } else if(split.length >= 2 && split[1].startsWith("Character")){
             if(split.length == 3){
                 varChar.put(split[0], split[2].charAt(0));
                 mostrarChar();
