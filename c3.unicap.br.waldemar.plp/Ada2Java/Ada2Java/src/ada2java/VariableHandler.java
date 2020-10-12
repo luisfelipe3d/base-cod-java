@@ -14,10 +14,10 @@ import java.util.Map;
  */
 public class VariableHandler implements AdaHandler{
     
-    Map<String, String> varString = new HashMap<String, String>();
-    Map<String, Integer> varInt = new HashMap<String, Integer>();
-    Map<String, Float> varFloat = new HashMap<String, Float>();
-    Map<String, Boolean> varBoolean = new HashMap<String, Boolean>();
+    Map<String, String> varString = new HashMap<>();
+    Map<String, Integer> varInt = new HashMap<>();
+    Map<String, Float> varFloat = new HashMap<>();
+    Map<String, Boolean> varBoolean = new HashMap<>();
     //Map<String, Character> varChar = new HashMap<String, Character>();
 
     @Override

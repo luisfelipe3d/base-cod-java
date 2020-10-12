@@ -25,7 +25,7 @@ public class Aplicacao {
     public static void main(String[] args) throws FileNotFoundException, IOException {
         // TODO code application logic here
         //final String ARQ_FILE = "src/ada2java/assets/checkpositive.adb";
-        File arquivo = new File("src/ada2java/assets/primitivos.adb");
+        File arquivo = new File("src/ada2java/assets/abc.adb");
         
         VariableHandler var = new VariableHandler();
         CommandHandler com = new CommandHandler();
