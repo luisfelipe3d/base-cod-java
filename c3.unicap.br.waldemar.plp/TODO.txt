@@ -21,3 +21,5 @@ Luis:
 
 
 Thalis:
+1. DONE Ler as variáveis de Tipos primitivos
+2. TODO ler o tipo char
