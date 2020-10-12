@@ -16,6 +16,8 @@ public class VariableHandler implements AdaHandler{
     
     Map<String, String> varString = new HashMap<String, String>();
     Map<String, Integer> varInt = new HashMap<String, Integer>();
+    Map<String, Boolean> varBol = new HashMap<String, Boolean>();
+    
 
     @Override
     public void addLine(String s) {
