@@ -16,28 +16,49 @@ public class VariableHandler implements AdaHandler{
     
     Map<String, String> varString = new HashMap<String, String>();
     Map<String, Integer> varInt = new HashMap<String, Integer>();
-    Map<String, Boolean> varBol = new HashMap<String, Boolean>();
-    
+    Map<String, Float> varFloat = new HashMap<String, Float>();
+    Map<String, Boolean> varBoolean = new HashMap<String, Boolean>();
+    //Map<String, Character> varChar = new HashMap<String, Character>();
 
     @Override
     public void addLine(String s) {
         s = s.replaceAll(" ", "");
         String[] split = s.split(":");
+        
+        if (split[2] != null)
+            split[2] = split[2].replaceAll("=", "");
+        
         if(split[1].startsWith("String")){
             if(split[2] != null){
-                split[2] = split[2].replaceAll("=", "");
                 varString.put(split[0], split[2]);
             }
             else
                 varString.put(split[0], "");
-        }
-        if(split[1].startsWith("Integer")){
+        } else if(split[1].startsWith("Integer")){
             if(split[2] != null){
-                split[2] = split[2].replaceAll("=", "");
                 varInt.put(split[0], Integer.parseInt(split[2]));
             }
             else
-                varString.put(split[0], "");
+                varInt.put(split[0], 0);
+        } else if(split[1].startsWith("float")){
+            if(split[2] != null){
+                varFloat.put(split[0], Float.parseFloat(split[2]));
+            }
+            else
+                varFloat.put(split[0], 0.0f);
+        } else if(split[1].startsWith("Boolean")){
+            if(split[2] != null){
+                varBoolean.put(split[0], Boolean.parseBoolean(split[2]));
+            }
+            else
+                varBoolean.put(split[0], false);
+        } else if(split[1].startsWith("Character")){
+            /*if(split[2] != null){
+                varChar.put(split[0], split[2].toCharArray());
+            }
+            else{
+                varChar.put(split[0], );
+            }*/
         }
     }
     
