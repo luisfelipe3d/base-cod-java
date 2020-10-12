@@ -6,6 +6,7 @@
 package ada2java;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -18,15 +19,16 @@ public class VariableHandler implements AdaHandler{
     Map<String, Integer> varInt = new HashMap<String, Integer>();
     Map<String, Float> varFloat = new HashMap<String, Float>();
     Map<String, Boolean> varBoolean = new HashMap<String, Boolean>();
-    //Map<String, Character> varChar = new HashMap<String, Character>();
+    Map<String, Character> varChar = new HashMap<String, Character>();
 
     @Override
     public void addLine(String s) {
         s = s.replaceAll(" ", "");
         String[] split = s.split(":");
         
-        if (split.length == 3)
-            split[2] = split[2].replaceAll("=", "");
+        if (split.length == 3){
+            split[2] = split[2].replaceAll("\\W", "");
+        }
         
         if(split.length == 2 && split[1].startsWith("String")){
             if(split.length == 3){
@@ -53,6 +55,13 @@ public class VariableHandler implements AdaHandler{
             else
                 varBoolean.put(split[0], false);
         } else if(split.length == 2 && split[1].startsWith("Character")){
+            if(split.length == 3){
+                varChar.put(split[0], split[2].charAt(0));
+                mostrarChar();
+            } else {
+                varChar.put(split[0], Character.MIN_VALUE);
+            }
+            
             /*if(split[2] != null){
                 varChar.put(split[0], split[2].toCharArray());
             }
@@ -60,6 +69,14 @@ public class VariableHandler implements AdaHandler{
                 varChar.put(split[0], );
             }*/
         }
+        
+    }
+
+    private void mostrarChar() {
+        Iterator<Character> itr = varChar.values().iterator();
+        while (itr.hasNext()) {
+		System.out.println(itr.next());
+	}
     }
     
 }
