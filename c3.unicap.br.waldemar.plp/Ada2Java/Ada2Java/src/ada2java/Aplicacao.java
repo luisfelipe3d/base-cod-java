@@ -30,7 +30,6 @@ public class Aplicacao {
         VariableHandler var = new VariableHandler();
         CommandHandler com = new CommandHandler();
         AdaHandler handler = null;
-        String s;
         
         try(BufferedReader br = new BufferedReader(new FileReader(arquivo));){
             for(String line; (line = br.readLine()) != null;){
