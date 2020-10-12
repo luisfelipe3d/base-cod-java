@@ -3,13 +3,12 @@ with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 
 procedure Check_Positive is
    N : Integer;
+   F : Float;
+   C : Character;
+   B : Boolean;
 begin
    Put ("Enter an integer value: ");  -- Put a String
    Get (N);  --  Reads in an integer value
-   Put (N);  --  Put an Integer
-   if N > 0 then
-      Put_Line (" is a positive number");
-   else
-      Put_Line (" is not a positive number");
-   end if;
+   Put_Line ("Value of Integer: " & N);  --  Put an Integer
+   
 end Check_Positive;
