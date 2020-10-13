@@ -7,4 +7,6 @@ procedure abc is
    D,E,F : Integer;
 begin
    Put_Line("Value of B: " & Integer'Image(B));
+   Put_Line("abc" & "def");
+   Put_Line("saodijasoidja" & "jojojojojo");
 end abc;

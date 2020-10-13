@@ -40,7 +40,7 @@ public class VariableHandler implements AdaHandler {
                     this.varInt.put(str, null);
                 }
             }
-            showInt();
+            //showInt();
         } else if (split.length >= 2 && split[1].startsWith("Float")) {
             for (String str : split[0].split(",")) {
                 if (split.length == 3) {
@@ -49,7 +49,7 @@ public class VariableHandler implements AdaHandler {
                     this.varFloat.put(split[0], null);
                 }
             }
-            showFloat();
+            //showFloat();
         } else if (split.length >= 2 && split[1].startsWith("Boolean")) {
             for (String str : split[0].split(",")) {
                 if (split.length == 3) {
@@ -58,7 +58,7 @@ public class VariableHandler implements AdaHandler {
                     this.varBoolean.put(split[0], Boolean.FALSE);
                 }
             }
-            showBoolean();
+            //showBoolean();
         } else if (split.length >= 2 && split[1].startsWith("Character")) {
             for (String str : split[0].split(",")) {
                 if (split.length == 3) {
@@ -68,7 +68,7 @@ public class VariableHandler implements AdaHandler {
                     this.varChar.put(split[0], null);
                 }
             }
-            showChar();
+            //showChar();
         }
 
     }
