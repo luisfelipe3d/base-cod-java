@@ -125,4 +125,19 @@ public class VariableHandler implements AdaHandler {
         return v;
     }
     
+    public void getPlus(String p){
+        
+    }
+    
+    public void getMinus(String p){
+        
+    }
+    
+    public void getMult(String p){
+        
+    }
+    
+    public void getDiv(String p){
+        
+    }    
 }
