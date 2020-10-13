@@ -24,18 +24,30 @@ public class CommandHandler implements AdaHandler{
     @Override
     public void addLine(String s) {
         s = s.trim();
+        System.out.println(s);
         String[] split;
 
         if(s.contains("Put_Line")){
-            split = s.split("[(]");
-            int indexFim = s.lastIndexOf('"') + 1;
-            int indexIni = s.indexOf('"');
-            String msg = s.substring(indexIni, indexFim);
+//            //split = s.split("[(]");
+//            int indexFim = s.lastIndexOf('"');
+//            int indexIni = s.indexOf('"') + 1;
+//            String msg = s.substring(indexIni, indexFim);
+//            System.out.println(msg);
+            String msg = searchMsg(s);
             System.out.println(msg);
-            
         }
         
-
+    }
+    
+    private String searchMsg(String s){
+        int indexInicio, indexFim;
+        String r;
+        if(!s.isEmpty()){
+            indexInicio = s.indexOf('"') + 1;
+            indexFim = s.lastIndexOf('"');
+            return r = s.substring(indexInicio, indexFim);
+        }
+        return null;
     }
     
 }

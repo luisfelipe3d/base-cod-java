@@ -39,6 +39,9 @@ public class Aplicacao {
                 } else if(line.startsWith("begin")){
                     handler = com;
                     continue;
+                } else if(line.startsWith("end")){
+                    handler = com;
+                    continue;
                 }
                 
                 if(handler != null){

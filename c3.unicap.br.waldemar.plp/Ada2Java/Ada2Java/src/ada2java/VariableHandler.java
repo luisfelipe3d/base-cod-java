@@ -28,7 +28,7 @@ public class VariableHandler implements AdaHandler {
             s = s.replace(";", "");
         }
         String[] split = s.split(":");
-        show(split);
+        //show(split);
         if (split.length == 3) {
             split[2] = split[2].replaceAll("=", "");//remove qualquer caracter que n seja palavra
         }
