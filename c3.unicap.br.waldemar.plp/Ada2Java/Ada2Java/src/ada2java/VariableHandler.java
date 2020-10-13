@@ -46,14 +46,10 @@ public class VariableHandler implements AdaHandler {
         switch (op) {
             case "Integer":
                 for (String str : split[0].split(",")) {
-                    if (split.length == 3) {
-                        if (split[2].matches("\\w")) {
-                            int tmp = getInt(split[2]);
-                            System.out.println("tmp" + tmp);
-                            if (tmp != -1) {
-                                this.varInt.put(str, tmp);
-                            }
-                        } else if(split[2].matches("\\d")){
+                    if (split.length == 3){
+                        if(getInt(split[2])!= null){
+                            this.varInt.put(str, getInt(split[2]));
+                        } else {
                             this.varInt.put(str, Integer.parseInt(split[2]));
                         }
                     } else {
@@ -64,7 +60,11 @@ public class VariableHandler implements AdaHandler {
             case "float":
                 for (String str : split[0].split(",")) {
                     if (split.length == 3) {
-                        this.varFloat.put(split[0], Float.parseFloat(split[2]));
+                        if(getFloat(split[2])!= null){
+                            this.varFloat.put(str, getFloat(split[2]));
+                        } else{
+                            this.varFloat.put(split[0], Float.parseFloat(split[2]));
+                        }
                     } else {
                         this.varFloat.put(split[0], null);
                     }
@@ -73,65 +73,31 @@ public class VariableHandler implements AdaHandler {
             case "Boolean":
                 for (String str : split[0].split(",")) {
                     if (split.length == 3) {
-                        this.varBoolean.put(split[0], Boolean.parseBoolean(split[2]));
+                        if(getBoolean(split[2]) != null){
+                            this.varBoolean.put(str, getBoolean(split[2]));//inic com refere a outra var ex: A: Boolean := C;
+                        } else {
+                            this.varBoolean.put(str, Boolean.FALSE);//inic sem refere a outra var ex: A: Boolean := false;
+                        }
                     } else {
-                        this.varBoolean.put(split[0], Boolean.FALSE);
+                        this.varBoolean.put(split[0], Boolean.FALSE); //inic sem valor ex: A: Boolean;
                     }
                 }
                 break;
             case "Character":
                 for (String str : split[0].split(",")) {
                     if (split.length == 3) {
-                        char aux = split[2].charAt(0);
-                        this.varChar.put(split[0], aux);
+                        if(getChar(split[2])!=null){
+                            this.varChar.put(str, getChar(split[2]));
+                        } else{
+                            this.varChar.put(str, split[2].charAt(0));
+                        }
                     } else {
                         this.varChar.put(split[0], null);
                     }
                 }
                 break;
         }
-//        if (split.length >= 2 && split[1].startsWith("Integer")) {
-//            for (String str : split[0].split(",")) {
-//                if (split.length == 3) {
-////                    if(split[2].matches("\\w")){
-////                        int tmp = getInt(split[2]);
-////                        System.out.println("tmp"+ tmp);
-////                        if(tmp != -1){
-////                            this.varInt.put(str, tmp);
-////                        }
-////                    }
-//                    this.varInt.put(str, Integer.parseInt(split[2]));
-//                } else {
-//                    this.varInt.put(str, null);
-//                }
-//            }
-//        } else if (split.length >= 2 && split[1].startsWith("Float")) {
-//            for (String str : split[0].split(",")) {
-//                if (split.length == 3) {
-//                    this.varFloat.put(split[0], Float.parseFloat(split[2]));
-//                } else {
-//                    this.varFloat.put(split[0], null);
-//                }
-//            }
-//        } else if (split.length >= 2 && split[1].startsWith("Boolean")) {
-//            for (String str : split[0].split(",")) {
-//                if (split.length == 3) {
-//                    this.varBoolean.put(split[0], Boolean.parseBoolean(split[2]));
-//                } else {
-//                    this.varBoolean.put(split[0], Boolean.FALSE);
-//                }
-//            }
-//        } else if (split.length >= 2 && split[1].startsWith("Character")) {
-//            for (String str : split[0].split(",")) {
-//                if (split.length == 3) {
-//                    char aux = split[2].charAt(0);
-//                    this.varChar.put(split[0], aux);
-//                } else {
-//                    this.varChar.put(split[0], null);
-//                }
-//            }
-//        }
-
+        showMap();
     }
 
     private void show(String[] s) {
@@ -139,37 +105,42 @@ public class VariableHandler implements AdaHandler {
             System.out.println("Array[" + i + "]: " + s[i]);
         }
     }
+    
+    private void showMap(){
+        this.varInt.forEach((key, value) -> System.out.println(key + ":" + value));
+        System.out.println(this.varInt.size());
+    }
 
-    public int getInt(String x) {
+    public Integer getInt(String x) {
         if (this.varInt.containsKey(x)) {
             Integer a = this.varInt.get(x);
             return a;
         }
-        return -1;
+        return null;
     }
 
-    public float getFloat(String z) {
+    public Float getFloat(String z) {
         if (this.varFloat.containsKey(z)) {
             Float a = this.varFloat.get(z);
             return a;
         }
-        return -1;
+        return null;
     }
 
-    public boolean getBoolean(String w) {
+    public Boolean getBoolean(String w) {
         if (this.varBoolean.containsKey(w)) {
             Boolean b = this.varBoolean.get(w);
             return b;
         }
-        return false;
+        return null;
     }
 
-    public char getChar(String c) {
+    public Character getChar(String c) {
         Character v = this.varChar.get(c);
         if (this.varChar.containsKey(c)) {
             return v;
         }
-        return v;
+        return null;
     }
 
     public void getPlus(String p) {
