@@ -46,6 +46,13 @@ public class VariableHandler implements AdaHandler {
         if (split.length >= 2 && split[1].startsWith("Integer")) {
             for (String str : split[0].split(",")) {
                 if (split.length == 3) {
+                    if(split[2].matches("\\w")){
+                        int tmp = getInt(split[2]);
+                        System.out.println("tmp"+ tmp);
+                        if(tmp != -1){
+                            this.varInt.put(str, tmp);
+                        }
+                    }
                     this.varInt.put(str, Integer.parseInt(split[2]));
                 } else {
                     this.varInt.put(str, null);
@@ -77,6 +84,7 @@ public class VariableHandler implements AdaHandler {
                 }
             }
         }
+        show(split);
 
     }
 

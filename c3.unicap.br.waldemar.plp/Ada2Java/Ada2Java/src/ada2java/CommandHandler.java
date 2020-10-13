@@ -25,8 +25,8 @@ public class CommandHandler implements AdaHandler{
             System.out.println("3. "+s);
             String tmp = getParameter(s);
             String a = getType(tmp);
-            //int valor = var.getInt(tmp);
-            //System.out.println(msg+valor);
+            int valor = var.getInt(tmp);
+            System.out.println(msg+valor);
         }
     }
     
