@@ -25,7 +25,7 @@ public class Aplicacao {
         //final String ARQ_FILE = "src/ada2java/assets/checkpositive.adb";
         File arquivo = new File("src/ada2java/assets/abc.adb");
         
-        VariableHandler var = new VariableHandler();
+        VariableHandler var = VariableHandler.getInstance();
         CommandHandler com = new CommandHandler();
         AdaHandler handler = null;
         

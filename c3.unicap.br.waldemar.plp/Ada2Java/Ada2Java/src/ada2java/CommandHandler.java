@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ada2java;
 
 import java.util.ArrayList;
@@ -10,37 +6,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- * @author joaot
- */
+
 public class CommandHandler implements AdaHandler{
 
-    //Put_Line("Digite seu nome: ");
-    //Put (N);
-    List<Integer> varStack = new ArrayList<>();
-    Map<String,String> varPlus = new HashMap<>();
+    private Map<String,String> varPlus = new HashMap<>();
+    private VariableHandler var = VariableHandler.getInstance();
+    private TypesOfDataEnum type;
     
     @Override
     public void addLine(String s) {
-        String[] split;
         if(s.contains("Put_Line")){
-            
             s = prepareString(s);
-            //int removePut = s.indexOf("(")+1;
-            //s = s.substring(removePut, s.length());
+            System.out.println("1. "+s);
             String msg = searchMsg(s);
-            //System.out.println(msg);
-            //s = s.replaceAll(" ", "");
-            
-            int removeMsg = s.lastIndexOf('"')+1;
-            //s = s.substring(removeMsg, s.length());
-            //System.out.println(s);
-            
-            int searchAmpersand = s.indexOf("&");
-
+            s = s.replaceAll(msg, "");
+            s = s.replaceAll("&", "");
+            s = s.replaceAll("\"+", "").trim();
+            System.out.println("3. "+s);
+            String tmp = getParameter(s);
+            String a = getType(tmp);
+            //int valor = var.getInt(tmp);
+            //System.out.println(msg+valor);
         }
-        
     }
     
     private String searchMsg(String s){
@@ -62,7 +49,6 @@ public class CommandHandler implements AdaHandler{
                 indexFim = indice.get(3);
                 r = r + s.substring(indexInicio, indexFim);
             }
-            System.out.println("valor de r: " + r);
             indice.removeAll(indice);
             return r;
         }
@@ -74,12 +60,28 @@ public class CommandHandler implements AdaHandler{
             s = s.trim();
             int removeP = s.indexOf("(") + 1;
             int removePf = s.lastIndexOf(")");
-            int searchSemiColon = s.indexOf(";");
-            if (removePf + 1 == searchSemiColon) {
-                System.out.println(s.substring(removeP, removePf));
+            int removeSemiColon = s.indexOf(";");
+            if (removePf + 1 == removeSemiColon) {
                 return s.substring(removeP, removePf);
             }
         }
+        return null;
+    }
+    
+    private String getParameter(String s){
+        int inicioP = s.indexOf("(");
+        int fimP = s.lastIndexOf(")");
+        String tmp;
+        if(inicioP != -1 && fimP != -1){
+            return tmp = s.substring(inicioP+1,fimP);
+        }
+        return null;
+    }
+    
+    private String getType(String t){
+         String inteiro = TypesOfDataEnum.fromInt(1);
+         String b = TypesOfDataEnum.fromInt(2);
+         System.out.println("b: "+b);
         return null;
     }
     

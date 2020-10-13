@@ -6,8 +6,8 @@
 package ada2java;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -15,12 +15,24 @@ import java.util.Map;
  */
 public class VariableHandler implements AdaHandler {
 
-    //Map<String, String> varString = new HashMap<>();
-    Map<String, Integer> varInt = new HashMap<>();
-    Map<String, Float> varFloat = new HashMap<>();
-    Map<String, Boolean> varBoolean = new HashMap<>();
-    Map<String, Character> varChar = new HashMap<>();
-
+    private Map<String, Integer> varInt = new HashMap<>();
+    private Map<String, Float> varFloat = new HashMap<>();
+    private Map<String, Boolean> varBoolean = new HashMap<>();
+    private Map<String, Character> varChar = new HashMap<>();
+    
+    private static VariableHandler uniqueInstance;
+    
+    private VariableHandler(){
+        
+    }
+    
+    public static synchronized VariableHandler getInstance(){
+        if(uniqueInstance == null){
+            uniqueInstance = new VariableHandler();
+        }
+        return uniqueInstance;
+    } 
+    
     @Override
     public void addLine(String s) {
         s = s.replaceAll(" ", "");
@@ -28,7 +40,6 @@ public class VariableHandler implements AdaHandler {
             s = s.replace(";", "");
         }
         String[] split = s.split(":");
-        //show(split);
         if (split.length == 3) {
             split[2] = split[2].replaceAll("=", "");//remove qualquer caracter que n seja palavra
         }
@@ -40,7 +51,6 @@ public class VariableHandler implements AdaHandler {
                     this.varInt.put(str, null);
                 }
             }
-            //showInt();
         } else if (split.length >= 2 && split[1].startsWith("Float")) {
             for (String str : split[0].split(",")) {
                 if (split.length == 3) {
@@ -49,7 +59,6 @@ public class VariableHandler implements AdaHandler {
                     this.varFloat.put(split[0], null);
                 }
             }
-            //showFloat();
         } else if (split.length >= 2 && split[1].startsWith("Boolean")) {
             for (String str : split[0].split(",")) {
                 if (split.length == 3) {
@@ -58,7 +67,6 @@ public class VariableHandler implements AdaHandler {
                     this.varBoolean.put(split[0], Boolean.FALSE);
                 }
             }
-            //showBoolean();
         } else if (split.length >= 2 && split[1].startsWith("Character")) {
             for (String str : split[0].split(",")) {
                 if (split.length == 3) {
@@ -68,7 +76,6 @@ public class VariableHandler implements AdaHandler {
                     this.varChar.put(split[0], null);
                 }
             }
-            //showChar();
         }
 
     }
@@ -79,28 +86,36 @@ public class VariableHandler implements AdaHandler {
         }
     }
 
-    private void showInt() {
-        for (String key : this.varInt.keySet()) {
-            System.out.println("Key Int: " + key + ", value: " + this.varInt.get(key));
+    public int getInt(String x) {         
+        if(this.varInt.containsKey(x)){
+            Integer a = this.varInt.get(x);
+            return a;
         }
+        return -1;
     }
 
-    private void showFloat() {
-        for (String key : this.varFloat.keySet()) {
-            System.out.println("Key Float: " + key + ", value: " + this.varFloat.get(key));
+    public float getFloat(String z) {
+        if(this.varFloat.containsKey(z)){
+            Float a = this.varFloat.get(z);
+            return a;
         }
+        return -1;
     }
 
-    private void showBoolean() {
-        for (String key : this.varBoolean.keySet()) {
-            System.out.println("Key Boolean: " + key + ", value: " + this.varBoolean.get(key));
+    public boolean showBoolean(String w) {
+        if(this.varBoolean.containsKey(w)){
+            Boolean b = this.varBoolean.get(w);
+            return b;
         }
+        return false;
     }
 
-    private void showChar() {
-        for (String key : this.varChar.keySet()) {
-            System.out.println("Key Boolean: " + key + ", value: " + this.varChar.get(key));
+    public char getChar(String c) {
+        Character v = this.varChar.get(c);
+        if(this.varChar.containsKey(c)){ 
+            return v;
         }
+        return v;
     }
-
+    
 }
