@@ -78,13 +78,16 @@ public class CommandHandler implements AdaHandler{
         return null;
     }
     
-    private String getType(String t){
-        String final INTEIRO = "Integer'Image";
-        String final FLOAT = "Float'Image";         
-         switch(t){
-             case t.equalsIgnoreCase(inteiro):
-                 
-         }
+    private String getType(String t){         
+        final String INTEIRO = "Integer'Image";
+        final String FLOAT = "Float'Image";
+        final String CHARACTER = "Character'Image";
+        final String BOOLEAN = "Boolean'Image";
+        
+        switch(t){
+            
+        }
+        
         return null;
     }
     
