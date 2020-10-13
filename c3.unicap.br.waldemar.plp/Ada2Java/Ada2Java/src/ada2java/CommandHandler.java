@@ -22,10 +22,9 @@ public class CommandHandler implements AdaHandler{
             s = s.replaceAll("&", "");
             s = s.replaceAll("\"+", "").trim();
             System.out.println("3. "+s);
-            String tmp = getParameter(s);
-            String a = getType(tmp);
-            int valor = var.getInt(tmp);
-            System.out.println(msg+valor);
+            String parametroBusca = getParameter(s);
+            System.out.println("Valor de S: "+s);
+            String a = getType(s);
         }
     }
     
@@ -70,9 +69,8 @@ public class CommandHandler implements AdaHandler{
     private String getParameter(String s){
         int inicioP = s.indexOf("(");
         int fimP = s.lastIndexOf(")");
-        String tmp;
         if(inicioP != -1 && fimP != -1){
-            return tmp = s.substring(inicioP+1,fimP);
+            return  s.substring(inicioP+1,fimP);
         }
         return null;
     }
@@ -82,9 +80,9 @@ public class CommandHandler implements AdaHandler{
         final String FLOAT = "Float'Image";
         final String CHARACTER = "Character'Image";
         final String BOOLEAN = "Boolean'Image";
-        
         switch(t){
             case INTEIRO:
+                System.out.println("Entrou no getType");
                 break;
             case FLOAT:
                 break;
