@@ -11,7 +11,6 @@ public class CommandHandler implements AdaHandler{
 
     private Map<String,String> varPlus = new HashMap<>();
     private VariableHandler var = VariableHandler.getInstance();
-    private TypesOfDataEnum type;
     
     @Override
     public void addLine(String s) {
@@ -78,10 +77,22 @@ public class CommandHandler implements AdaHandler{
         return null;
     }
     
-    private String getType(String t){
-         String inteiro = TypesOfDataEnum.fromInt(1);
-         String b = TypesOfDataEnum.fromInt(2);
-         System.out.println("b: "+b);
+    private String getType(String t){         
+        final String INTEIRO = "Integer'Image";
+        final String FLOAT = "Float'Image";
+        final String CHARACTER = "Character'Image";
+        final String BOOLEAN = "Boolean'Image";
+        
+        switch(t){
+            case INTEIRO:
+                break;
+            case FLOAT:
+                break;
+            case CHARACTER:
+                break;
+            case BOOLEAN:
+                break;
+        }
         return null;
     }
     
