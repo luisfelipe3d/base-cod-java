@@ -6,6 +6,7 @@
 package ada2java;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 /**
  *
@@ -15,18 +16,19 @@ public class CommandHandler implements AdaHandler{
 
     //Put_Line("Digite seu nome: ");
     //Put (N);
-    
+    Stack<String> varStack = new Stack<>();
     
     @Override
     public void addLine(String s) {
         String[] split;
+        s = s.trim();
         if(s.contains("Put_Line")){
-            split = s.split("\"");
-            System.out.println("aqui");
-            for(String a: split){
-                System.out.print(a);
-            }
-            System.out.println(s.length());
+            split = s.split("[(]");
+
+            int indexFim = s.lastIndexOf('"') + 1;
+            int indexIni = s.indexOf('"');
+            String msg = s.substring(indexIni, indexFim);
+            System.out.println(msg);
         }
 
     }

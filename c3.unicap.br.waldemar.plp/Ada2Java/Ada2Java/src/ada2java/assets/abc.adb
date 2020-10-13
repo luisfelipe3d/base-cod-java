@@ -5,5 +5,5 @@ procedure abc is
    B : Integer := 5;
    C : Float := 2.0;
 begin
-   Put_Line("Value of B: " & B);
+   Put_Line("Value of B: " & Integer'Image(B));
 end abc;
