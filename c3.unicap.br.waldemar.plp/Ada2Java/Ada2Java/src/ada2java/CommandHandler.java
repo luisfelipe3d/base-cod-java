@@ -5,6 +5,8 @@
  */
 package ada2java;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -17,19 +19,22 @@ public class CommandHandler implements AdaHandler{
     //Put_Line("Digite seu nome: ");
     //Put (N);
     Stack<String> varStack = new Stack<>();
+    Map<String,String> varPlus = new HashMap<>();
     
     @Override
     public void addLine(String s) {
-        String[] split;
         s = s.trim();
+        String[] split;
+
         if(s.contains("Put_Line")){
             split = s.split("[(]");
-
             int indexFim = s.lastIndexOf('"') + 1;
             int indexIni = s.indexOf('"');
             String msg = s.substring(indexIni, indexFim);
             System.out.println(msg);
+            
         }
+        
 
     }
     
