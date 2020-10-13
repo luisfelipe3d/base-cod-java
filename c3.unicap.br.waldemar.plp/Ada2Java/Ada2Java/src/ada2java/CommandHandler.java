@@ -79,9 +79,12 @@ public class CommandHandler implements AdaHandler{
     }
     
     private String getType(String t){
-         String inteiro = TypesOfDataEnum.fromInt(1);
-         String b = TypesOfDataEnum.fromInt(2);
-         System.out.println("b: "+b);
+        String final INTEIRO = "Integer'Image";
+        String final FLOAT = "Float'Image";         
+         switch(t){
+             case t.equalsIgnoreCase(inteiro):
+                 
+         }
         return null;
     }
     
