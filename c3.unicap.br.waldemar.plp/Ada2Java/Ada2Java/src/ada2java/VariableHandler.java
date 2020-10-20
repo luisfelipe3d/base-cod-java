@@ -86,8 +86,8 @@ public class VariableHandler implements AdaHandler {
             case "Character":
                 for (String str : split[0].split(",")) {
                     if (split.length == 3) {
-                        if(getChar(split[2])!=null){
-                            this.varChar.put(str, getChar(split[2]));
+                        if(getCharacter(split[2])!=null){
+                            this.varChar.put(str, getCharacter(split[2]));
                         } else{
                             this.varChar.put(str, split[2].charAt(0));
                         }
@@ -108,7 +108,6 @@ public class VariableHandler implements AdaHandler {
     
     private void showMap(){
         this.varInt.forEach((key, value) -> System.out.println(key + ":" + value));
-        System.out.println(this.varInt.size());
     }
 
     public Integer getInt(String x) {
@@ -135,7 +134,7 @@ public class VariableHandler implements AdaHandler {
         return null;
     }
 
-    public Character getChar(String c) {
+    public Character getCharacter(String c) {
         Character v = this.varChar.get(c);
         if (this.varChar.containsKey(c)) {
             return v;

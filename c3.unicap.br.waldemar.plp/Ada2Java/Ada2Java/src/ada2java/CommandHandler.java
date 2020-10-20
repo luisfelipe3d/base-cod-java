@@ -16,15 +16,15 @@ public class CommandHandler implements AdaHandler{
     public void addLine(String s) {
         if(s.contains("Put_Line")){
             s = prepareString(s);
-            System.out.println("1. "+s);
             String msg = searchMsg(s);
             s = s.replaceAll(msg, "");
             s = s.replaceAll("&", "");
             s = s.replaceAll("\"+", "").trim();
-            System.out.println("3. "+s);
             String parametroBusca = getParameter(s);
-            System.out.println("Valor de S: "+s);
-            String a = getType(s);
+            s = prepareString(s);
+            System.out.print(msg);
+            getType(s,parametroBusca);
+            
         }
     }
     
@@ -56,42 +56,55 @@ public class CommandHandler implements AdaHandler{
     private String prepareString(String s){
         if(!s.isEmpty()){
             s = s.trim();
-            int removeP = s.indexOf("(") + 1;
+            int removeP = s.indexOf("(");
             int removePf = s.lastIndexOf(")");
-            int removeSemiColon = s.indexOf(";");
-            if (removePf + 1 == removeSemiColon) {
-                return s.substring(removeP, removePf);
+            int removeSemiColon = s.lastIndexOf(";");
+            if (removeSemiColon != -1){
+                return s.substring(removeP+1, removePf);
+            } else {
+                return s.substring(0,removeP);
             }
         }
         return null;
     }
     
     private String getParameter(String s){
-        int inicioP = s.indexOf("(");
-        int fimP = s.lastIndexOf(")");
-        if(inicioP != -1 && fimP != -1){
-            return  s.substring(inicioP+1,fimP);
+        if(!s.isEmpty()){
+            int inicioP = s.indexOf("(");
+            int fimP = s.lastIndexOf(")");
+            if (inicioP != -1 && fimP != -1) {
+                return s.substring(inicioP + 1, fimP);
+            }
         }
         return null;
     }
     
-    private String getType(String t){         
+    private void getType(String t, String value){         
         final String INTEIRO = "Integer'Image";
         final String FLOAT = "Float'Image";
         final String CHARACTER = "Character'Image";
         final String BOOLEAN = "Boolean'Image";
         switch(t){
             case INTEIRO:
-                System.out.println("Entrou no getType");
+                Integer v = this.var.getInt(value);
+                System.out.println(v);
                 break;
             case FLOAT:
+                Float f = this.var.getFloat(value);
+                System.out.println(f);
                 break;
             case CHARACTER:
+                Character c = this.var.getCharacter(value);
+                System.out.println(c);
                 break;
             case BOOLEAN:
+                Boolean b = this.var.getBoolean(value);
+                System.out.println(b);
                 break;
+            default:
+                System.out.println("Tipo não reconhecido.");
         }
-        return null;
     }
     
+
 }
