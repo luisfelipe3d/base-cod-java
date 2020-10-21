@@ -6,7 +6,7 @@ begin
 -- Condition must be a Boolean value (no Integers).
 -- Operator "<=" returns a Boolean
    while I <= 5 loop
-      Put_Line ("Hello, World!" & Integer'Image (I));
+      Put_Line ("Hello, World!" & Integer'Image(I));
        I := I + 1;
     end loop;
 end Greet_5c;

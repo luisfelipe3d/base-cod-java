@@ -109,6 +109,8 @@ public class VariableHandler implements AdaHandler {
     private void showMap(){
         this.varInt.forEach((key, value) -> System.out.println(key + ":" + value));
     }
+    
+
 
     public Integer getInt(String x) {
         if (this.varInt.containsKey(x)) {
@@ -140,6 +142,14 @@ public class VariableHandler implements AdaHandler {
             return v;
         }
         return null;
+    }
+    
+    public void setInt(String chave, Integer valor){
+        this.varInt.replace(chave, valor);
+    }
+    
+    public void setFloat(String chave, Float valor){
+        this.varFloat.replace(chave, valor);
     }
 
     public void getPlus(String p) {

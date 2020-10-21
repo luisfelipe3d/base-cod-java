@@ -23,13 +23,14 @@ public class Aplicacao {
     public static void main(String[] args) throws FileNotFoundException, IOException {
         // TODO code application logic here
         //final String ARQ_FILE = "src/ada2java/assets/checkpositive.adb";
-        File arquivo = new File("src/ada2java/assets/abc.adb");
+        File arquivo = new File("src/ada2java/assets/ComandoEntrada.adb");
         
         VariableHandler var = VariableHandler.getInstance();
         CommandHandler com = new CommandHandler();
         AdaHandler handler = null;
-        
-        try(BufferedReader br = new BufferedReader(new FileReader(arquivo));){
+        FileReader fl = new FileReader(arquivo);
+        BufferedReader br = new BufferedReader(fl);
+        try{
             for(String line; (line = br.readLine()) != null;){
                 if(line.startsWith("with")){
                     continue;
@@ -42,13 +43,17 @@ public class Aplicacao {
                 } else if(line.startsWith("end")){
                     handler = com;
                     continue;
-                }
-                
+                } 
                 if(handler != null){
                     handler.addLine(line);
                 }
             }
             
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        } finally {
+            br.close();
+            fl.close();
         }
     }
     
