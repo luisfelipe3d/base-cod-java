@@ -41,6 +41,8 @@ public class CommandHandler implements AdaHandler{
                 this.var.setInt(parametroBusca, valor);
             }
             System.out.println(parametroBusca);
+        }else if(s.contains("for")){
+            
         }
     }
     
