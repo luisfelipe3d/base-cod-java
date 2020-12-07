@@ -9,6 +9,24 @@ package prova2gq.questao6;
  *
  * @author home
  */
-public class Barbeiro {
-    
+public class Barbeiro implements IBarbeiro {
+    private String name;
+    private boolean isBusy;
+    private boolean isSleep;
+    private double tempo;
+
+    @Override
+    public void cortar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void dormir() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void checarEspera() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

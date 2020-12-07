@@ -11,4 +11,9 @@ package prova2gq.questao6;
  */
 public interface IBarbeiro {
     
+    public void cortar();
+    
+    public void dormir();
+    
+    public void checarEspera();
 }

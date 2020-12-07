@@ -10,5 +10,7 @@ package prova2gq.questao6;
  * @author home
  */
 public class Aplicacao {
-    
+    public static void main(String[] args) {
+        
+    }
 }

@@ -9,6 +9,19 @@ package prova2gq.questao6;
  *
  * @author home
  */
-class Cadeira {
+public class Cadeira {
+    private boolean isOcupada;
+
+    public Cadeira() {
+        this.isOcupada = false;
+    }
+    
+    public boolean mudarEstado(){
+        return !isOcupada;
+    }
+    
+    public boolean getEstado(){
+        return this.isOcupada;
+    }
     
 }

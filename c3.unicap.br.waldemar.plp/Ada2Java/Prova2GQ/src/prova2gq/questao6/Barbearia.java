@@ -5,10 +5,21 @@
  */
 package prova2gq.questao6;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  *
  * @author home
  */
 public class Barbearia {
+    private List<Cliente> salaEspera;
+    private Cadeira cadeiraCorte;
+    private List clientes;
     
+    
+    public Barbearia(){
+        this.salaEspera = new LinkedList<>();
+        
+    } 
 }
