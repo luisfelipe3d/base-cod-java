@@ -16,8 +16,14 @@ Com base  nisso responda:
  */
 package prova2gq.questao2;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.OutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -28,15 +34,33 @@ public class Aplicacao {
         
     }
     
-    public static void salvar(String arquivo, String dados) {
-        try {
-            OutputStream out = new FileOutputStream(arquivo);
-            out.write(dados.getBytes());
-            out.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+//    public static void salvar(String arquivo, String dados) {
+//        try {
+//            OutputStream out = new FileOutputStream(arquivo);
+//            out.write(dados.getBytes());
+//            out.close();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }   
+//    }
+    
+    public static void salvar(String arquivo, String dados) throws IOException{
+        OutputStream out = null;
+        try{
+            File fl = new File(arquivo);
+            if(!fl.exists() && fl.canWrite()){
+                fl.createNewFile();
+            }
+            out = new FileOutputStream(fl);
+            byte[] bytes = dados.getBytes("UTF-8");
+            out.write(bytes);
+        } catch (IOException ex) {
+            System.err.println("Erro ao fechar arquivo."+ex.getMessage());
+        } finally {
+            if(out != null){
+                out.close();
+            }
         }
-        
     }
 }
 
