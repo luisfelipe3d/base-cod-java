@@ -17,4 +17,5 @@ public class BarbeiroAdormecido {
     public static Semaphore assentos = new Semaphore(1);
     public static final int CADEIRAS = 5;
     public static int assentosDisponiveis = CADEIRAS;
+    
 }
