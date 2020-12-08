@@ -9,6 +9,19 @@ package prova2gq.questao6;
  *
  * @author home
  */
-public class Cliente {
-    private String name;
+public class Cliente extends Thread {
+    private int id;
+    private boolean isCut;
+
+    public Cliente(int id) {
+        this.id = id;
+        this.isCut = false;
+    }
+    
+    @Override
+    public void run(){
+        while(!isCut){
+
+        }
+    }
 }
